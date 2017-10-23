@@ -26,7 +26,7 @@ namespace Reader
         {
             string name = TextBox1.Text.Trim();
             string pwd = TextBox2.Text.Trim();
-            string content = RadioButtonList1.SelectedItem.Text.ToString();
+            string content = RadioButtonList1.SelectedItem.Value.Trim();
 
             if(name == null || name == "")
             {
@@ -36,7 +36,7 @@ namespace Reader
             {
                 Label2.Text = "password cannot be null!";
             }
-            else if (content == "管理员")
+            else if (content == "1")
             {
                 T_Librarian lib = new T_Librarian();
                 lib = T_LibrarianBLL.GetDataByName(name);

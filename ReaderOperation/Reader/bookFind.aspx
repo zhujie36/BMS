@@ -51,24 +51,24 @@
             <asp:Repeater ID="LBook" runat="server">
                 <ItemTemplate>
                     <tr>
-                        <td>
+                        <td style="vertical-align:middle">
                           <img width="120" height="140" src='<%#Eval("Pic") %>' alt="未上传图片" class="img-rounded"/>
                         </td>
                     
-                        <td>
+                        <td style="vertical-align:middle">
                             <%#Eval("name") %>
                         </td>
 
-                        <td>
+                        <td style="vertical-align:middle">
                             <%#Eval("category") %>
                         </td>
-                        <td>
+                        <td style="vertical-align:middle">
                             <%#Eval("press") %>
                         </td>
-                        <td>
+                        <td style="vertical-align:middle">
                             <%#Eval("totalAmount") %>
                         </td>
-                        <td>
+                        <td style="vertical-align:middle">
                             <%#Eval("loanAmount") %>
                         </td>
                     </tr>

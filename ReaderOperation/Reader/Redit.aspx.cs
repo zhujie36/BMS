@@ -13,6 +13,10 @@ namespace Reader
         T_Reader stu = new T_Reader();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(all.READER == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             TextBox6.Text = all.ID;
             TextBox6.Enabled = false;
             stu = all.READER;

@@ -11,54 +11,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body style="padding-top:60px; ">
-     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Book Management System</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li ><a href="IndexLibrarian.aspx">Home</a></li>
-                        <li class="dropdown">
-                            <a href="IndexLibrarian.aspx" class="dropdown-toggle" data-toggle="dropdown">
-                                book
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="bookAdd.aspx">Add</a></li>
-                                <li><a href="bookList.aspx">Delete</a></li>
-                                <li><a href="bookList.aspx">update</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="IndexLibrarian.aspx" class="dropdown-toggle" data-toggle="dropdown">
-                                Reader
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="Borrow.aspx">Borrow</a></li>
-                                <li><a href="AllBorrowList.aspx">Return</a></li>
-                                <li class="divider"></li>
-                                <li><a href="writeOff.aspx">注销读者</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="IndexLibrarian.aspx" class="dropdown-toggle" data-toggle="dropdown">
-                                Librarian
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="Ledit">修改个人信息</a></li>
-                                <li><a href="LwirteOff.aspx">注销账户</a></li>
-                                <li class="divider"></li>
-                                <li><a href="LRegister.aspx">增加新的管理员</a></li>                              
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-            </nav>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="form-horizontal" role="form">
         <div class="container" style="border:1px solid black">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
@@ -97,7 +50,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="Ledit">修改个人信息</a></li>
+                                <li><a href="Ledit.aspx">修改个人信息</a></li>
                                 <li><a href="LwirteOff.aspx">注销账户</a></li>
                                 <li class="divider"></li>
                                 <li><a href="LRegister.aspx">增加新的管理员</a></li>                              

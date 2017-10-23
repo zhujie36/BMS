@@ -13,10 +13,13 @@ namespace Reader
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(all.LIB == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             if (!IsPostBack)
             {
-                Label2.Text = all.ID;               
+                TextBox3.Text = all.ID;               
                 TextBox1.Text = all.NAME;
                 TextBox2.Text = all.LIB.L_pwd;
             }

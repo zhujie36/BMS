@@ -2,28 +2,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headstyle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-账号：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
-        <br/>
-        密码：<asp:TextBox ID="TextBox2" runat="server" TextMode =" Password"></asp:TextBox>
-        <asp:Label ID="Label2" runat="server" ForeColor="Red"></asp:Label>
-        <br/>
-        <div class="left">
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
-            RepeatDirection ="Horizontal">
-            <asp:ListItem Value = "1">管理员</asp:ListItem>
-                <asp:ListItem Value = "2">读者</asp:ListItem>
-            </asp:RadioButtonList>
+    <div class="form-group">
+        <asp:Label ID="Label3" runat="server" Text="name:" CssClass="col-sm-4 control-label"  Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4">
+            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-            
-              <asp:Button ID="Button1" runat="server" Text="登录" onclick="Button1_Click" style="height: 21px" />
-    &nbsp;   
-    
-    <asp:Button ID="Button2" runat="server" Text="注册" onclick="Button2_Click" style="height: 21px" />
-    
-    <br />
+        <asp:Label ID="Label1" runat="server" ForeColor="Red" CssClass="col-sm-4"></asp:Label>
     </div>
-        
-    
+    <div class="form-group">
+        <asp:Label ID="Label4" runat="server" Text="passowrd:" CssClass="col-sm-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4">
+            <asp:TextBox ID="TextBox2" runat="server" TextMode =" Password"  CssClass="form-control"></asp:TextBox>
+        </div>
+        <asp:Label ID="Label2" runat="server" ForeColor="Red" CssClass="col-sm-4"></asp:Label>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+            <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
+                RepeatDirection ="Horizontal" CellPadding="20" >
+                <asp:ListItem Value = "1">Librarian</asp:ListItem>
+                <asp:ListItem Value = "2">reader</asp:ListItem>
+            </asp:RadioButtonList>
+        </div>       
+    </div>
+    <div class="form-group" style="padding-left:20px">
+        <div class="col-sm-offset-4 col-xs-offset-2">
+            <div class="col-sm-1">
+                <asp:Button ID="Button1" runat="server" Text="login" onclick="Button1_Click" CssClass="btn btn-primary" />
+            </div>
+        </div>
+        <div class="col-sm-offset-5">
+            <div class="col-sm-1">
+                <asp:Button ID="Button2" runat="server" Text="register" onclick="Button2_Click" CssClass="btn btn-default" />
+            </div>
+            
+        </div>
+    </div> 
 </asp:Content>
