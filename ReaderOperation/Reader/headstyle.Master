@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="headstyle.Master.cs" Inherits="Reader.head" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; width=device-width, initial-scale=1.0" name="viewport"/>
+    <title></title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="headstyle" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+       #header{
+            text-align:center;
+            font-size:xx-large;
+            width:100%;
+            padding:10px 0;
+        }
+        .center{
+            line-height:40px;
+            text-align:center;
+            
+        }
+        #logInAndOut{
+            text-align:right;
+            width:100%;
+            background-color:#CCFFCC;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form id="form1" runat="server" class="form-horizontal" role="form">
+            <div id="header" style="background-color:#99CCCC">
+                图书管理系统
+            </div>        
+            <div id="logInAndOut">
+               <asp:Panel ID="Panel1" runat="server">
+                <asp:Label ID="LoginName" runat="server" Text=""></asp:Label>
+                &nbsp;
+                <asp:Button ID="Button3" runat="server" Text="退出登录" OnClick="Button1_Click" />           
+                </asp:Panel>
+            </div>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>                
+        </form>
+    </div>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>

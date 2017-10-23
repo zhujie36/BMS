@@ -1,0 +1,14 @@
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\bin\Debug\DAL.dll
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\bin\Debug\DAL.pdb
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\bin\Debug\Model.dll
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\bin\Debug\Model.pdb
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\obj\Debug\DAL.dll
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\DAL\obj\Debug\DAL.pdb
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\obj\Debug\DAL.dll
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\obj\Debug\DAL.pdb
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\bin\Debug\DAL.dll
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\bin\Debug\DAL.pdb
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\bin\Debug\Model.dll
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\DAL\bin\Debug\Model.pdb

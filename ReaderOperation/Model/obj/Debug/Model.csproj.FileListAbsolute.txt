@@ -1,0 +1,9 @@
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\Model\bin\Debug\Model.dll
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\Model\bin\Debug\Model.pdb
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\Model\obj\Debug\Model.dll
+D:\Clown\Gradefourth\SPM\homework\ReaderOperation\Model\obj\Debug\Model.pdb
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\Model\obj\Debug\Model.dll
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\Model\obj\Debug\Model.pdb
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\Model\bin\Debug\Model.dll
+C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\Model\bin\Debug\Model.pdb
