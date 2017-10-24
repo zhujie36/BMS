@@ -22,7 +22,7 @@ namespace DAL
         public static bool Add(T_book b)
         {
             //sql = string.Format("insert into T_book (Name,Sex) values ('{0}','{1}','{2}','{3}','{4}','{5}')", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend);
-           sql = string.Format("insert into T_book (name,price,category,press,totalAmount,loanAmount,pic,location) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",b.Name, b.Price, b.Category, b.Press,b.TotalAmount,0,b.Pic,b.Location);
+           sql = string.Format("insert into T_book (name,price,category,press,totalAmount,loanAmount,pic,location,author) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",b.Name, b.Price, b.Category, b.Press,b.TotalAmount,0,b.Pic,b.Location,b.Author);
            //sql = string.Format("insert into T_book (name,price,category,press,isLend) values ('{0}','{1}','{2}','{3}','{4}')",2, 2, 1, 1,1);
             return CSDBC.ExecSqlCommand(sql);
         }
@@ -31,7 +31,7 @@ namespace DAL
         public static bool Update(T_book b)
         {
             //sql = string.Format("update T_book set id='{0}',name='{1}',price='{2}',category='{3}',press='{4}',isLend='{5}' where id='{6}'", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend, b.Id);
-            sql = string.Format("update T_book set name='{0}',price='{1}',category='{2}',press='{3}',totalAmount='{4}',loanAmount='{5}',pic='{6}',location='{7}' where id='{8}'",b.Name, b.Price, b.Category, b.Press, b.TotalAmount, b.LoanAmount, b.Pic,b.Location, b.Id);
+            sql = string.Format("update T_book set name='{0}',price='{1}',category='{2}',press='{3}',totalAmount='{4}',loanAmount='{5}',pic='{6}',location='{7}',author='{8}' where id='{9}'",b.Name, b.Price, b.Category, b.Press, b.TotalAmount, b.LoanAmount, b.Pic,b.Location,b.Author, b.Id);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -59,6 +59,7 @@ namespace DAL
                 book.LoanAmount = dr["loanAmount"].ToString().Trim();
                 book.Pic = dr["pic"].ToString().Trim();
                 book.Location = dr["location"].ToString().Trim();
+                book.Author = dr["author"].ToString().Trim();
                 return book;
             }
             catch
@@ -94,6 +95,7 @@ namespace DAL
                     book.LoanAmount = dr["loanAmount"].ToString().Trim();
                     book.Pic = dr["pic"].ToString();
                     book.Location = dr["location"].ToString().Trim();
+                    book.Author = dr["author"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;
@@ -133,6 +135,7 @@ namespace DAL
                 book.LoanAmount = dr["loanAmount"].ToString().Trim();
                 book.Pic = dr["pic"].ToString();
                 book.Location = dr["location"].ToString().Trim();
+                book.Author = dr["author"].ToString().Trim();
                 list.Add(book);
             }
             return list;
@@ -167,6 +170,7 @@ namespace DAL
                     book.LoanAmount = dr["loanAmount"].ToString().Trim();
                     book.Pic = dr["pic"].ToString();
                     book.Location = dr["location"].ToString().Trim();
+                    book.Author = dr["author"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;

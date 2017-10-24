@@ -32,6 +32,12 @@
         </div>
     </div>
     <div class="form-group">
+        <asp:Label ID="writerLabel" runat="server" Text="author" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="writeTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
         <asp:Label ID="Label5" runat="server" Text="press" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>

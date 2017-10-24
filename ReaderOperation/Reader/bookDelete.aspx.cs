@@ -30,6 +30,7 @@ namespace Reader
                     TextBox6.Text = tbook.TotalAmount; TextBox6.Enabled = false;
                     TextBox7.Text = tbook.LoanAmount; TextBox7.Enabled = false;
                     TextBox8.Text = tbook.Location; TextBox8.Enabled = false;
+                    writerLabel.Text = tbook.Author; writerLabel.Enabled = false;
                     Image1.ImageUrl = tbook.Pic;
                 }
                 else

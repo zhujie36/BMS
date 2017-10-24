@@ -21,10 +21,17 @@ namespace Model
         private string loanAmount;
         private string pic;
         private string location;
+        private string author;
         ///<summary>
         ///id
         ///</summary>
         ///
+
+        public string Author
+        {
+            get { return author; }
+            set { author = value; }
+        }
         public string Pic
         {
             get { return pic; }

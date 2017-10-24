@@ -62,4 +62,78 @@
     </div> 
     
 
+     <input type="hidden" runat="server" name="Commend" id="flag" value="1"/>
+
+    <script type="text/javascript">
+    function validate() {
+        var username = document.getElementById("TextBox1");
+        var password1 = document.getElementById("TextBox2");
+        var password2 = document.getElementById("TextBox6");
+        var ID = document.getElementById("TextBox3");
+        var phone = document.getElementById("TextBox4");
+        var address = document.getElementById("TextBox5");
+
+
+        if (username.value == "") {
+            alert("Username can not be blank!");
+            document.getElementById("flag").value = "0";
+            return false;
+        }
+
+
+        if (password1.value == "" || password2.value == "") {
+            alert("Password can not be blank!");
+            document.getElementById("flag").value = "0";
+            return false;
+        }
+
+        if (password1.value != password2.value) {
+            alert("Entered password differ!");
+            document.getElementById("flag").value = "0";
+            return false;
+        }
+
+
+
+        if (ID.value == "") {
+            alert("UserID's can not be blank!");
+            document.getElementById("flag").value = "0";
+            return false;
+        }
+        else {
+            if (ID.value.length != 18) {
+                alert("UserID's formal is wrong");
+                document.getElementById("flag").value = "0";
+                return false;
+            }
+        }
+
+
+
+        if (phone.value == "") {
+            alert("User's phone number can not be blank!");
+            document.getElementById("flag").value = "0";
+            return false;
+        }
+        else {
+            var reg2 = new RegExp("^[1-9][0-9]*$");
+            if (!reg2.test(phone.value)) {
+                alert("The formal of the user's phone number is wrong!");
+                document.getElementById("sign").value = "0";
+                return false;
+            }          
+        }
+
+
+        if (address.value == "") {
+            alert("User's address can not be blank!");
+            document.getElementById("flag").value = "0";
+            return false;
+        } 
+    }
+    </script>
+
+
+
+
 </asp:Content>

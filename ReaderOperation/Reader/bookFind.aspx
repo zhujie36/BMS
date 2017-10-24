@@ -24,57 +24,81 @@
             <asp:Button ID="Button1" runat="server" Text="返回" OnClick="Button1_Click" CssClass="btn btn-default" />
         </div>
     </div>
-    <table class="table table-hover table-responsive table-striped text-center" style="margin-top:40px">
-        <thead>
-            <tr>
-                <th  class="text-center">
-                  Picture
-                </th>
-                <th class="text-center">
-                    Name
-                </th>
-                <th  class="text-center">
-                    Category
-                </th>
-                <th  class="text-center">
-                    Press
-                </th>
-                <th class="text-center">
-                    Total Amount
-                </th>
-                <th class="text-center">
-                    Loan Amount
-                </th>
-             </tr>
-        </thead>
-        <tbody>
-            <asp:Repeater ID="LBook" runat="server">
-                <ItemTemplate>
-                    <tr>
-                        <td style="vertical-align:middle">
-                          <img width="120" height="140" src='<%#Eval("Pic") %>' alt="未上传图片" class="img-rounded"/>
-                        </td>
-                    
-                        <td style="vertical-align:middle">
-                            <%#Eval("name") %>
-                        </td>
+    
+    <div class="table-striped">
 
-                        <td style="vertical-align:middle">
-                            <%#Eval("category") %>
-                        </td>
-                        <td style="vertical-align:middle">
-                            <%#Eval("press") %>
-                        </td>
-                        <td style="vertical-align:middle">
-                            <%#Eval("totalAmount") %>
-                        </td>
-                        <td style="vertical-align:middle">
-                            <%#Eval("loanAmount") %>
-                        </td>
-                    </tr>
-                </ItemTemplate>
-            </asp:Repeater>
-        </tbody>
-    </table>
-
+    <asp:Repeater ID="LBook" runat="server">
+            <ItemTemplate>
+                 <div class="form-group bigger" style="padding:10px; ">
+                    <div class="col-sm-offset-2 col-sm-2">
+                        <img width="120" height="140" src='<%#Eval("Pic") %>' alt="未上传图片" class="img-rounded" />
+                    </div>
+                    <div class="col-sm-8" style="line-height:30px;">
+                        <div style="padding-left:10px">
+                           <h3>
+                                <%#Eval("name") %>
+                           </h3> 
+                        </div>
+                        <div>
+                            <div class="col-sm-6">
+                                <label class="col-sm-6">
+                                    author:
+                                </label>
+                                <label class="col-sm-6">
+                                    <%#Eval("author") %>
+                                </label>                                
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="col-sm-6">
+                                    press:
+                                </label>
+                                <label class="col-sm-6">
+                                    <%#Eval("press") %>
+                                </label>                               
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-sm-6">
+                                <label class="col-sm-6">
+                                    category:
+                                </label>
+                                <label class="col-sm-6">
+                                    <%#Eval("category") %>
+                                </label>                                 
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="col-sm-6">
+                                    location:
+                                </label>
+                                <label class="col-sm-6">
+                                    <%#Eval("location") %>
+                                </label>                             
+                            </div>                        
+                        </div>
+                        <div>
+                            <div class="col-sm-6">
+                                <label class="col-sm-6">
+                                    total Amount:
+                                </label>
+                                <label class="col-sm-6">
+                                    <%#Eval("totalAmount") %>
+                                </label>                               
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="col-sm-6">
+                                    loan Amount:
+                                </label>
+                                <label class="col-sm-6">
+                                    <%#Eval("loanAmount") %>
+                                </label>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <a></a>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        </div>
 </asp:Content>

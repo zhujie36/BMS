@@ -47,6 +47,9 @@
                 Category
             </th>
             <th class="text-center">
+                author
+            </th>
+            <th class="text-center">
                 Press
             </th>
             <th class="text-center">
@@ -81,6 +84,9 @@
                     </td>
                     <td style="vertical-align:middle">
                         <%#Eval("category") %>
+                    </td>
+                    <td style="vertical-align:middle">
+                        <%#Eval("author") %>
                     </td>
                     <td style="vertical-align:middle">
                         <%#Eval("press") %>

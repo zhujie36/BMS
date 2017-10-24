@@ -13,25 +13,25 @@
             <div id="demo" class="collapse in row panel-body">
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/1-1.jpg',1)"><img src="images/1.jpg" width="146" height="104" border="0" id="Image1"/></a>
+                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/1-1.jpg',1)"><img src="images/1.jpg" width="146" height="104" border="0" id="Image1" class="img-rounded"/></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         add book
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookDeleteList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/2-2.jpg',1)"><img src="images/2.jpg" width="146" height="104" border="0" id="Image2" /></a>
+                        <a href="bookDeleteList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/2-2.jpg',1)"><img src="images/2.jpg" width="146" height="104" border="0" id="Image2" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         delete book
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/3-3.jpg',1)"><img src="images/3.jpg" width="146" height="104" border="0" id="Image3" /></a>
+                        <a href="bookList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/3-3.jpg',1)"><img src="images/3.jpg" width="146" height="104" border="0" id="Image3" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         update book Information
                     </div>
                 </div>
@@ -49,25 +49,25 @@
             <div id="demo1" class="collapse in row panel-body">
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="Borrow.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/4-4.jpg',1)"><img src="images/4.jpg" width="146" height="104" border="0" id="Image4" /></a>
+                        <a href="Borrow.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/4-4.jpg',1)"><img src="images/4.jpg" width="146" height="104" border="0" id="Image4" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         Borrow
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="allBorrowList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image5" /></a>
+                        <a href="allBorrowList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image5" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         Return
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="writeOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/6-6.jpg',1)"><img src="images/6.jpg" width="146" height="104" border="0" id="Image6" /></a>
+                        <a href="writeOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/6-6.jpg',1)"><img src="images/6.jpg" width="146" height="104" border="0" id="Image6" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         delete reader
                     </div>
                 </div>
@@ -85,25 +85,25 @@
             <div id="demo2" class="collapse in row panel-body">
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="Ledit.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/7-7.jpg',1)"><img src="images/7.jpg" width="146" height="104" border="0" id="Image7" /></a>
+                        <a href="Ledit.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/7-7.jpg',1)"><img src="images/7.jpg" width="146" height="104" border="0" id="Image7" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         Modify personal information
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="LRegister.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','images/8-8.jpg',1)"><img src="images/8.jpg" width="146" height="104" border="0" id="Image8" /></a>
+                        <a href="LRegister.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','images/8-8.jpg',1)"><img src="images/8.jpg" width="146" height="104" border="0" id="Image8" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         Add new Liabrarian
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="LwirteOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/9-9.jpg',1)"><img src="images/9.jpg" width="146" height="104" border="0" id="Image9" /></a>
+                        <a href="LwirteOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/9-9.jpg',1)"><img src="images/9.jpg" width="146" height="104" border="0" id="Image9" class="img-rounded" /></a>
                     </div>
-                    <div style="padding:10px 0">
+                    <div style="padding:10px 0; font-weight:bold">
                         write off
                     </div>
                 </div>

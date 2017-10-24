@@ -16,3 +16,12 @@ C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\BLL\bin\Debug\DAL.dll
 C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\BLL\bin\Debug\Model.dll
 C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\BLL\bin\Debug\DAL.pdb
 C:\Users\lenovo\Desktop\bookMS\BMS4\ReaderOperation\BLL\bin\Debug\Model.pdb
+E:\github\BMS\BMS\ReaderOperation\BLL\bin\Debug\BLL.dll
+E:\github\BMS\BMS\ReaderOperation\BLL\bin\Debug\BLL.pdb
+E:\github\BMS\BMS\ReaderOperation\BLL\bin\Debug\DAL.dll
+E:\github\BMS\BMS\ReaderOperation\BLL\bin\Debug\Model.dll
+E:\github\BMS\BMS\ReaderOperation\BLL\bin\Debug\DAL.pdb
+E:\github\BMS\BMS\ReaderOperation\BLL\bin\Debug\Model.pdb
+E:\github\BMS\BMS\ReaderOperation\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\github\BMS\BMS\ReaderOperation\BLL\obj\Debug\BLL.dll
+E:\github\BMS\BMS\ReaderOperation\BLL\obj\Debug\BLL.pdb

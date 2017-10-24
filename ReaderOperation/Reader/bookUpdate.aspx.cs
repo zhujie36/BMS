@@ -31,6 +31,7 @@ namespace Reader
                     TextBox6.Text = tbook.TotalAmount; 
                     TextBox7.Text = tbook.Location;
                     TextBox8.Text = tbook.LoanAmount;
+                    writerLabel.Text = tbook.Author;
                     Image1.ImageUrl = tbook.Pic;
 
                 }
@@ -49,6 +50,7 @@ namespace Reader
             tbook.Press = TextBox5.Text.Trim();
             tbook.TotalAmount = TextBox6.Text.Trim();
             tbook.LoanAmount = TextBox8.Text.Trim();
+            tbook.Author = writeTextBox.Text.Trim();
             bool fileIsValid = false;
             if (FileUpload1.HasFile)
             {

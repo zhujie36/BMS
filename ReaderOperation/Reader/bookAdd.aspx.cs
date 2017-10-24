@@ -22,6 +22,7 @@ namespace Reader
              book.Name = TextBox2.Text.ToString().Trim();
              book.Price = TextBox3.Text.ToString().Trim();
              book.Category = TextBox4.Text.ToString().Trim();
+            book.Author = writeTextBox.Text.Trim();
              book.Press = TextBox5.Text.ToString().Trim();
             book.TotalAmount = TextBox1.Text.ToString().Trim();
             book.Location = TextBox6.Text.ToString().Trim();
@@ -49,7 +50,7 @@ namespace Reader
                         if (result)
                         {
                             Response.Write("<script>alert('add succeed!')</script>");
-                            Response.Redirect("bookList.aspx");
+                            Response.Redirect("IndexLibrarian.aspx");
                         }
                         else
                             Response.Write("<script>alert('add failed!')</script>");
