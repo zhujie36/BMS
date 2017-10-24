@@ -2,32 +2,76 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-<div>
-    <asp:Label ID="Label6" runat="server" Text="Are you sure to delete this book?"></asp:Label><br />
-    <asp:Image ID="Image1" runat="server" Width="150px" Height="230px"/><br />
-        <asp:Label ID="Label1" runat="server" Text="ID" Width="100px" Font-Bold="True" ForeColor="#333333" Font-Size="Medium" Height="30px"></asp:Label>
-         <asp:TextBox ID="TextBox1" runat="server" Font-Bold="True"></asp:TextBox>         
-            <br />
-            <asp:Label ID="Label2" runat="server" Text="name" Width="100px" Font-Bold="True" Height="30px"></asp:Label><asp:TextBox ID="TextBox2" runat="server" Font-Bold="True"></asp:TextBox>
-         <br />
-            <asp:Label ID="Label3" runat="server" Text="price" Width="100px" Font-Bold="True" Height="30px"></asp:Label><asp:TextBox ID="TextBox3" runat="server" Font-Bold="True"></asp:TextBox>
-         <br />
-            <asp:Label ID="Label4" runat="server" Text="category" Width="100px" Font-Bold="True" Height="30px"></asp:Label><asp:TextBox ID="TextBox4" runat="server" Font-Bold="True" ForeColor="Black"></asp:TextBox>
-         <br />
-            <asp:Label ID="Label5" runat="server" Text="press" Width="100px" Font-Bold="True" Height="30px"></asp:Label><asp:TextBox ID="TextBox5" runat="server" Font-Bold="True"></asp:TextBox>
-            <br />
-    <asp:Label ID="Label7" runat="server" Text="TotalAmount" Height="32px" Width="100px" Font-Bold="True"></asp:Label><asp:TextBox ID="TextBox6" runat="server" Width="158px"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label8" runat="server" Text="LoanAmount" Height="32px" Width="100px" Font-Bold="True"></asp:Label><asp:TextBox ID="TextBox7" runat="server" Width="160px"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label9" runat="server" Text="Location" Height="32px" Width="100px" Font-Bold="True"></asp:Label>
-            <asp:TextBox ID="TextBox8" runat="server" Width="158px"></asp:TextBox>
-            <div>
-                <asp:Button ID="Button1" runat="server" Text="yes" OnClick="Button1_Click"  CssClass="btn btn-primary" />
-                 &nbsp;
-                <asp:Button ID="Button2" runat="server" Text="no" OnClick="Button2_Click"  CssClass="btn btn-default" />
-            </div>         
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-md-8">
+            <h2>Are you sure to delete this book</h2>
+        </div>
     </div>
+    <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-3">
+            <asp:Image ID="Image1" runat="server" Width="150px" Height="200px" CssClass="img-thumbnail" />
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label1" runat="server" Text="ID" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox1" runat="server" Font-Bold="True"  CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label2" runat="server" Text="name"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label3" runat="server" Text="price" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label4" runat="server" Text="category" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label5" runat="server" Text="press" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label7" runat="server" Text="TotalAmount" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>  
+    <div class="form-group">
+        <asp:Label ID="Label8" runat="server" Text="loan Amount" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label9" runat="server" Text="Location" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">           
+            <div class="col-sm-offset-4"  style="padding-left:20px">
+                <div class="col-sm-1">
+                    <asp:Button ID="Button1" runat="server" Text="submit" OnClick="Button1_Click" CssClass="btn btn-primary" />
+                </div>
+            </div>
+            <div class="col-sm-offset-5" style="padding-left:20px">
+                <div class="col-sm-1">
+                    <asp:Button ID="Button2" runat="server" Text="cancel" OnClick="Button2_Click" CssClass="btn btn-default" />
+                </div>                
+            </div>
+    </div>
+
 
 </asp:Content>

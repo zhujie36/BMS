@@ -13,107 +13,104 @@
             <div id="demo" class="collapse in row panel-body">
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image1"/></a>
+                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/1-1.jpg',1)"><img src="images/1.jpg" width="146" height="104" border="0" id="Image1"/></a>
                     </div>
-                    <div>
+                    <div style="padding:10px 0">
                         add book
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image2" /></a>
+                        <a href="bookDeleteList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/2-2.jpg',1)"><img src="images/2.jpg" width="146" height="104" border="0" id="Image2" /></a>
                     </div>
-                    <div>
-                        add book
+                    <div style="padding:10px 0">
+                        delete book
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image3" /></a>
+                        <a href="bookList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/3-3.jpg',1)"><img src="images/3.jpg" width="146" height="104" border="0" id="Image3" /></a>
                     </div>
-                    <div>
-                        add book
+                    <div style="padding:10px 0">
+                        update book Information
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="form-group">
-        <div>
-            <h2  class="btn btn-primary" data-toggle="collapse" 
-            data-target="#demo1">
-                About book
-            </h2>
-            <div id="demo1" class="collapse in row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2  class="btn btn-primary panel-title" data-toggle="collapse" 
+                data-target="#demo1">
+                    About Reader
+                </h2>
+            </div>          
+            <div id="demo1" class="collapse in row panel-body">
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image4" /></a>
+                        <a href="Borrow.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/4-4.jpg',1)"><img src="images/4.jpg" width="146" height="104" border="0" id="Image4" /></a>
                     </div>
-                    <div>
-                        add book
+                    <div style="padding:10px 0">
+                        Borrow
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image5" /></a>
+                        <a href="allBorrowList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image5" /></a>
                     </div>
-                    <div>
-                        add book
+                    <div style="padding:10px 0">
+                        Return
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
                     <div>
-                        <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image6" /></a>
+                        <a href="writeOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/6-6.jpg',1)"><img src="images/6.jpg" width="146" height="104" border="0" id="Image6" /></a>
                     </div>
-                    <div>
-                        add book
+                    <div style="padding:10px 0">
+                        delete reader
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-   
-    <br />
-    <div style="text-align:center; width:100%">
-        <asp:ImageButton ID="ImageButton4" runat="server" OnClick="ImageButton1_Click" ImageUrl="~/images/1.jpg" /><br />
-    <asp:Label ID="Label4" runat="server" Text="图书添加"></asp:Label>
-    <br /><br />
-        <asp:ImageButton ID="ImageButton9" runat="server" />
-        <br />
-        <asp:Label ID="Label9" runat="server" Text="图书删除"></asp:Label>
-    <br /><br />
-    <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/images/2.jpg" OnClick="ImageButton2_Click" /><br />
-    <asp:Label ID="Label5" runat="server" Text="图书查改"></asp:Label>
-    <br /><br />
-    <asp:ImageButton ID="ImageButton6" runat="server" ImageUrl="~/images/10.jpg" OnClick="ImageButton3_Click" /><br />
-    <asp:Label ID="Label6" runat="server" Text="个人信息修改"></asp:Label><br /><br />
-
-        <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="~/images/4.jpg" OnClick="ImageButton1_Click1"  onmouseover="imageChange(ImageButton1,~/images/4-4.jpg)"/><br />
-        <asp:Label ID="Label1" runat="server" Text="处理借阅"></asp:Label>
-        <br /><br />
-        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/3.jpg" OnClick="ImageButton2_Click1" /><br />
-        <asp:Label ID="Label2" runat="server" Text="增加新的管理员"></asp:Label>
-        <br /><br />
-        <asp:ImageButton ID="ImageButton3" runat="server"  ImageUrl="~/images/6.jpg" OnClick="ImageButton3_Click1"/><br />
-        <asp:Label ID="Label3" runat="server" Text="处理还书"></asp:Label>
-        <br /><br />
-        <asp:ImageButton ID="ImageButton7" runat="server" ImageUrl="~/images/7.jpg" OnClick="ImageButton7_Click" />
-        <br />
-        <asp:Label ID="Label7" runat="server" Text="注销读者"></asp:Label>
-        <br /><br />
-        <asp:ImageButton ID="ImageButton8" runat="server" ImageUrl="~/images/13.jpg" OnClick="ImageButton8_Click"/>
-        <br />
-        <asp:Panel ID="Panel1" runat="server">
-            <p>Are you sure to write off?</p>
-            <asp:Button ID="Button1" runat="server" Text="yes" OnClick="Button1_Click" />
-            &nbsp;
-            <asp:Button ID="Button2" runat="server" Text="no" />
-        </asp:Panel>
-        <asp:Label ID="Label8" runat="server" Text="注销"></asp:Label>
+    <div class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2  class="btn btn-primary panel-title" data-toggle="collapse" 
+                data-target="#demo2">
+                    About Librarian
+                </h2>
+            </div>
+            <div id="demo2" class="collapse in row panel-body">
+                <div class="col-sm-4 text-center">
+                    <div>
+                        <a href="Ledit.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/7-7.jpg',1)"><img src="images/7.jpg" width="146" height="104" border="0" id="Image7" /></a>
+                    </div>
+                    <div style="padding:10px 0">
+                        Modify personal information
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <div>
+                        <a href="LRegister.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','images/8-8.jpg',1)"><img src="images/8.jpg" width="146" height="104" border="0" id="Image8" /></a>
+                    </div>
+                    <div style="padding:10px 0">
+                        Add new Liabrarian
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <div>
+                        <a href="LwirteOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/9-9.jpg',1)"><img src="images/9.jpg" width="146" height="104" border="0" id="Image9" /></a>
+                    </div>
+                    <div style="padding:10px 0">
+                        write off
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
 
     <script type="text/JavaScript">
 

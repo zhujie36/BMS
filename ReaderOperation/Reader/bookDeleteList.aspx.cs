@@ -6,14 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
 using Model;
-using System.Xml.Linq;
-
 namespace Reader
 {
-    public partial class bookList : System.Web.UI.Page
+    public partial class bookDeleteList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {          
+        {
             if (!IsPostBack)
             {
                 LBook.DataSource = T_bookBLL.GetAllData();
@@ -29,14 +27,14 @@ namespace Reader
                 int id = int.Parse(TextBox3.Text.Trim());
                 List<T_book> lb = new List<T_book>();
                 lb.Add(T_bookBLL.GetDataByID(id));
-                LBook.DataSource = lb; 
+                LBook.DataSource = lb;
             }
-            else if(TextBox2.Text.Trim() != "")
+            else if (TextBox2.Text.Trim() != "")
             {
                 string name = TextBox2.Text.Trim();
                 LBook.DataSource = T_bookBLL.GetByName(name);
             }
-            else if(TextBox1.Text.Trim() != "")
+            else if (TextBox1.Text.Trim() != "")
             {
                 string category = TextBox1.Text.Trim();
                 LBook.DataSource = T_bookBLL.GetByCategory(category);
@@ -52,6 +50,5 @@ namespace Reader
         {
             Response.Redirect("IndexLibrarian.aspx");
         }
-
     }
 }

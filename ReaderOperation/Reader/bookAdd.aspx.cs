@@ -69,7 +69,7 @@ namespace Reader
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("bookList.aspx");
+            Response.Redirect("IndexLibrarian.aspx");
         }
     }
 }

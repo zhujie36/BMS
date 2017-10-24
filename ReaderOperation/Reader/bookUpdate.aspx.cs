@@ -30,6 +30,7 @@ namespace Reader
                     TextBox5.Text = tbook.Press;
                     TextBox6.Text = tbook.TotalAmount; 
                     TextBox7.Text = tbook.Location;
+                    TextBox8.Text = tbook.LoanAmount;
                     Image1.ImageUrl = tbook.Pic;
 
                 }
@@ -47,7 +48,7 @@ namespace Reader
             tbook.Category = TextBox4.Text.Trim();
             tbook.Press = TextBox5.Text.Trim();
             tbook.TotalAmount = TextBox6.Text.Trim();
-
+            tbook.LoanAmount = TextBox8.Text.Trim();
             bool fileIsValid = false;
             if (FileUpload1.HasFile)
             {
@@ -84,10 +85,23 @@ namespace Reader
                 {
                     Response.Write("<script>alert('file upload failed!')</script>");
                 }
-
+                
 
             }   
-
+            else if(tbook.Pic != null)
+            {
+                if (T_bookBLL.Update(tbook))
+                {
+                    Response.Write("<script>alert('update succeed!')</script>");
+                    Response.Redirect("bookList.aspx");
+                }
+                else
+                    Response.Write("<script>alert('update failed!')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('please select image!')</script>");
+            }
 
         }
         protected void Button2_Click(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace Reader
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Panel1.Visible = false;
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -26,9 +26,16 @@ namespace Reader
             if(name == null || name == "")
             {
                 Label3.Text = "name cannot be null";
+                Panel1.Visible = true;
+            }
+            else if(T_ReaderBLL.GetDataByName(name) == null)
+            {
+                Label3.Text = "this reader do not exist";
+                Panel1.Visible = true;
             }
             else if(BorrowListBLL.GetAllByReader(name) != null)
             {
+                Panel1.Visible = true;
                 Label3.Text = "this reader has some book that haven't returned!";
             }
             else

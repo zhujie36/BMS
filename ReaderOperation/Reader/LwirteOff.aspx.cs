@@ -14,5 +14,28 @@ namespace Reader
         {
             Label1.Text = "hi, " + all.NAME + ", are you sure to write off?";
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            bool result = T_LibrarianBLL.Delete(all.ID);
+            if (result == true)
+            {
+                all.NAME = null;
+                all.ID = null;
+                all.LIB = null;
+                all.READER = null;
+                Response.Redirect("login.aspx");
+                         
+            }
+            else
+            {
+                Response.Write("<script>alert('delete failed！')</script>");
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("IndexLibrarian.aspx");    
+        }
     }
 }

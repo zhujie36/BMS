@@ -30,5 +30,10 @@ namespace Reader
             Repeater1.DataSource = BorrowListBLL.GetAllByReader(name);
             Repeater1.DataBind();
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("IndexLibrarian.aspx");
+        }
     }
 }

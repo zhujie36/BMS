@@ -8,10 +8,10 @@
         </h3>
         <div class="row" style="margin-top:60px">
             <div class="col-sm-6 text-right">
-                <asp:Button ID="Button1" runat="server" Text="yes" CssClass="btn btn-primary" />
+                <asp:Button ID="Button1" runat="server" Text="yes" CssClass="btn btn-primary" OnClick="Button1_Click" />
             </div>
             <div class="col-sm-6">
-                <asp:Button ID="Button2" runat="server" Text="no" CssClass="btn btn-default" />
+                <asp:Button ID="Button2" runat="server" Text="no" CssClass="btn btn-default" OnClick="Button2_Click" />
             </div>
             
         </div>

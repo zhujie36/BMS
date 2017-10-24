@@ -66,6 +66,7 @@
     <Content Include="bookAdd.aspx" />
     <Content Include="bookBorrow.aspx" />
     <Content Include="bookDelete.aspx" />
+    <Content Include="bookDeleteList.aspx" />
     <Content Include="bookFind.aspx" />
     <Content Include="bookList.aspx" />
     <Content Include="bookUpdate.aspx" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="bookDelete.aspx.designer.cs">
       <DependentUpon>bookDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bookDeleteList.aspx.cs">
+      <DependentUpon>bookDeleteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookDeleteList.aspx.designer.cs">
+      <DependentUpon>bookDeleteList.aspx</DependentUpon>
     </Compile>
     <Compile Include="bookFind.aspx.cs">
       <DependentUpon>bookFind.aspx</DependentUpon>

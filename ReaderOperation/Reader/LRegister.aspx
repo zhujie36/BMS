@@ -5,7 +5,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-md-8">
-            <h2>请输入您的个人信息</h2>
+            <h2>请输入新增管理员的个人信息</h2>
         </div>
     </div>
     <div class="form-group">

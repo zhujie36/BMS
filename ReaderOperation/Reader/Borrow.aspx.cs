@@ -31,9 +31,7 @@ namespace Reader
             ///插入借阅记录
             DateTime now = DateTime.Now;
             BorrowList borlist = new BorrowList(book_id, name, book.Name, now, book.Pic, TextBox3.Text.Trim());
-            bool result2 = BorrowListBLL.Add(borlist);
-
-            Label4.Text = name + "  " + book_id + "  " + book.Name + "  " + now + "  " + book.Pic + "  " + TextBox3.Text.Trim();
+            bool result2 = BorrowListBLL.Add(borlist);       
 
 
             if (result1)

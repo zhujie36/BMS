@@ -1,11 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LNavigation.Master" AutoEventWireup="true" CodeBehind="bookList.aspx.cs" Inherits="Reader.bookList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LNavigation.Master" AutoEventWireup="true" CodeBehind="bookDeleteList.aspx.cs" Inherits="Reader.bookDeleteList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
     <div class="form-group">
         <div style="width:100%; text-align:center">
-            <h2>搜索书籍</h2>
+            <h2>删除图书</h2>
         </div>
     </div>
     <div class="form-group">
@@ -95,7 +94,7 @@
                         <%#Eval("location") %>
                     </td>
                     <td style="vertical-align:middle">
-                    <a href="bookUpdate.aspx?ID=<%#Eval("ID") %>">修改</a>
+                    <a href="bookDelete.aspx?ID=<%#Eval("ID") %>">删除</a>
                     </td>
                 </tr>
             </ItemTemplate>

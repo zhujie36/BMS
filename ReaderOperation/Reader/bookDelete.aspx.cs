@@ -34,7 +34,7 @@ namespace Reader
                 }
                 else
                 {
-                    Response.Redirect("bookList.aspx");
+                    Response.Redirect("bookDeleteList.aspx");
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace Reader
             {
                 bool result = T_bookBLL.Delete(id);
                 if (result)
-                    Response.Redirect("bookList.aspx");
+                    Response.Redirect("bookDeleteList.aspx");
                 else
                     Response.Write("<script>alert('删除失败!')</script>");
             }
@@ -59,7 +59,7 @@ namespace Reader
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("bookList.aspx");
+            Response.Redirect("bookDeleteList.aspx");
         }
 
     }
