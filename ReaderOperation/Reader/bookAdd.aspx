@@ -12,11 +12,19 @@
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="price" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -24,11 +32,19 @@
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="writerLabel" runat="server" Text="author" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="writeTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -36,11 +52,19 @@
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label1" runat="server" Text="TotalAmount" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
         </div>
     </div>     
     <div class="form-group">
@@ -48,11 +72,19 @@
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label7" runat="server" Text="image" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">           

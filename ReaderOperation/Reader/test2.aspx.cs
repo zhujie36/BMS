@@ -13,5 +13,24 @@ namespace Reader
         {
 
         }
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            String f = this.flag.Value;
+            if (f == "0")
+            {
+                Response.Write("<script>window.alert('The input is not correct!')</script>");
+            }
+            else
+            {
+                Response.Redirect("submit.aspx");
+            }
+        }
     }
 }

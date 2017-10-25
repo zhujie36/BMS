@@ -19,8 +19,8 @@ namespace Reader
         protected void Button2_Click(object sender, EventArgs e)
         {
 
-            String f = this.flag.Value;
-            if (f == "1")
+            //String f = this.flag.Value;
+            //if (f == "1")
             {
 
                 T_Reader reader = new T_Reader();

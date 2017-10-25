@@ -15,11 +15,8 @@ namespace Reader
         {
             if(!IsPostBack)
             {
-                RadioButtonList1.SelectedIndex = 1;
-               
+                RadioButtonList1.SelectedIndex = 1;              
             }
-            Label1.Text = "";
-            Label2.Text = "";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -28,15 +25,7 @@ namespace Reader
             string pwd = TextBox2.Text.Trim();
             string content = RadioButtonList1.SelectedItem.Value.Trim();
 
-            if(name == null || name == "")
-            {
-                Label1.Text = "user cannot be null!";
-            }
-            else if(pwd == null || pwd == "")
-            {
-                Label2.Text = "password cannot be null!";
-            }
-            else if (content == "1")
+            if (content == "1")
             {
                 T_Librarian lib = new T_Librarian();
                 lib = T_LibrarianBLL.GetDataByName(name);

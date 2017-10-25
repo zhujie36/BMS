@@ -7,14 +7,25 @@
         <div class="col-sm-4">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-        <asp:Label ID="Label1" runat="server" ForeColor="Red" CssClass="col-sm-4"></asp:Label>
+        <div class="col-sm-4">
+            <div>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox1" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+            </div>
+           <div>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TextBox1" Display="Dynamic" Font-Size="Large" ValidationExpression="11"></asp:RegularExpressionValidator>
+            </div>
+            
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label4" runat="server" Text="passowrd:" CssClass="col-sm-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4">
             <asp:TextBox ID="TextBox2" runat="server" TextMode =" Password"  CssClass="form-control"></asp:TextBox>
         </div>
-        <asp:Label ID="Label2" runat="server" ForeColor="Red" CssClass="col-sm-4"></asp:Label>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TextBox2" Display="Dynamic"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-4">
@@ -33,7 +44,7 @@
         </div>
         <div class="col-sm-offset-5">
             <div class="col-sm-1">
-                <asp:Button ID="Button2" runat="server" Text="register" onclick="Button2_Click" CssClass="btn btn-default" />
+                <asp:Button ID="Button2" runat="server" Text="register" onclick="Button2_Click" CssClass="btn btn-default" CausesValidation="False" />
             </div>
             
         </div>

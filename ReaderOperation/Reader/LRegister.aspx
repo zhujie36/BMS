@@ -13,17 +13,30 @@
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="password" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="aggin input" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox> 
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
         </div>
     </div>
     <div class="form-group">
