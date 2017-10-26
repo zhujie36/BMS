@@ -21,7 +21,7 @@ namespace Reader
         }
 
         protected void Button2_Click(object sender, EventArgs e)
-        {
+        {/*
             String f = this.flag.Value;
             if (f == "0")
             {
@@ -30,7 +30,7 @@ namespace Reader
             else
             {
                 Response.Redirect("submit.aspx");
-            }
+            }*/
         }
     }
 }

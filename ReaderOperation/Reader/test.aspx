@@ -2,28 +2,69 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headstyle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <p id="qq" onclick="dian1()">zhujie</p>
-    </div>
-    <asp:Button ID="Button1" runat="server" Text="Button" />
-    <asp:Label ID="Label1" runat="server" Text="dasdas"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <asp:Button ID="deleteInfo" runat="server" Text="删除" CssClass="btn_2k3" OnClick="deleteInfo_Click" />
+    <fieldset>
+ <legend>验证完整的表单</legend>
+ <p>
+ <label for="firstname">名字</label>
+<asp:TextBox ID="firstname" runat="server" ClientIDMode="Static" placeHolder="请输入名字"></asp:TextBox>
+ </p>
+ <p>
+ <label for="lastname">姓氏</label>
+ <input id="lastname" name="lastname" type="text">
+ </p>
+ <p>
+ <label for="username">用户名</label>
+ <input id="username" name="username" type="text">
+ </p>
+ <p>
+ <label for="password">密码</label>
+ <input id="password" name="password" type="password">
+ </p>
+ <p>
+ <label for="confirm_password">验证密码</label>
+ <input id="confirm_password" name="confirm_password" type="password">
+ </p>
+ <p>
+ <label for="email">Email</label>
+ <input id="email" name="email" type="email">
+ </p>
+ <p>
+ <label for="agree">请同意我们的声明</label>
+ <input type="checkbox" class="checkbox" id="agree" name="agree">
+ </p>
+ <p>
+ <input class="submit" type="submit" value="提交">
+ </p>
+ </fieldset>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript">
-        function dian1()
-        {
-            var aa = document.getElementById("qq");
-            aa.innerText = "hi,qq";
-        }
-        function dian() {
-            var aa = document.getElementById("Label1");
-            aa.innerText = "hi,qq";
-        }
-
-        $(document).ready(function () {
-            $("#deleteInfo").bind("click", function () {
-                return confirm('确定删除吗？');
-            });
+        $('#form1').validate({
+            rules: {
+                firstname: {
+                    required: true,
+                    minlength: 5
+                },
+                lastname: "required",
+                username: {
+                    required: true,
+                    rangelength: [4, 6]
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                    number: true
+                },
+                confirm_password: {
+                    required: true,
+                    minlength: 3,
+                    equalTo: '#password'
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+            }
         });
     </script>
 </asp:Content>

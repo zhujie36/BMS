@@ -3,130 +3,98 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Reg</title>
+        <style type="text/css">
+            .state1{
+                color:#aaa;
+            }
+            .state2{
+                color:#000;
+            }
+            .state3{
+                color:red;
+            }
+            .state4{
+                color:green;
+            }
+        </style>
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#form1').validate({
+                    rules: {
+                        firstname: {
+                            required: true,
+                            minlength: 5
+                        },
+                        lastname: "required",
+                        username: {
+                            required: true,
+                            rangelength: [4, 6]
+                        },
+                        password: {
+                            required: true,
+                            minlength: 4,
+                            number: true
+                        },
+                        confirm_password: {
+                            required: true,
+                            minlength: 3,
+                            equalTo: '#password'
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                    }
+                });
+            });
+
+        </script>
+    </head>
 <body>
+  
 
-<script type="text/javascript">
-    function test_username() {
-        var username = document.getElementById("TextBox1").value;
-   
-        if (username == "") {
-            divname.innerHTML = '<font class="tips_false">Please input the user name.</font>';
-            document.getElementById("flag").value = "0";
-        } else {
-            divname.innerHTML = '<font class="tips_true">Correct</font>';
-        }
-    }
+     <form id="form1" runat="server" class="form-horizontal" role="form">
+ <fieldset>
+ <legend>验证完整的表单</legend>
+ <p>
+ <label for="firstname">名字</label>
+     <asp:TextBox ID="firstname" runat="server" ClientIDMode="Static" placeHolder="请输入名字"></asp:TextBox>
+ </p>
+ <p>
+ <label for="lastname">姓氏</label>
+     <asp:TextBox ID="lastname" runat="server" ClientIDMode="Static"></asp:TextBox>
+ </p>
+ <p>
+ <label for="username">用户名</label>
+     <asp:TextBox ID="username" runat="server" ClientIDMode="Static"></asp:TextBox>
+ </p>
+ <p>
+ <label for="password">密码</label>
+ <input id="password" name="password" type="password">
+ </p>
+ <p>
+ <label for="confirm_password">验证密码</label>
+ <input id="confirm_password" name="confirm_password" type="password">
+ </p>
+ <p>
+ <label for="email">Email</label>
+ <input id="email" name="email" type="email">
+ </p>
+ <p>
+ <label for="agree">请同意我们的声明</label>
+ <input type="checkbox" class="checkbox" id="agree" name="agree">
+ </p>
+ <p>
+ <input class="submit" type="submit" value="提交">
+ </p>
+ </fieldset>
+ </form>
 
-    function test_password1() {
-        var password1 = document.getElementById("TextBox2").value;
-        
-        if (password1 == "") {
-            divpassword1.innerHTML = '<font class="tips_false">Please input the password.</font>';
-            document.getElementById("flag").value = "0";
-        } else {
-        divpassword1.innerHTML = '<font class="tips_true">Correct</font>';
-        }
-    }
-
-    function test_password2() {
-        var password2 = document.getElementById("TextBox6").value;
-        var password1 = document.getElementById("TextBox2").value;
-
-        if (password2 == "") {
-            divpassword2.innerHTML = '<font class="tips_false">Please input the password.</font>';
-            document.getElementById("flag").value = "0";
-        } else {
-        if (password2 != password1) {
-            divpassword2.innerHTML = '<font class="tips_false">Entered passwords differ.</font>';
-            document.getElementById("flag").value = "0";
-        }
-        else {
-            divpassword2.innerHTML = '<font class="tips_true">Correct</font>';
-        }
-        }
-    }
-
-
-    function test_ID() {
-        var ID = document.getElementById("TextBox3").value;
-
-        if (ID == "") {
-            divID.innerHTML = '<font class="tips_false">Please input the user ID.</font>';
-            document.getElementById("flag").value = "0";
-        } else {
-            divID.innerHTML = '<font class="tips_true">Correct</font>';
-        }
-    }
-
-    
-    function test_phone() {
-        var phone = document.getElementById("TextBox4").value;
-
-        if (phone == "") {
-            divphone.innerHTML = '<font class="tips_false">Please input the user\'s phone number.</font>';
-            document.getElementById("flag").value = "0";
-        } else {
-            var reg = new RegExp("^[0-9]*$");
-            if(!reg.test(phone))
-            {
-                divphone.innerHTML = '<font class="tips_false">The form is wrong,please input the correct form.</font>';
-                document.getElementById("flag").value = "0";
-            } else {
-            divphone.innerHTML = '<font class="tips_true">Correct</font>';
-        }
-        }
-    }
-    
-
-      function test_address() {
-        var address = document.getElementById("TextBox5").value;
-
-        if (address == "") {
-            divaddress.innerHTML = '<font class="tips_false">Please input the user address.</font>';
-            document.getElementById("flag").value = "0";
-        } else {
-            divaddress.innerHTML = '<font class="tips_true">Correct</font>';
-        }
-    }
-</script>
-
-
-
-
-    <form id="form1" runat="server" onsubmit="test()">
-    <div class="left">
-           <!-- <table border="1" width="100%" height="100%">
-	
-		<td align="center" bgcolor="#000000" class="auto-style1">
-        <td background="images/img1.jpg" width="100%" height="800">-->
-    请输入您的个人信息<br/>
-
-        读者姓名：<asp:TextBox ID="TextBox1" OnBlur="test_username()"  runat="server" ></asp:TextBox>
-        <span class="tips" id="divname"></span><br/>
-        设置密码：<asp:TextBox ID="TextBox2" OnBlur="test_password1()" runat="server" ></asp:TextBox>
-        <span class="tips" id="divpassword1"></span><br/>
-        再次输入密码：<asp:TextBox ID="TextBox6" OnBlur="test_password2()" runat="server"></asp:TextBox>
-        <span class="tips" id="divpassword2"></span><br/>
-        读者性别：<asp:DropDownList ID="DropDownList1" runat="server">
-               <asp:ListItem Value="0">男</asp:ListItem>
-               <asp:ListItem Value="1">女</asp:ListItem>
-               <asp:ListItem Value="2">未知</asp:ListItem>
-           </asp:DropDownList><br />
-        身份证号：<asp:TextBox ID="TextBox3" OnBlur="test_ID()" runat="server"></asp:TextBox>
-         <span class="tips" id="divID"></span><br/>
-        联系电话：<asp:TextBox ID="TextBox4" OnBlur="test_phone()" runat="server"></asp:TextBox>
-        <span class="tips" id="divphone"></span><br/>
-        家庭地址：<asp:TextBox ID="TextBox5" OnBlur="test_address()"  runat="server"></asp:TextBox>
-         <span class="tips" id="divaddress"></span></br>
-        <asp:Button ID="Button2" runat="server" Text="submit" onclick="Button2_Click" />
-    &nbsp;
-    <asp:Button ID="Button1" runat="server" Text="cancel" OnClick="Button1_Click" />
-    <input type="hidden" runat="server" name="Commend" id="flag" value="1"/>
-    </div>
-    </form>
 </body>
-</html>
+    </html>

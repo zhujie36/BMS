@@ -37,5 +37,9 @@ namespace Reader
         {
             Response.Write("<script>alert('00000000000!')</script>");
         }
+
+        protected void Button1_Click2(object sender, EventArgs e)
+        {
+        }
     }
 }
