@@ -16,7 +16,7 @@
                         <a href="bookAdd.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/1-1.jpg',1)"><img src="images/1.jpg" width="146" height="104" border="0" id="Image1" class="img-rounded"/></a>
                     </div>
                     <div style="padding:10px 0; font-weight:bold">
-                        add book
+                        Add book
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
@@ -24,7 +24,7 @@
                         <a href="bookDeleteList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/2-2.jpg',1)"><img src="images/2.jpg" width="146" height="104" border="0" id="Image2" class="img-rounded" /></a>
                     </div>
                     <div style="padding:10px 0; font-weight:bold">
-                        delete book
+                        Delete book
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
@@ -32,7 +32,7 @@
                         <a href="bookList.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/3-3.jpg',1)"><img src="images/3.jpg" width="146" height="104" border="0" id="Image3" class="img-rounded" /></a>
                     </div>
                     <div style="padding:10px 0; font-weight:bold">
-                        update book Information
+                        Update book information
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="panel-heading">
                 <h2  class="btn btn-primary panel-title" data-toggle="collapse" 
                 data-target="#demo1">
-                    About Reader
+                    About reader
                 </h2>
             </div>          
             <div id="demo1" class="collapse in row panel-body">
@@ -68,7 +68,7 @@
                         <a href="writeOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/6-6.jpg',1)"><img src="images/6.jpg" width="146" height="104" border="0" id="Image6" class="img-rounded" /></a>
                     </div>
                     <div style="padding:10px 0; font-weight:bold">
-                        delete reader
+                        Delete reader
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                         <a href="LwirteOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/9-9.jpg',1)"><img src="images/9.jpg" width="146" height="104" border="0" id="Image9" class="img-rounded" /></a>
                     </div>
                     <div style="padding:10px 0; font-weight:bold">
-                        write off
+                        Write off
                     </div>
                 </div>
             </div>

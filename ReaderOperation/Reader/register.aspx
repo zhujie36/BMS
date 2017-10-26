@@ -4,89 +4,72 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form-group">
         <div class="col-sm-offset-4 col-md-8">
-            <h2>请输入您的个人信息</h2>
+            <h2>Please input your information.</h2>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="读者姓名：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Reader name：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        <div class="col-sm-4" >
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ForeColor="Indigo" ErrorMessage="Please input the reader name."></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label2" runat="server" Text="设置密码：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Set password：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Password" ></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the password." ForeColor="Indigo" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label3" runat="server" Text="再次输入密码：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Input the password again：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the password." ForeColor="Indigo" Display="Dynamic" ControlToValidate="TextBox6"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="The two passwords are differ." ControlToValidate="TextBox6" ControlToCompare="TextBox2" ForeColor="Indigo" Display="Dynamic"></asp:CompareValidator>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label4" runat="server" Text="读者性别：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Reader sex：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
-               <asp:ListItem Value="0">男</asp:ListItem>
-               <asp:ListItem Value="1">女</asp:ListItem>
-               <asp:ListItem Value="2">未知</asp:ListItem>
+               <asp:ListItem Value="0">male</asp:ListItem>
+               <asp:ListItem Value="1">female</asp:ListItem>
+               <asp:ListItem Value="2">unknown</asp:ListItem>
            </asp:DropDownList>
         </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
-        </div>
     </div>
+    
     <div class="form-group">
-        <asp:Label ID="Label5" runat="server" Text="身份证号：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
-        <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
-        </div>
-    </div>
-    <div class="form-group">
-        <asp:Label ID="Label6" runat="server" Text="联系电话：" CssClass="ccol-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label6" runat="server" Text="Phone number：" CssClass="ccol-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please input the phone number." ControlToValidate="TextBox4" ForeColor="Indigo" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="TextBox4" ForeColor="Indigo" Display="Dynamic" ErrorMessage="The format of the phone number is incorrect." ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label7" runat="server" Text="家庭地址：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="Address：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox><br/>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please input the address." ControlToValidate="TextBox5"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-8">
             <asp:Button ID="Button2" runat="server" Text="submit" onclick="Button2_Click" CssClass="btn btn-primary" />
             &nbsp;
-            <asp:Button ID="Button1" runat="server" Text="cancel" OnClick="Button1_Click" CssClass="btn btn-default" />
+            <asp:Button ID="Button1" runat="server" Text="cancel" OnClick="Button1_Click" CssClass="btn btn-default" CausesValidation="False" />
         </div>
     </div> 
 

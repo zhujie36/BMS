@@ -9,7 +9,7 @@
                 <a href="bookFind.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','images/10-10.jpg',1)"><img src="images/10.jpg" width="146" height="104" border="0" id="Image10" class="img-rounded" /></a>
              </div>
              <div style="padding:10px 0; font-weight:bold">
-                  find book
+                  Find book
              </div>
         </div>
         <div class="col-sm-3 text-center">

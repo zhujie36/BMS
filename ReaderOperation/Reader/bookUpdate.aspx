@@ -19,8 +19,7 @@
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox2" ForeColor="Indigo" ErrorMessage="Please input the book's name."></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -29,8 +28,8 @@
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the book's price." ForeColor="Indigo" ControlToValidate="TextBox3" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="The book's price format is incorrect." ForeColor="Indigo" ValidationExpression="^[0-9]+(.[0-9]*)?$" ControlToValidate="TextBox3" Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -39,8 +38,7 @@
             <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox4" ForeColor="Indigo"  ErrorMessage="Please input the book's cateory." ></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -49,8 +47,7 @@
             <asp:TextBox ID="writeTextBox" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="writeTextBox" ForeColor="Indigo" ErrorMessage="Please input the book's author."></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -59,8 +56,7 @@
             <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ForeColor="Indigo" ErrorMessage="Please input the book's press."></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -69,8 +65,8 @@
             <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please input the book's total amount." ControlToValidate="TextBox6" ForeColor="Indigo" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="The total amount of the book is incorrect." ControlToValidate="TextBox6" Display="Dynamic" ForeColor="Indigo" Visible="True" EnableTheming="True" ValidationExpression="^[0-9]*[1-9][0-9]*$"></asp:RegularExpressionValidator>
         </div>
     </div>  
     <div class="form-group">
@@ -79,8 +75,8 @@
             <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7"  Display="Dynamic" runat="server" ErrorMessage="Plase input the loan amount." ControlToValidate="TextBox8" EnableTheming="True" SetFocusOnError="True" ForeColor="Indigo"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" Display="Dynamic"  runat="server" ControlToValidate="TextBox8" ValidationExpression="^[0-9]*[1-9][0-9]*$" ForeColor="Indigo" ErrorMessage="The loan amount is incorrect."></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -89,18 +85,13 @@
             <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's location." ControlToValidate="TextBox7" ForeColor="Indigo"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label8" runat="server" Text="image" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
-        </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -116,7 +107,7 @@
             </div>
             <div class="col-sm-offset-5" style="padding-left:20px">
                 <div class="col-sm-1">
-                    <asp:Button ID="Button2" runat="server" Text="cancel" OnClick="Button2_Click" CssClass="btn btn-default" />
+                    <asp:Button ID="Button2" runat="server" Text="cancel" OnClick="Button2_Click" CssClass="btn btn-default" Visible="True" CausesValidation="False" />
                 </div>                
             </div>
     </div>

@@ -2,8 +2,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headstyle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
+        <p id="qq" onclick="dian1()">zhujie</p>
+    </div>
+    <asp:Button ID="Button1" runat="server" Text="Button" />
+    <asp:Label ID="Label1" runat="server" Text="dasdas"></asp:Label>
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:Button ID="deleteInfo" runat="server" Text="删除" CssClass="btn_2k3" OnClick="deleteInfo_Click" />
+    <script type="text/javascript">
+        function dian1()
+        {
+            var aa = document.getElementById("qq");
+            aa.innerText = "hi,qq";
+        }
+        function dian() {
+            var aa = document.getElementById("Label1");
+            aa.innerText = "hi,qq";
+        }
 
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[0-9]*$" ControlToValidate="TextBox1"></asp:RegularExpressionValidator>
-    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click1" />
-    <asp:Button ID="Button2" runat="server" Text="Button" CausesValidation="False" />
+        $(document).ready(function () {
+            $("#deleteInfo").bind("click", function () {
+                return confirm('确定删除吗？');
+            });
+        });
+    </script>
 </asp:Content>

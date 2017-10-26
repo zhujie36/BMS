@@ -32,7 +32,7 @@
 </head>
 <body style="padding-top:60px; ">
     <form id="form1" runat="server" class="form-horizontal" role="form">
-        <div class="container" style="border:1px solid black">
+        <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                 <div class="navbar-header">
@@ -61,7 +61,7 @@
                                 <li><a href="Borrow.aspx">Borrow</a></li>
                                 <li><a href="AllBorrowList.aspx">Return</a></li>
                                 <li class="divider"></li>
-                                <li><a href="writeOff.aspx">注销读者</a></li>
+                                <li><a href="writeOff.aspx">write off the reader</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -70,18 +70,19 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="Ledit.aspx">修改个人信息</a></li>
-                                <li><a href="LwirteOff.aspx">注销账户</a></li>
+                                <li><a href="Ledit.aspx">modify personal information</a></li>
+                                <li><a href="LwirteOff.aspx">write off the account</a></li>
                                 <li class="divider"></li>
-                                <li><a href="LRegister.aspx">增加新的管理员</a></li>                              
+                                <li><a href="LRegister.aspx">add new librarian</a></li>                              
                             </ul>
                         </li>
                     </ul>
                 </div>
-                <div class="navbar-right">
+                <div class="navbar-right col-sm-1">
                       <asp:Button ID="Button1" runat="server" Text="log out" CssClass="btn btn-default navbar-btn" OnClick="Button1_Click" />
                 </div>
-                <p class="navbar-text navbar-right">
+                    &nbsp;
+                <p class="navbar-text navbar-right  col-sm-2 text-right">
                      <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </p>        
                 

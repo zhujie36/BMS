@@ -16,7 +16,7 @@ namespace Reader
             {
                 if(all.NAME != null && all.NAME != "")
                 {
-                    LoginName.Text = "欢迎您，" + all.NAME;
+                    LoginName.Text = "Welcome，" + all.NAME;
                     Panel1.Visible = true;
                     //Response.Write("<script type='text/javascript'>function myfun(){$(\"#logInAndOut\").show();}</script>");
                 }              

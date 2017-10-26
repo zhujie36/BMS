@@ -25,7 +25,6 @@ namespace Reader
             if (!IsPostBack)
             {
                     TextBox2.Text = stu.R_pwd;
-                    TextBox3.Text = stu.R_cred;
                     TextBox4.Text = stu.R_tel;
                     TextBox5.Text = stu.R_addr;
                 }
@@ -41,7 +40,6 @@ namespace Reader
             all.READER.R_name = TextBox1.Text.Trim();
             all.NAME = TextBox1.Text.Trim();
             all.READER.R_pwd = TextBox2.Text.Trim();
-            all.READER.R_cred = TextBox3.Text.Trim();
             all.READER.R_tel = TextBox4.Text.Trim();
             all.READER.R_addr = TextBox5.Text.Trim();
             bool result = T_ReaderBLL.Update(all.READER);
@@ -49,7 +47,7 @@ namespace Reader
                 //Label1.Text = all.READER.R_tel;
                 Response.Redirect("IndexReader.aspx");
             else
-                Response.Write("<script>alert('提交失败!')</script>");
+                Response.Write("<script>alert('Submit failed!')</script>");
 
 
         }

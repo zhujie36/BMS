@@ -5,7 +5,7 @@
     
     <div class="form-group">
         <div style="width:100%; text-align:center">
-            <h2>搜索书籍</h2>
+            <h2>Book Search</h2>
         </div>
     </div>
     <div class="form-group">
@@ -18,10 +18,10 @@
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button2" runat="server" Text="搜索" OnClick="Button2_Click" CssClass="btn btn-primary" />
+            <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" CssClass="btn btn-primary" />
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button1" runat="server" Text="返回" OnClick="Button1_Click" CssClass="btn btn-default" />
+            <asp:Button ID="Button1" runat="server" Text="Return" OnClick="Button1_Click" CssClass="btn btn-default" />
         </div>
     </div>
     
@@ -31,7 +31,7 @@
             <ItemTemplate>
                  <div class="form-group bigger" style="padding:10px; ">
                     <div class="col-sm-offset-2 col-sm-2">
-                        <img width="120" height="140" src='<%#Eval("Pic") %>' alt="未上传图片" class="img-rounded" />
+                        <img width="120" height="140" src='<%#Eval("Pic") %>' alt="Didn't upload book picture." class="img-rounded" />
                     </div>
                     <div class="col-sm-8" style="line-height:30px;">
                         <div style="padding-left:10px">

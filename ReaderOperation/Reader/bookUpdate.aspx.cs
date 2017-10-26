@@ -31,7 +31,7 @@ namespace Reader
                     TextBox6.Text = tbook.TotalAmount; 
                     TextBox7.Text = tbook.Location;
                     TextBox8.Text = tbook.LoanAmount;
-                    writerLabel.Text = tbook.Author;
+                    writeTextBox.Text = tbook.Author;
                     Image1.ImageUrl = tbook.Pic;
 
                 }

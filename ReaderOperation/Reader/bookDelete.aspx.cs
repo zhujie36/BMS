@@ -44,7 +44,7 @@ namespace Reader
         {
             if(int.Parse(tbook.LoanAmount) != 0)
             {
-                Response.Write("<script>alert('还有未还图书，不能删除!')</script>");
+                Response.Write("<script>alert('There are still books which are not returned,so can not delete the book!')</script>");
             }
             else
             {
@@ -52,7 +52,7 @@ namespace Reader
                 if (result)
                     Response.Redirect("bookDeleteList.aspx");
                 else
-                    Response.Write("<script>alert('删除失败!')</script>");
+                    Response.Write("<script>alert('Delete false!')</script>");
             }
             
 

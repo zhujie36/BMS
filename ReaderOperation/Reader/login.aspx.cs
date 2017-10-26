@@ -34,12 +34,12 @@ namespace Reader
                     all.NAME = name;
                     all.LIB = lib;
                     all.ID = all.LIB.L_id;
-                    Response.Write("<script>alert('登录成功')</script>");
+                    Response.Write("<script>alert('Log in successfully!')</script>");
                     Response.Redirect("IndexLibrarian.aspx?");
                 }
                 else
                 {
-                    Response.Write("<script>alert('输入的用户名或密码不正确!')</script>");
+                    Response.Write("<script>alert('The username or the password is incorrect!')</script>");
                 }
 
             }

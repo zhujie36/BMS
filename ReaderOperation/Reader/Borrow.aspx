@@ -13,8 +13,7 @@
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox1" ViewStateMode="Inherit" ForeColor="Indigo"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -23,8 +22,7 @@
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the book ID." ForeColor="Indigo" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -33,8 +31,8 @@
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ForeColor="Indigo" Display="Dynamic" ErrorMessage="Please input the number."></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="The number format is incorrect." ForeColor="Indigo" Display="Dynamic" ControlToValidate="TextBox3" ValidationExpression="^[0-9]*[1-9][0-9]*$"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">       
@@ -42,7 +40,7 @@
             <asp:Button ID="Button1" runat="server" Text="sumbit" OnClick="Button1_Click" CssClass="btn btn-primary" />
         </div>
         <div class=" col-sm-1" style="padding-left:20px">
-            <asp:Button ID="Button2" runat="server" Text="cancel" CssClass="btn btn-default" />
+            <asp:Button ID="Button2" runat="server" Text="cancel" CssClass="btn btn-default" CausesValidation="False" OnClick="Button2_Click" />
         </div>
     </div>
 </asp:Content>

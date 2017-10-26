@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form-group">
         <div style="width:100%; text-align:center">
-            <h2>归还书籍</h2>
+            <h2>Book Return</h2>
         </div>
     </div>
     <div class="form-group">
@@ -25,10 +25,10 @@
     <table class="table table-hover table-responsive table-striped text-center">
         <thead>
             <tr>
-                <th class="text-center">Book&nbsp;name(书名)&nbsp;&nbsp;</th>
+                <th class="text-center">Book&nbsp;name&nbsp;&nbsp;</th>
                 <th class="text-center">Book&nbsp;Amount&nbsp;&nbsp;</th>
-                <th class="text-center">Borrow&nbsp;time(借阅起始时间)&nbsp;&nbsp;</th>
-                <th class="text-center">Operation(操作)</th>
+                <th class="text-center">Borrow&nbsp;time&nbsp;&nbsp;</th>
+                <th class="text-center">Operation</th>
             </tr>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@
                             <td><%#Eval("Num") %></td>
                             <td><%#Eval("StartTime") %></td>
                             <td>
-                                <a href="Detail.aspx?BorrowID=<%#Eval("BorrowID") %>&BookID=<%#Eval("BookID") %>">Detail(详细)</a>
+                                <a href="Detail.aspx?BorrowID=<%#Eval("BorrowID") %>&BookID=<%#Eval("BookID") %>">Detail</a>
                             </td>
                         </tr>
                     </ItemTemplate>

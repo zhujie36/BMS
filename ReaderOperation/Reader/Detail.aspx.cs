@@ -12,7 +12,7 @@ namespace Reader
     public partial class Detail : System.Web.UI.Page
     {
         BorrowList borlist = new BorrowList();
-        int num1,num2;
+        int num1,num2 = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -25,18 +25,17 @@ namespace Reader
                     Label_BookName.Text = borlist.BookName;
                     LabelStartTime.Text = borlist.StartTime.ToString();
                     number.Text = borlist.Num;
+                RangeValidator1.MaximumValue = borlist.Num;
                      num1 = int.Parse(number.Text);
                 if (!IsPostBack)
                 {
                     if (num1 <= 1)
                     {
-                        Panel1.Visible = false;
-                        num2 = num1;
+                        Panel1.Visible = false;                       
                     }
                     else
                     {
                         TextBox1.Text = number.Text;
-                        num2 = int.Parse(number.Text.Trim());
                     }
                         
                 }
@@ -57,6 +56,11 @@ namespace Reader
             int loan = int.Parse(book.LoanAmount);
 
 
+            if(num1 > 1)
+            {
+                num2 = int.Parse(TextBox1.Text.Trim());
+            }
+
             ///获得现在距离借阅时的时间
             DateTime now = DateTime.Now;
             DateTime borrow = BorrowListBLL.GetDataByBorrowID(id).StartTime;
@@ -66,7 +70,7 @@ namespace Reader
             bool result1 = false, result2 = false;
             if (num2 > num1)
             {
-                Response.Write("<script>alert('请选择正确的还书数量!')</script>");
+                Response.Write("<script>alert('Please choose the correct number of book borrow!')</script>");
             }
             else if (num1 == 1 || (num1 - num2) == 0)
             {
@@ -85,17 +89,17 @@ namespace Reader
                 if (result2)
                 {
                     if (days > 30)
-                        Response.Write("<script>alert('借阅时间超过30天!')</script>");
+                        Response.Write("<script>alert('Time of borrowing the book is already more than 30 days!')</script>");
                     else
                         Response.Redirect("AllBorrowList.aspx");
                 }
                 else
                 {
-                    Response.Write("<script>alert('归还失败book！')</script>");
+                    Response.Write("<script>alert('Return failed！')</script>");
                 }
             }
             else
-                Response.Write("<script>alert('归还失败Borrow！')</script>");
+                Response.Write("<script>alert('Return failed！')</script>");
         }
     }
 }

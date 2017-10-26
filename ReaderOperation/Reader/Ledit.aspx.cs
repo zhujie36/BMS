@@ -38,7 +38,7 @@ namespace Reader
             }
             else
             {
-                Response.Write("<script>alert('修改出错!')</script>");
+                Response.Write("<script>alert('Modify error!')</script>");
             }
         }
 

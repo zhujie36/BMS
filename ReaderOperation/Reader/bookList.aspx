@@ -5,7 +5,7 @@
     
     <div class="form-group">
         <div style="width:100%; text-align:center">
-            <h2>搜索书籍</h2>
+            <h2>Book Search</h2>
         </div>
     </div>
     <div class="form-group">
@@ -22,10 +22,10 @@
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button2" runat="server" Text="搜索" OnClick="Button2_Click" CssClass="btn btn-primary" />
+            <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" CssClass="btn btn-primary" />
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button3" runat="server" Text="返回" OnClick="Button3_Click" CssClass="btn btn-default" />
+            <asp:Button ID="Button3" runat="server" Text="Return" OnClick="Button3_Click" CssClass="btn btn-default" />
         </div>
     </div>
     <table class="table table-hover table-responsive table-striped text-center">
@@ -74,7 +74,7 @@
                         <%#Eval("id") %>
                     </td>
                     <td style="vertical-align:middle">
-                      <img width="120" height="140" src='<%#Eval("Pic") %>' alt="未上传图片" class="img-rounded"/>
+                      <img width="120" height="140" src='<%#Eval("Pic") %>' alt="Didn't upload book picture." class="img-rounded"/>
                     </td>
                     <td style="vertical-align:middle">
                         <%#Eval("name") %>
@@ -101,7 +101,7 @@
                         <%#Eval("location") %>
                     </td>
                     <td style="vertical-align:middle">
-                    <a href="bookUpdate.aspx?ID=<%#Eval("ID") %>">修改</a>
+                    <a href="bookUpdate.aspx?ID=<%#Eval("ID") %>">Modify</a>
                     </td>
                 </tr>
             </ItemTemplate>

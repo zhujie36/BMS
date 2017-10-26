@@ -9,10 +9,7 @@
         </div>
         <div class="col-sm-4">
             <div>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox1" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            </div>
-           <div>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TextBox1" Display="Dynamic" Font-Size="Large" ValidationExpression="11"></asp:RegularExpressionValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" Display="Static" SetFocusOnError="True" ForeColor="Indigo" ErrorMessage="Please input your name."></asp:RequiredFieldValidator>
             </div>
             
         </div>
@@ -23,14 +20,13 @@
             <asp:TextBox ID="TextBox2" runat="server" TextMode =" Password"  CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TextBox2" Display="Dynamic"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input your password." ControlToValidate="TextBox2" Display="Static" SetFocusOnError="True" ForeColor="Indigo"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-4">
             <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
-                RepeatDirection ="Horizontal" CellPadding="20" >
+                RepeatDirection ="Horizontal" CellPadding="20">
                 <asp:ListItem Value = "1">Librarian</asp:ListItem>
                 <asp:ListItem Value = "2">reader</asp:ListItem>
             </asp:RadioButtonList>

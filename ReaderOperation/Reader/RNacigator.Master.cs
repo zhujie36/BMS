@@ -16,7 +16,7 @@ namespace Reader
             {
                 if (all.NAME != null && all.NAME != "")
                 {
-                    Label1.Text = "欢迎您，" + all.NAME;
+                    Label1.Text = "Welcome，" + all.NAME;
                     Label1.Visible = true;
                     Button1.Visible = true;
                 }

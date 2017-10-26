@@ -43,11 +43,15 @@ namespace Reader
 
                 }
                 else
-                    Response.Write("<script>alert('借阅失败borrow！')</script>");
+                    Response.Write("<script>alert('Borrow failed！')</script>");
             }
             else
-                Response.Write("<script>alert('借阅失败book！')</script>");
+                Response.Write("<script>alert('Borrow failed')</script>");
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("IndexLibrarian.aspx");
+        }
     }
 }

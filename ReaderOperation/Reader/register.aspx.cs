@@ -35,7 +35,6 @@ namespace Reader
                 {
                     reader.R_pwd = TextBox2.Text.Trim();
                     reader.R_sex = DropDownList1.SelectedItem.Text.Trim();
-                    reader.R_cred = TextBox3.Text.Trim();
                     reader.R_tel = TextBox4.Text.Trim();
                     reader.R_addr = TextBox5.Text.Trim();
                     bool result = T_ReaderBLL.Add(reader);
