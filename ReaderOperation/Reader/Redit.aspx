@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label3" runat="server" Text="Your name：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Your stu_id：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>

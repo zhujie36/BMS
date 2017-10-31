@@ -63,10 +63,10 @@
         <div class="form-group">
             <div class="col-sm-offset-4" style="padding-left:20px">
                 <div class="col-sm-2">
-                    <a href="AllBorrowList.aspx" class="btn btn-default" role="button">return&nbsp;list</a>
+                    <asp:Button ID="Button1" runat="server" Text="cancel" CssClass="btn btn-default" OnClick="Button1_Click" />
                 </div>
                 <div class="col-sm-2">
-                    <asp:Button ID="Return" runat="server" Text="return the bok" OnClick="Return_Click"  CssClass="btn btn-primary" />
+                    <asp:Button ID="Return" runat="server" Text="return the book" OnClick="Return_Click"  CssClass="btn btn-primary" />
                 </div>
             </div>           
         </div>

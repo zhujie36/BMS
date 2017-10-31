@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form-group">
-        <asp:Label ID="Label3" runat="server" Text="name:" CssClass="col-sm-4 control-label"  Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="account:" CssClass="col-sm-4 control-label"  Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>

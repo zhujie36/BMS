@@ -25,8 +25,8 @@ namespace Reader
                     Label_BookName.Text = borlist.BookName;
                     LabelStartTime.Text = borlist.StartTime.ToString();
                     number.Text = borlist.Num;
-                RangeValidator1.MaximumValue = borlist.Num;
-                     num1 = int.Parse(number.Text);
+                    RangeValidator1.MaximumValue = borlist.Num;
+                    num1 = int.Parse(number.Text);
                 if (!IsPostBack)
                 {
                     if (num1 <= 1)
@@ -43,6 +43,10 @@ namespace Reader
             
          }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AllBorrowList.aspx?reader=" + borlist.Reader);
+        }
 
         protected void Return_Click(object sender, EventArgs e)
         {
@@ -89,9 +93,15 @@ namespace Reader
                 if (result2)
                 {
                     if (days > 30)
+                    {
                         Response.Write("<script>alert('Time of borrowing the book is already more than 30 days!')</script>");
+                        Response.Write("<script>javascript:location.href='AllBorrowList.aspx?reader=" + borlist.Reader+"'</script>");
+                    }
                     else
-                        Response.Redirect("AllBorrowList.aspx");
+                    {
+                       
+                        Response.Redirect("AllBorrowList.aspx?reader="+borlist.Reader);
+                    }
                 }
                 else
                 {

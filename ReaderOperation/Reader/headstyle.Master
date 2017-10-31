@@ -37,7 +37,7 @@
     <div class="container">
         <form id="form1" runat="server" class="form-horizontal" role="form">
             <div id="header" style="background-color:#99CCCC">
-                Books Management System
+                XiDian Library Management System
             </div>        
             <div id="logInAndOut">
                <asp:Panel ID="Panel1" runat="server">

@@ -11,10 +11,17 @@ namespace Reader
 {
     public partial class AllBorrowList : System.Web.UI.Page
     {
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            string reader = "";
+            if(Request.QueryString["reader"] != null)
+            {
+                reader = Request.QueryString["reader"].Trim();
+                TextBox1.Text = reader;
+                Repeater1.DataSource = BorrowListBLL.GetAllByReader(reader);
+                Repeater1.DataBind();
+            }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)

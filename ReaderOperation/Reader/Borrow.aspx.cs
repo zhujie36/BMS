@@ -23,31 +23,34 @@ namespace Reader
             int book_id = int.Parse(TextBox2.Text.Trim());
             T_book book = T_bookBLL.GetDataByID(book_id);
             int num = int.Parse(TextBox3.Text.Trim());
+            
             int loan = num + int.Parse(book.LoanAmount);
             bool result1 = T_bookBLL.setLoanAmount(book_id, loan);
+            
+                ///插入借阅记录
+                DateTime now = DateTime.Now;
+                BorrowList borlist = new BorrowList(book_id, name, book.Name, now, book.Pic, TextBox3.Text.Trim());
+                bool result2 = BorrowListBLL.Add(borlist);
 
 
-
-            ///插入借阅记录
-            DateTime now = DateTime.Now;
-            BorrowList borlist = new BorrowList(book_id, name, book.Name, now, book.Pic, TextBox3.Text.Trim());
-            bool result2 = BorrowListBLL.Add(borlist);       
-
-
-            if (result1)
-            {
-                if (result2)
+                if (result1)
                 {
-                    Response.Redirect("IndexLibrarian.aspx");
+                    if (result2)
+                    {
+                        Response.Redirect("IndexLibrarian.aspx");
 
 
+                    }
+                    else
+                        Response.Write("<script>alert('Borrow failed！')</script>");
                 }
                 else
-                    Response.Write("<script>alert('Borrow failed！')</script>");
-            }
-            else
-                Response.Write("<script>alert('Borrow failed')</script>");
+                    Response.Write("<script>alert('Borrow failed')</script>");
+            
         }
+
+
+            
 
         protected void Button2_Click(object sender, EventArgs e)
         {
