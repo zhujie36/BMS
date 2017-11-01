@@ -142,6 +142,7 @@
     <Content Include="login.aspx" />
     <Content Include="LRegister.aspx" />
     <Content Include="LwirteOff.aspx" />
+    <Content Include="payFine.aspx" />
     <Content Include="Redit.aspx" />
     <Content Include="register.aspx" />
     <Content Include="test.aspx" />
@@ -281,6 +282,13 @@
     </Compile>
     <Compile Include="LwirteOff.aspx.designer.cs">
       <DependentUpon>LwirteOff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payFine.aspx.cs">
+      <DependentUpon>payFine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payFine.aspx.designer.cs">
+      <DependentUpon>payFine.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redit.aspx.cs">

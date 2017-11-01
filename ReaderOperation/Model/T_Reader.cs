@@ -16,6 +16,7 @@ namespace Model
         private string cred;
         private string tel;
         private string addr;
+        private float state;
         #endregion
 
         #region properties
@@ -25,6 +26,13 @@ namespace Model
         ///<summary>
         ///ID
         ///</summary>
+        ///
+        public float R_state
+        {
+            get { return state; }
+            set { state = value; }
+        }
+
         public string R_id
         {
             get { return id; }

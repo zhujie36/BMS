@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL;
+
 
 namespace Reader
 {
@@ -11,6 +13,11 @@ namespace Reader
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DateTime now = DateTime.Now;
+            DateTime borrow = BorrowListBLL.GetDataByBorrowID(40).StartTime;
+            System.TimeSpan time = now - borrow;
+            double days = time.TotalDays;
+            Label1.Text = days.ToString();
 
         }
 

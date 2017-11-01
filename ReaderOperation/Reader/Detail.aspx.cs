@@ -15,8 +15,12 @@ namespace Reader
         int num1,num2 = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-                if (Request.QueryString["BorrowID"] != null)
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
+            if (Request.QueryString["BorrowID"] != null)
                 {
                     borlist = BorrowListBLL.GetDataByBorrowID(Convert.ToInt32(Request.QueryString["BorrowID"]));
                     Label_BorrowID.Text = borlist.BorrowID.ToString();

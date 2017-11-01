@@ -20,9 +20,13 @@ namespace DAL
         /// </summary>
         /// <param name="blist"></param>
         /// <returns></returns>
+        /// 
+
+       
+
         public static bool Add(BorrowList b)
         {
-            sql = string.Format("INSERT INTO BorrowList(reader,bookID,bookName,startTime,pic,number) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", b.Reader, b.BookID, b.BookName, b.StartTime,b.Pic,b.Num);
+            sql = string.Format("INSERT INTO BorrowList(reader,bookID,bookName,startTime,pic,number,money) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", b.Reader, b.BookID, b.BookName, b.StartTime,b.Pic,b.Num,0);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -59,6 +63,7 @@ namespace DAL
                 blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
                 blist.Pic = dr["pic"].ToString().Trim();
                 blist.Num = dr["number"].ToString().Trim();
+                blist.Money = Convert.ToDouble(dr["Money"]);
                 return blist;
             }
             catch
@@ -84,6 +89,7 @@ namespace DAL
                 blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
                 blist.Pic = dr["pic"].ToString().Trim();
                 blist.Num = dr["number"].ToString().Trim();
+                blist.Money = Convert.ToDouble(dr["Money"]);
                 return blist;
             }
             catch
@@ -113,6 +119,8 @@ namespace DAL
                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
                     blist.Pic = dr["pic"].ToString().Trim();
                     blist.Num = dr["number"].ToString().Trim();
+                    blist.Money = Convert.ToDouble(dr["Money"]);
+
                     list.Add(blist);
                 }
                 return list;
@@ -122,6 +130,13 @@ namespace DAL
         public static bool setNumber(int id, int value)
         {
             sql = string.Format("update BorrowList set number='{0}' where borrowID='{1}'", value, id);
+            return CSDBC.ExecSqlCommand(sql);
+        }
+
+
+        public static bool setMoney(int id, double value)
+        {
+            sql = string.Format("update BorrowList set money='{0}' where borrowID='{1}'", value, id);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -147,6 +162,7 @@ namespace DAL
                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
                     blist.Pic = dr["pic"].ToString().Trim();
                     blist.Num = dr["number"].ToString().Trim();
+                    blist.Money = Convert.ToDouble(dr["Money"]);
                     list.Add(blist);
                 }
                 return list;

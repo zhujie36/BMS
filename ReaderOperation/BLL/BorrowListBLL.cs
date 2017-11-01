@@ -60,6 +60,37 @@ namespace BLL
         {
             return BorrowListDAL.setNumber(id, value);
         }
+
+
+        public static bool setMoney(int id, double value)
+        {
+            return BorrowListDAL.setMoney(id, value);
+        }
+
+
+        public static double exceedMoney(int id)
+        {
+            DateTime now = DateTime.Now;
+            DateTime borrow = BorrowListBLL.GetDataByBorrowID(id).StartTime;
+            System.TimeSpan time = now - borrow;
+            double days = time.TotalDays;
+            if(days >　30)
+            {
+                double mon = (days - 30) * 0.1;
+                String m = mon.ToString();
+                mon = Convert.ToDouble(decimal.Round(decimal.Parse(m), 2));
+                BorrowListBLL.setMoney(id,mon);
+                return mon;
+            }
+            else
+            {
+                double mon = 0;
+                BorrowListBLL.setMoney(id, mon);
+                return mon;
+            }
+           
+            　
+        }
     }
 }
 

@@ -13,7 +13,11 @@ namespace Reader
     public partial class bookList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {          
+        {
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             if (!IsPostBack)
             {
                 LBook.DataSource = T_bookBLL.GetAllData();

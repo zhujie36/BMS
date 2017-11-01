@@ -13,7 +13,11 @@ namespace Reader
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(all.LIB == null)
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+            if (all.LIB == null)
             {
                 Response.Redirect("login.aspx");
             }

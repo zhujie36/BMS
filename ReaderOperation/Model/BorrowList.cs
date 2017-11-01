@@ -18,6 +18,7 @@ namespace Model
         private DateTime startTime;
         private String pic;
         private string num;
+        private double money;
         #endregion
 
 
@@ -26,6 +27,14 @@ namespace Model
             get { return num; }
             set { num = value; }
         }
+
+
+        public double Money
+        {
+            get { return money; }
+            set { money = value; }
+        }
+
 
         #region properties
         /// <summary>

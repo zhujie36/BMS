@@ -12,6 +12,10 @@ namespace Reader
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             Label1.Text = "hi, " + all.NAME + ", are you sure to write off?";
         }
 

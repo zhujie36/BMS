@@ -44,5 +44,10 @@ namespace BLL
         {
             return T_ReaderDAL.GetAllData();
         }
+
+        public static bool setState(string name, float state)
+        {
+            return T_ReaderDAL.setState(name, state);
+        }
     }
 }

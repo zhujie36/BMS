@@ -15,6 +15,10 @@ namespace Reader
         private static int id;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             if (!IsPostBack)
             {
                 if (Request.QueryString["ID"] != null)

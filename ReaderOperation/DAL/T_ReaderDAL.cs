@@ -16,13 +16,19 @@ namespace DAL
 
         public static bool Add(T_Reader stu)//添加
         {
-            sql = string.Format("insert into T_Reader (R_name,R_pwd,R_sex,R_cred,R_tel,R_addr) values ('{0}','{1}','{2}','{3}','{4}','{5}')", stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_addr);
+            sql = string.Format("insert into T_Reader (R_name,R_pwd,R_sex,R_cred,R_tel,R_addr,R_state) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_addr,stu.R_state);
             return CSDBC.ExecSqlCommand(sql);
         }
 
         public static bool Update(T_Reader stu)//编辑
         {
-            sql = string.Format("update T_Reader set R_name='{0}',R_pwd='{1}',R_sex='{2}',R_cred='{3}',R_tel='{4}',R_addr='{5}' where R_id={6}", stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_addr, stu.R_id);
+            sql = string.Format("update T_Reader set R_name='{0}',R_pwd='{1}',R_sex='{2}',R_cred='{3}',R_tel='{4}',R_addr='{5}',R_state='{6}' where R_id={7}", stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_addr,stu.R_state, stu.R_id);
+            return CSDBC.ExecSqlCommand(sql);
+        }
+
+        public static bool setState(string name, float state)//编辑
+        {
+            sql = string.Format("update T_Reader set R_state='{0}' where R_name={1}", state, name);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -46,6 +52,7 @@ namespace DAL
                 stu.R_cred = dr["R_cred"].ToString().Trim();
                 stu.R_tel = dr["R_tel"].ToString().Trim();
                 stu.R_addr = dr["R_addr"].ToString().Trim();
+                stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
                 return stu;
             }
             catch
@@ -66,6 +73,7 @@ namespace DAL
                 stu.R_cred = dr["R_cred"].ToString().Trim();
                 stu.R_tel = dr["R_tel"].ToString().Trim();
                 stu.R_addr = dr["R_addr"].ToString().Trim();
+                stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
                 return stu;
             }
             catch
@@ -91,6 +99,7 @@ namespace DAL
                     stu.R_cred = dr["R_cred"].ToString().Trim();
                     stu.R_tel = dr["R_tel"].ToString().Trim();
                     stu.R_addr = dr["R_addr"].ToString().Trim();
+                    stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
                     list.Add(stu);
                 }
                 return list;
