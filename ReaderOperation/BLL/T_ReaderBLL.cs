@@ -35,7 +35,7 @@ namespace BLL
             return T_ReaderDAL.GetDataByID(id);
         }
 
-        public static T_Reader GetDataByName(string name)
+        public static List<T_Reader> GetDataByName(string name)
         {
             return T_ReaderDAL.GetDataByName(name);
         }

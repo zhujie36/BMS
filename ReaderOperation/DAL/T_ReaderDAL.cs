@@ -28,7 +28,7 @@ namespace DAL
 
         public static bool setState(string name, float state)//编辑
         {
-            sql = string.Format("update T_Reader set R_state='{0}' where R_name={1}", state, name);
+            sql = string.Format("update T_Reader set R_state='{0}' where R_id={1}", state, name);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -59,25 +59,30 @@ namespace DAL
             { return null; }
         }
 
-        public static T_Reader GetDataByName(string id)//取出单条
+        public static List<T_Reader> GetDataByName(string id)//取出单条
         {
-            stu = new T_Reader();
-            string sql = string.Format("select * from T_Reader where R_name='{0}'", id);
-            dr = CSDBC.GetDateRow(sql);
-            try
+            List<T_Reader> list = new List<T_Reader>();
+            sql = string.Format("select * from T_Reader where R_name='{0}'", id);
+            ds = CSDBC.GetDataSet(sql);
+            if (ds == null)
+                return null;
+            else
             {
-                stu.R_id = dr["R_id"].ToString().Trim();
-                stu.R_name = dr["R_name"].ToString().Trim();
-                stu.R_pwd = dr["R_pwd"].ToString().Trim();
-                stu.R_sex = dr["R_sex"].ToString().Trim();
-                stu.R_cred = dr["R_cred"].ToString().Trim();
-                stu.R_tel = dr["R_tel"].ToString().Trim();
-                stu.R_addr = dr["R_addr"].ToString().Trim();
-                stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
-                return stu;
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    T_Reader stu = new T_Reader();
+                    stu.R_id = dr["R_id"].ToString().Trim();
+                    stu.R_name = dr["R_name"].ToString().Trim();
+                    stu.R_pwd = dr["R_pwd"].ToString().Trim();
+                    stu.R_sex = dr["R_sex"].ToString().Trim();
+                    stu.R_cred = dr["R_cred"].ToString().Trim();
+                    stu.R_tel = dr["R_tel"].ToString().Trim();
+                    stu.R_addr = dr["R_addr"].ToString().Trim();
+                    stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
+                    list.Add(stu);
+                }
+                return list;
             }
-            catch
-            { return null; }
         }
 
         public static IList<T_Reader> GetAllData()//取出全部

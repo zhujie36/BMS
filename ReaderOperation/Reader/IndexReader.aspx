@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form-group" style="padding-top:10%">
-        <div class="col-sm-offset-3 col-sm-3 text-center">
+        <div class="col-sm-4 text-center">
             <div>
                 <a href="bookFind.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','images/10-10.jpg',1)"><img src="images/10.jpg" width="146" height="104" border="0" id="Image10" class="img-rounded" /></a>
              </div>
@@ -12,7 +12,15 @@
                   Find book
              </div>
         </div>
-        <div class="col-sm-3 text-center">
+        <div class="col-sm-4 text-center">
+                    <div>
+                        <a href="RBorrowlist.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image5" class="img-rounded" /></a>
+                    </div>
+                    <div style="padding:10px 0; font-weight:bold">
+                        look up Borrowed list
+                    </div>
+        </div>
+        <div class="col-sm-4 text-center">
             <div>
                 <a href="Redit.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','images/12-12.jpg',1)"><img src="images/12.jpg" width="146" height="104" border="0" id="Image11" class="img-rounded" /></a>
              </div>

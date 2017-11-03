@@ -17,29 +17,11 @@ namespace Reader
 
         }
 
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            /*
-            String f = this.flag.Value;
-            if (f == "1")
-            {
-                Response.Write("<script>alert('111111111!')</script>");
-            }
-            else if (f == "0")
-            {
-                Response.Write("<script>alert('00000000000!')</script>");
-            }
-            */
-
-        }
-
-        protected void Button1_Click1(object sender, EventArgs e)
-        {
-            Response.Write("<script>alert('00000000000!')</script>");
-        }
-
-        protected void Button1_Click2(object sender, EventArgs e)
-        {
+            string s = TextBox1.Text.Trim();
+            Response.Redirect("test2.aspx?s=" + s);
         }
     }
 }

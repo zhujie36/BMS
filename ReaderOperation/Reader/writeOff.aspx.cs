@@ -44,7 +44,7 @@ namespace Reader
             }
             else
             {
-                T_Reader reader = T_ReaderBLL.GetDataByName(name);
+                T_Reader reader = T_ReaderBLL.GetDataByID(name);
                 bool result = T_ReaderBLL.Delete(reader.R_id);
                 if(result == true)
                 {

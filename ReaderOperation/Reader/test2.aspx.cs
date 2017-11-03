@@ -13,11 +13,10 @@ namespace Reader
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTime now = DateTime.Now;
-            DateTime borrow = BorrowListBLL.GetDataByBorrowID(40).StartTime;
-            System.TimeSpan time = now - borrow;
-            double days = time.TotalDays;
-            Label1.Text = days.ToString();
+            if(!IsPostBack)
+            {
+                Label1.Text = Request.QueryString["s"];
+            }
 
         }
 

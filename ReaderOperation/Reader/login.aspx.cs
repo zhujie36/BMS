@@ -46,10 +46,10 @@ namespace Reader
             else
             {
                 T_Reader lib = new T_Reader();
-                lib = T_ReaderBLL.GetDataByName(name);
+                lib = T_ReaderBLL.GetDataByID(name);
                 if (lib != null && lib.R_pwd == pwd)
                 {
-                    all.NAME = name;
+                    all.NAME = lib.R_name;
                     all.READER = lib;
                     all.ID = lib.R_id;
                     Response.Write("<script>alert('login succeed!')</script>");
@@ -61,11 +61,7 @@ namespace Reader
                 }
             }
         }
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("register.aspx");
-        }
-
+        
         
     }
 }

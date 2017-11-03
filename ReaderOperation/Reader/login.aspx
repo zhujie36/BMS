@@ -38,11 +38,6 @@
                 <asp:Button ID="Button1" runat="server" Text="login" onclick="Button1_Click" CssClass="btn btn-primary" />
             </div>
         </div>
-        <div class="col-sm-offset-5">
-            <div class="col-sm-1">
-                <asp:Button ID="Button2" runat="server" Text="register" onclick="Button2_Click" CssClass="btn btn-default" CausesValidation="False" />
-            </div>
-            
-        </div>
+        
     </div> 
 </asp:Content>

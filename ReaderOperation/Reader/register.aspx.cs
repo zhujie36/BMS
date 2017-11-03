@@ -13,7 +13,10 @@ namespace Reader
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -40,11 +43,11 @@ namespace Reader
                     bool result = T_ReaderBLL.Add(reader);
                     if (result)
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("IndexLibrarian.aspx");
                     }
                     else
                     {
-                        Response.Write("<script>alert('register failed!')</script>");
+                        Response.Write("<script>alert('add failed!')</script>");
                     }
                 }
 
@@ -58,7 +61,7 @@ namespace Reader
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("login.aspx");
+            Response.Redirect("IndexLibrarian.aspx");
         }
     }
 }

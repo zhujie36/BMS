@@ -54,5 +54,29 @@ namespace Reader
         {
             Response.Redirect("IndexLibrarian.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string s = TextBox4.Text.Trim();
+            string[] booklist = s.Split(',');
+            bool result = true;
+            for(int i=0; i<booklist.Length && booklist[i] !=""; i++)
+            {
+                if(!T_bookBLL.Delete(int.Parse(booklist[i])))
+                {
+                    result = false;
+                    break;
+                }
+            }
+            if(result)
+            {
+                Response.Write("<script>alert('delete succeed!')</script>");
+                Response.Write("<script>javascript:location.href='IndexLibrarian.aspx?'</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('delete failed!')</script>");
+            }
+        }
     }
 }

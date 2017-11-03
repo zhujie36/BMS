@@ -19,7 +19,7 @@ namespace Reader
             if (!IsPostBack)
             {
                 string name = Request.QueryString["name"];
-                T_Reader reader = T_ReaderBLL.GetDataByName(name);
+                T_Reader reader = T_ReaderBLL.GetDataByID(name);
                 if(name != null)
                 {
                     Panel1.Visible = true;
@@ -55,7 +55,7 @@ namespace Reader
         protected void Button3_Click(object sender, EventArgs e)
         {
             string name = TextBox1.Text.Trim();
-            T_Reader reader = T_ReaderBLL.GetDataByName(name);
+            T_Reader reader = T_ReaderBLL.GetDataByID(name);
             if (reader != null)
             {
                 Panel1.Visible = true;
