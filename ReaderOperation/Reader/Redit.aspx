@@ -9,26 +9,49 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label2" runat="server" Text="Your ID：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Your stu_id：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label3" runat="server" Text="Your stu_id：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Your name：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>
     </div>
     <div class="form-group">
+        <asp:Label ID="Label1" runat="server" Text="Your sex：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                <asp:ListItem Value="1">male</asp:ListItem>
+                <asp:ListItem Value="0">female</asp:ListItem>
+                <asp:ListItem Value="2">unsure</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+    </div>
+    <div class="form-group">
         <asp:Label ID="Label4" runat="server" Text="Set the password：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-           <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" ></asp:TextBox>
+            <asp:Button ID="Button3" runat="server" Text="modify" OnClick="Button3_Click" CssClass="btn btn-default" />
+           <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Visible="False" TextMode="Password" ></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox2" ForeColor="Indigo" ErrorMessage="Password can not be empty."></asp:RequiredFieldValidator>
         </div>
-    </div>  
+    </div>
+    <asp:Panel ID="Panel1" runat="server" Visible="False">
+    <div class="form-group">
+        <asp:Label ID="Label8" runat="server" Text="input again：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+           <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" TextMode="Password" ></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox7" ForeColor="Indigo" ErrorMessage="Password can not be empty." Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="two input is differnet!" ControlToCompare="TextBox2" ControlToValidate="TextBox7" Display="Dynamic" ForeColor="Indigo"></asp:CompareValidator>
+        </div>
+    </div>
+    </asp:Panel>
     <div class="form-group">
          <asp:Label ID="Label6" runat="server" Text="phone number：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
@@ -40,12 +63,18 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label7" runat="server" Text="famliy address：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="E-mail：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please input the address." ForeColor="Indigo" ControlToValidate="TextBox5"></asp:RequiredFieldValidator>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label5" runat="server" Text="fine：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+           <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
     </div>
     <div class="form-group" style="padding-left:20px">     

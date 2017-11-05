@@ -4,11 +4,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form-group">
         <div class="col-sm-offset-4 col-md-8">
-            <h2>Please input your information.</h2>
+            <h2>Please input student information.</h2>
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="student id：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="stu_id：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" ></asp:TextBox>
+        </div>
+        <div class="col-sm-4" >
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox3" ForeColor="Indigo" ErrorMessage="Please input the reader name."></asp:RequiredFieldValidator>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label1" runat="server" Text="name：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>
@@ -41,7 +50,7 @@
             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                <asp:ListItem Value="0">male</asp:ListItem>
                <asp:ListItem Value="1">female</asp:ListItem>
-               <asp:ListItem Value="2">unknown</asp:ListItem>
+               <asp:ListItem Value="2">unsure</asp:ListItem>
            </asp:DropDownList>
         </div>
     </div>
@@ -57,7 +66,7 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label7" runat="server" Text="Address：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="E-mail：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox><br/>
         </div>

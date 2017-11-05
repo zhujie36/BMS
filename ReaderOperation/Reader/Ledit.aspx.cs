@@ -26,6 +26,8 @@ namespace Reader
                 TextBox3.Text = all.ID;               
                 TextBox1.Text = all.NAME;
                 TextBox2.Text = all.LIB.L_pwd;
+                TextBox2.Visible = false;
+                Panel1.Visible = false;
             }
                 
         }
@@ -49,6 +51,13 @@ namespace Reader
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("IndexLibrarian.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Button3.Visible = false;
+            TextBox2.Visible = true;
+            Panel1.Visible = true;
         }
     }
 }

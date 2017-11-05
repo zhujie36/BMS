@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="form-group" style="margin-top:30px">
-        <asp:Label ID="Label2" runat="server" Text="name:" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="stu_id:" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>

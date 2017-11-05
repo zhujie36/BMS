@@ -64,7 +64,9 @@
                             <ul class="dropdown-menu">
                                 <li><a href="Borrow.aspx">Borrow</a></li>
                                 <li><a href="AllBorrowList.aspx">Return</a></li>
+                                <li><a href="payFine.aspx">pay fine</a></li>
                                 <li class="divider"></li>
+                                <li><a href="register.aspx">add reader</a></li>
                                 <li><a href="writeOff.aspx">write off the reader</a></li>
                             </ul>
                         </li>

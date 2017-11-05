@@ -23,7 +23,7 @@ namespace Reader
             string name = TextBox1.Text.Trim();
             //T_Reader reader = T_ReaderBLL.GetDataByName(name);
             //int id = int.Parse(reader.R_id);
-            int book_id = int.Parse(TextBox2.Text.Trim());
+            string book_id = TextBox2.Text.Trim();
             T_book book = T_bookBLL.GetDataByID(book_id);
             int num = int.Parse(TextBox3.Text.Trim());
             
@@ -32,7 +32,7 @@ namespace Reader
             
                 ///插入借阅记录
                 DateTime now = DateTime.Now;
-                BorrowList borlist = new BorrowList(book_id, name, book.Name, now, book.Pic, TextBox3.Text.Trim());
+                BorrowList borlist = new BorrowList(int.Parse(book_id), name, book.Name, now, book.Pic, TextBox3.Text.Trim());
                 bool result2 = BorrowListBLL.Add(borlist);
 
 

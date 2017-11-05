@@ -27,19 +27,20 @@ namespace Reader
             {
 
                 T_Reader reader = new T_Reader();
-                reader.R_name = TextBox1.Text.Trim();
+                reader.R_id = TextBox3.Text.Trim();
 
-                string name = reader.R_name;
-                if (T_ReaderBLL.GetDataByName(name) != null)
+                string id = reader.R_id;
+                if (T_ReaderBLL.GetDataByID(id) != null)
                 {
-                    Response.Write("<script>alert('User name has been registered')</script>");
+                    Response.Write("<script>alert('this student has been registered')</script>");
                 }
                 else
                 {
+                    reader.R_name = TextBox1.Text.Trim();
                     reader.R_pwd = TextBox2.Text.Trim();
                     reader.R_sex = DropDownList1.SelectedItem.Text.Trim();
                     reader.R_tel = TextBox4.Text.Trim();
-                    reader.R_addr = TextBox5.Text.Trim();
+                    reader.R_email = TextBox5.Text.Trim();
                     bool result = T_ReaderBLL.Add(reader);
                     if (result)
                     {

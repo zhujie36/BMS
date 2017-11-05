@@ -15,7 +15,7 @@ namespace Model
         private string sex;
         private string cred;
         private string tel;
-        private string addr;
+        private string email;
         private float state;
         #endregion
 
@@ -81,10 +81,10 @@ namespace Model
         ///<summary>
         ///家庭住址
         ///</summary>
-        public string R_addr
+        public string R_email
         {
-            get { return addr; }
-            set { addr = value; }
+            get { return email; }
+            set { email = value; }
         }
         #endregion
 
@@ -99,7 +99,7 @@ namespace Model
             this.sex = sex;
             this.cred = cred;
             this.tel = tel;
-            this.addr = addr;
+            this.email = addr;
         }
 
         public T_Reader(string name, string pwd, string sex, string cred, string tel, string addr)
@@ -109,7 +109,7 @@ namespace Model
             this.sex = sex;
             this.cred = cred;
             this.tel = tel;
-            this.addr = addr;
+            this.email= addr;
         }
 
         public T_Reader()

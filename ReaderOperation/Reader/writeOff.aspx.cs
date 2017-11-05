@@ -29,10 +29,10 @@ namespace Reader
             string name = TextBox1.Text.Trim();
             if(name == null || name == "")
             {
-                Label3.Text = "name cannot be null";
+                Label3.Text = "id cannot be null";
                 Panel1.Visible = true;
             }
-            else if(T_ReaderBLL.GetDataByName(name) == null)
+            else if(T_ReaderBLL.GetDataByID(name) == null)
             {
                 Label3.Text = "this reader do not exist";
                 Panel1.Visible = true;

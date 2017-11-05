@@ -43,6 +43,7 @@
     <Compile Include="BorrowListBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T_bookBLL.cs" />
+    <Compile Include="T_bookIDBLL.cs" />
     <Compile Include="T_LibrarianBLL.cs" />
     <Compile Include="T_ReaderBLL.cs" />
   </ItemGroup>

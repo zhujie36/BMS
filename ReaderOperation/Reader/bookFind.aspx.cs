@@ -30,7 +30,7 @@ namespace Reader
             else if (TextBox1.Text.Trim() != "")
             {
                 string category = TextBox1.Text.Trim();
-                LBook.DataSource = T_bookBLL.GetByCategory(category);
+                LBook.DataSource = T_bookBLL.GetByAuthor(category);
             }
             else
             {

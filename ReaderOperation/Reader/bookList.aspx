@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="category" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Author" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
         <div class="col-sm-2">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
@@ -17,7 +17,7 @@
         <div class="col-sm-2">
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-        <asp:Label ID="Label3" runat="server" Text="ID" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="ISBN" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
         <div class="col-sm-2">
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
@@ -32,7 +32,7 @@
         <thead>
         <tr>
             <th class="text-center">
-                ID
+                ISBN
             </th>
             <th class="text-center">
                 Picture
@@ -59,6 +59,9 @@
                 Loan Amount
             </th>
             <th class="text-center">
+                IS Can Lend
+            </th>
+            <th class="text-center">
                 Loaction
             </th>
             <th class="text-center">
@@ -71,7 +74,7 @@
             <ItemTemplate>
                 <tr>
                     <td style="vertical-align:middle">
-                        <%#Eval("id") %>
+                        <%#Eval("ISBN") %>
                     </td>
                     <td style="vertical-align:middle">
                       <img width="120" height="140" src='<%#Eval("Pic") %>' alt="Didn't upload book picture." class="img-rounded"/>
@@ -98,10 +101,13 @@
                         <%#Eval("loanAmount") %>
                     </td>
                     <td style="vertical-align:middle">
+                        <%#Eval("isCanLend") %>
+                    </td>
+                    <td style="vertical-align:middle">
                         <%#Eval("location") %>
                     </td>
                     <td style="vertical-align:middle">
-                    <a href="bookUpdate.aspx?ID=<%#Eval("ID") %>">Modify</a>
+                    <a href="bookUpdate.aspx?ID=<%#Eval("ISBN") %>">Modify</a>
                     </td>
                 </tr>
             </ItemTemplate>

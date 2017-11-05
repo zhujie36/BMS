@@ -27,6 +27,11 @@
             <asp:Button ID="Button3" runat="server" Text="return" OnClick="Button3_Click" CssClass="btn btn-default" />
         </div>
     </div>
+    <div class="form-group text-right">
+        <a ID="selectAll" class="btn btn-default">select ALL</a>
+        <a ID="cancelAll" class="btn btn-default">cancel ALL</a>
+    </div>
+    <div class="form-group">
     <table class="table table-hover table-responsive table-striped text-center">
         <thead>
         <tr>
@@ -58,20 +63,17 @@
             <th class="text-center">
                 Loaction
             </th>
-            <th class="text-center">
-                Action
-            </th>
         </tr>
         </thead>
         <tbody>
         <asp:Repeater ID="LBook" runat="server">
             <ItemTemplate>
                 <tr>
-                    <td style="vertical-align:middle; padding:0 20px">
-                        <input type="checkbox" name="vehicle" value='<%#Eval("id") %>' />
+                    <td style="vertical-align:middle; padding:0 20px" class="check">
+                        <input type="checkbox" name="vehicle" value='<%#Eval("ISBN") %>' />
                     </td>
                     <td style="vertical-align:middle">
-                        <%#Eval("id") %>
+                        <%#Eval("ISBN") %>
                     </td>
                     <td style="vertical-align:middle">
                       <img width="120" height="140" src='<%#Eval("Pic") %>' alt="Didn't upload the book picture." class="img-rounded"/>
@@ -91,28 +93,55 @@
                     <td style="vertical-align:middle">
                         <%#Eval("totalAmount") %>
                     </td>
-                    <td style="vertical-align:middle">
+                    <td style="vertical-align:middle" class="loan">
                         <%#Eval("loanAmount") %>
                     </td>
                     <td style="vertical-align:middle">
                         <%#Eval("location") %>
                     </td>
-                    <td style="vertical-align:middle">
-                    <a href="bookDelete.aspx?ID=<%#Eval("ID") %>">Delete</a>
-                    </td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
         </tbody>
-    </table>
+    </table>  
+    </div>
     <div id="qq">
         <asp:Label ID="Label4" runat="server" Text="" ClientIDMode="Static"></asp:Label>
         <asp:TextBox ID="TextBox4" runat="server" ClientIDMode="Static"></asp:TextBox>
     </div>
-    <asp:Button ID="sure" runat="server" Text="Button" ClientIDMode="Static" CausesValidation="False" OnClick="Button1_Click"  />
+    <div class="form-group text-right">
+        <asp:Button ID="sure" runat="server" Text="sumit" ClientIDMode="Static" CausesValidation="False" OnClick="Button1_Click"  />
+    </div>
+    
     <script type="text/javascript">
         $(document).ready(function () {
             $("#qq").hide();
+            $("tr").each(function () {
+                if ($(this).children(".loan").length != 0)
+                {
+                    if ($(this).children(".loan").text().trim() != "0")
+                    {
+                        $(this).addClass("warning");
+                        $(this).children(".check").children("input").prop("disabled", true);
+                    }
+                }
+                
+            })
+            $("#selectAll").click(function () {
+                $(":checkbox:enabled").each(function () {
+                    if ($(this).prop("disabled") != true) {
+                        $(this).attr("checked", true);
+                    }
+                })
+                
+            })
+            $("#cancelAll").click(function () {
+                $(":checkbox:enabled").each(function () {
+                    if ($(this).prop("disabled") != true) {
+                        $(this).attr("checked", false);
+                    }
+                })
+            })
             $("#sure").click(function () {
                 //alert("ok");
                 $(":checkbox").each(function (j, item) {

@@ -22,12 +22,25 @@
     <div class="form-group">
         <asp:Label ID="Label4" runat="server" Text="Set password：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" ></asp:TextBox>
+           <asp:Button ID="Button3" runat="server" Text="modify" OnClick="Button3_Click" CssClass="btn btn-default" />
+           <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Visible="False" TextMode="Password" ></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please input the password." ControlToValidate="TextBox2" ForeColor="Indigo"></asp:RequiredFieldValidator>
         </div>
     </div>
+    <asp:Panel ID="Panel1" runat="server" Visible="False">
+    <div class="form-group">
+        <asp:Label ID="Label8" runat="server" Text="input again：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+           <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" TextMode="Password" ></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox7" ForeColor="Indigo" ErrorMessage="Password can not be empty." Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="two input is differnet!" ControlToCompare="TextBox2" ControlToValidate="TextBox7" Display="Dynamic" ForeColor="Indigo"></asp:CompareValidator>
+        </div>
+    </div>
+    </asp:Panel>
     <div class="form-group" style="padding-left:40px; padding-top:20px">     
         <div class="col-sm-offset-4 col-md-offset-4">
             <div class="col-sm-2">

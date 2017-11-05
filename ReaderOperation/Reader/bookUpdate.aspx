@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="ID" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="ISBN" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox1" runat="server" Font-Bold="True"  CssClass="form-control"></asp:TextBox>
         </div>
@@ -76,7 +76,18 @@
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator7"  Display="Dynamic" runat="server" ErrorMessage="Plase input the loan amount." ControlToValidate="TextBox8" EnableTheming="True" SetFocusOnError="True" ForeColor="Indigo"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" Display="Dynamic"  runat="server" ControlToValidate="TextBox8" ValidationExpression="^[0-9]*[1-9][0-9]*$" ForeColor="Indigo" ErrorMessage="The loan amount is incorrect."></asp:RegularExpressionValidator>
+            
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox8" Display="Dynamic" ErrorMessage="please input right number" ForeColor="Indigo"  MinimumValue="0"></asp:RangeValidator>
+            
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label9" runat="server" Text="IsCandLend" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:ListItem Value="1">yes</asp:ListItem>
+                <asp:ListItem Value="0">no</asp:ListItem>
+            </asp:DropDownList>
         </div>
     </div>
     <div class="form-group">

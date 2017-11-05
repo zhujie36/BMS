@@ -12,7 +12,7 @@ namespace Model
     /// </summary>
     public class T_book
     {
-        private int id;
+        private string ISBN;
         private string name;
         private string price;
         private string category;
@@ -22,10 +22,21 @@ namespace Model
         private string pic;
         private string location;
         private string author;
-        ///<summary>
-        ///id
-        ///</summary>
-        ///
+        private string isCanLend;
+        private string yearOfPublucation;
+       
+
+        public string IsCanLend
+        {
+            get { return isCanLend; }
+            set { isCanLend = value; }
+        }
+
+        public string YearOfPublication
+        {
+            get { return yearOfPublucation; }
+            set { yearOfPublucation = value; }
+        }
 
         public string Author
         {
@@ -44,10 +55,10 @@ namespace Model
             set { location = value; }
         }
 
-        public int Id
+        public string iSBN
         {
-            get { return id; }
-            set { id = value; }
+            get { return ISBN; }
+            set { ISBN = value; }
         }
 
         public string Name
@@ -91,10 +102,10 @@ namespace Model
 
         }
 
-        public T_book(int id, string name, string price, string category,
+        public T_book(string id, string name, string price, string category,
             string press, string total, string loan, string pic, string location)
         {
-            this.id = id;
+            this.ISBN = id;
             this.name = name;
             this.price = price;
             this.category = category;
@@ -105,10 +116,10 @@ namespace Model
             this.location = location;
         }
 
-        public T_book(int id, string name, string price, string category,
+        public T_book(string id, string name, string price, string category,
             string press, string total, string pic, string location)
         {
-            this.id = id;
+            this.ISBN = id;
             this.name = name;
             this.price = price;
             this.category = category;

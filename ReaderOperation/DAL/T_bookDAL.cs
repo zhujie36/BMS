@@ -22,7 +22,7 @@ namespace DAL
         public static bool Add(T_book b)
         {
             //sql = string.Format("insert into T_book (Name,Sex) values ('{0}','{1}','{2}','{3}','{4}','{5}')", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend);
-           sql = string.Format("insert into T_book (name,price,category,press,totalAmount,loanAmount,pic,location,author) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",b.Name, b.Price, b.Category, b.Press,b.TotalAmount,0,b.Pic,b.Location,b.Author);
+           sql = string.Format("insert into T_book (ISBN,name,price,category,press,totalAmount,loanAmount,pic,location,author,isCanLend,yearOfPublication) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",b.iSBN,b.Name, b.Price, b.Category, b.Press,1,0,b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication);
            //sql = string.Format("insert into T_book (name,price,category,press,isLend) values ('{0}','{1}','{2}','{3}','{4}')",2, 2, 1, 1,1);
             return CSDBC.ExecSqlCommand(sql);
         }
@@ -31,26 +31,26 @@ namespace DAL
         public static bool Update(T_book b)
         {
             //sql = string.Format("update T_book set id='{0}',name='{1}',price='{2}',category='{3}',press='{4}',isLend='{5}' where id='{6}'", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend, b.Id);
-            sql = string.Format("update T_book set name='{0}',price='{1}',category='{2}',press='{3}',totalAmount='{4}',loanAmount='{5}',pic='{6}',location='{7}',author='{8}' where id='{9}'",b.Name, b.Price, b.Category, b.Press, b.TotalAmount, b.LoanAmount, b.Pic,b.Location,b.Author, b.Id);
+            sql = string.Format("update T_book set name='{0}',price='{1}',category='{2}',press='{3}',totalAmount='{4}',loanAmount='{5}',pic='{6}',location='{7}',author='{8}',isCanLend='{9}',yearOfPublication='{10}' where ISBN='{11}'",b.Name, b.Price, b.Category, b.Press, b.TotalAmount, b.LoanAmount, b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication, b.iSBN);
             return CSDBC.ExecSqlCommand(sql);
         }
 
         ///删除
-        public static bool Delete(int id)
+        public static bool Delete(string id)
         {
-            sql = string.Format("Delete T_book where id='{0}'", id);
+            sql = string.Format("Delete T_book where ISBN='{0}'", id);
             return CSDBC.ExecSqlCommand(sql);
         }
 
         //取出单条
-        public static T_book GetDataByID(int id)
+        public static T_book GetDataByID(string id)
         {
             book = new T_book();
-            string sql = string.Format("select * from T_book where id='{0}'", id);
+            string sql = string.Format("select * from T_book where ISBN='{0}'", id);
             dr = CSDBC.GetDateRow(sql);
             try
             {
-                book.Id = int.Parse(dr["id"].ToString().Trim());
+                book.iSBN = dr["ISBN"].ToString().Trim();
                 book.Name = dr["name"].ToString().Trim();
                 book.Price = dr["price"].ToString().Trim();
                 book.Category = dr["category"].ToString().Trim();
@@ -60,6 +60,8 @@ namespace DAL
                 book.Pic = dr["pic"].ToString().Trim();
                 book.Location = dr["location"].ToString().Trim();
                 book.Author = dr["author"].ToString().Trim();
+                book.IsCanLend = dr["isCanLend"].ToString().Trim();
+                book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
                 return book;
             }
             catch
@@ -67,9 +69,9 @@ namespace DAL
         }
 
 
-        public static bool setLoanAmount(int id,int value)
+        public static bool setLoanAmount(string id,int value)
         {
-            sql = string.Format("update T_book set loanAmount='{0}' where id='{1}'", value,id);
+            sql = string.Format("update T_book set loanAmount='{0}' where ISBN='{1}'", value,id);
            return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -77,7 +79,7 @@ namespace DAL
         public static IList<T_book> GetAllData()
         {
             List<T_book> list = new List<T_book>();
-            sql = "select * from T_book order by id desc";
+            sql = "select * from T_book order by ISBN desc";
             ds = CSDBC.GetDataSet(sql);
             if (ds == null)
                 return null;
@@ -86,7 +88,7 @@ namespace DAL
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     T_book book = new T_book();
-                    book.Id = int.Parse(dr["id"].ToString().Trim());
+                    book.iSBN = dr["ISBN"].ToString().Trim();
                     book.Name = dr["name"].ToString().Trim();
                     book.Price = dr["price"].ToString().Trim();
                     book.Category = dr["category"].ToString().Trim();
@@ -96,6 +98,8 @@ namespace DAL
                     book.Pic = dr["pic"].ToString();
                     book.Location = dr["location"].ToString().Trim();
                     book.Author = dr["author"].ToString().Trim();
+                    book.IsCanLend = dr["isCanLend"].ToString().Trim();
+                    book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;
@@ -111,14 +115,19 @@ namespace DAL
         /// <returns>赋值成功则返回true，否则返回false</returns>
         public static bool set(T_book a, String type, String b)
         {
-            sql = "UPDATE T_book SET " + type + "=" + b + " WHERE id=" + a.Id;
+            sql = "UPDATE T_book SET " + type + "='" + b + "' WHERE ISBN=" + a.iSBN;
             return CSDBC.ExecSqlCommand(sql);
         }
 
+        public static bool setTotalAmount(T_book book, int value)
+        {
+            sql = string.Format("update T_book set totalAmount='{0}' where ISBN='{1}'", value, book.iSBN);
+            return CSDBC.ExecSqlCommand(sql);
+        }
 
         public static List<T_book> getBySql(String s)
         {
-            sql = "SELECT * FROM T_book " + s + " ORDER BY id ASC";
+            sql = "SELECT * FROM T_book " + s + " ORDER BY ISBN ASC";
             List<T_book> list = new List<T_book>();
             //sql = "SELECT * FROM T_Student WHERE " + type + "=" + b + " ORDER BY Id DESC";
             ds = CSDBC.GetDataSet(sql);
@@ -126,7 +135,7 @@ namespace DAL
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 T_book book = new T_book();
-                book.Id = int.Parse(dr["id"].ToString().Trim());
+                book.iSBN = dr["ISBN"].ToString().Trim();
                 book.Name = dr["name"].ToString().Trim();
                 book.Price = dr["price"].ToString().Trim();
                 book.Category = dr["category"].ToString().Trim();
@@ -136,6 +145,8 @@ namespace DAL
                 book.Pic = dr["pic"].ToString();
                 book.Location = dr["location"].ToString().Trim();
                 book.Author = dr["author"].ToString().Trim();
+                book.IsCanLend = dr["isCanLend"].ToString().Trim();
+                book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
                 list.Add(book);
             }
             return list;
@@ -152,7 +163,7 @@ namespace DAL
         {
             //return getBy("name", b);
             List<T_book> list = new List<T_book>();
-            sql = string.Format("select * from T_book where name like '%{0}%' order by id desc",b);
+            sql = string.Format("select * from T_book where name like '%{0}%' order by ISBN desc",b);
             ds = CSDBC.GetDataSet(sql);
             if (ds == null)
                 return null;
@@ -161,7 +172,7 @@ namespace DAL
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     T_book book = new T_book();
-                    book.Id = int.Parse(dr["id"].ToString().Trim());
+                    book.iSBN = dr["ISBN"].ToString().Trim();
                     book.Name = dr["name"].ToString().Trim();
                     book.Price = dr["price"].ToString().Trim();
                     book.Category = dr["category"].ToString().Trim();
@@ -171,6 +182,8 @@ namespace DAL
                     book.Pic = dr["pic"].ToString();
                     book.Location = dr["location"].ToString().Trim();
                     book.Author = dr["author"].ToString().Trim();
+                    book.IsCanLend = dr["isCanLend"].ToString().Trim();
+                    book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;
@@ -180,6 +193,38 @@ namespace DAL
         public static List<T_book> getByCategory(String b)
         {
             return getBy("category", b);
+        }
+
+
+        public static List<T_book> getByAuthor(String b)
+        {
+            //return getBy("author", b);
+            List<T_book> list = new List<T_book>();
+            sql = string.Format("select * from T_book where author like '%{0}%' order by ISBN desc", b);
+            ds = CSDBC.GetDataSet(sql);
+            if (ds == null)
+                return null;
+            else
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    T_book book = new T_book();
+                    book.iSBN = dr["ISBN"].ToString().Trim();
+                    book.Name = dr["name"].ToString().Trim();
+                    book.Price = dr["price"].ToString().Trim();
+                    book.Category = dr["category"].ToString().Trim();
+                    book.Press = dr["press"].ToString().Trim();
+                    book.TotalAmount = dr["totalAmount"].ToString().Trim();
+                    book.LoanAmount = dr["loanAmount"].ToString().Trim();
+                    book.Pic = dr["pic"].ToString();
+                    book.Location = dr["location"].ToString().Trim();
+                    book.Author = dr["author"].ToString().Trim();
+                    book.IsCanLend = dr["isCanLend"].ToString().Trim();
+                    book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
+                    list.Add(book);
+                }
+                return list;
+            }
         }
 
         /// <summary>

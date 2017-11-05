@@ -3,8 +3,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form-group">
-        <div class="col-sm-offset-4 col-md-8">
+        <div class="text-center">
             <h2>Please input the information of the book you want to add.</h2>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label8" runat="server" Text="book ID"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox7" ForeColor="Indigo"></asp:RequiredFieldValidator>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label9" runat="server" Text="ISBN"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please input the book's ISBN!" ControlToValidate="TextBox8" ForeColor="Indigo"></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -56,13 +74,12 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="TotalAmount" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="is Can Lend" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please input the book's total amount." ControlToValidate="TextBox1" ForeColor="Indigo" Display="Dynamic"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="The book's total amount format is incorrect." ValidationExpression="^[0-9]*[1-9][0-9]*$" ControlToValidate="TextBox1" ForeColor="Indigo"></asp:RegularExpressionValidator>
+            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" >
+                <asp:ListItem Value="1">yes</asp:ListItem>
+                <asp:ListItem Value="0">no</asp:ListItem>
+            </asp:DropDownList>
         </div>
     </div>     
     <div class="form-group">

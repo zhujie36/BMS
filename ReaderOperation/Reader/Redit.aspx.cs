@@ -20,14 +20,25 @@ namespace Reader
             TextBox6.Text = all.ID;
             TextBox6.Enabled = false;
             stu = all.READER;
+            for(int i=0; i<DropDownList1.Items.Count; i++)
+            {
+                if(DropDownList1.Items[i].Text.Trim() == stu.R_sex)
+                {
+                    DropDownList1.Items[i].Selected = true;
+                }
+            }
             TextBox1.Text = stu.R_name;
             TextBox1.Enabled = false;
+            TextBox3.Text = stu.R_state.ToString();
+            TextBox3.Enabled = false;
             if (!IsPostBack)
             {
                     TextBox2.Text = stu.R_pwd;
                     TextBox4.Text = stu.R_tel;
-                    TextBox5.Text = stu.R_addr;
-                }
+                    TextBox5.Text = stu.R_email;
+                    TextBox2.Visible = false;
+                    Panel1.Visible = false;
+            }
                // else
                    // Response.Redirect("IndexReader.aspx");
             
@@ -40,8 +51,9 @@ namespace Reader
             all.READER.R_name = TextBox1.Text.Trim();
             all.NAME = TextBox1.Text.Trim();
             all.READER.R_pwd = TextBox2.Text.Trim();
+            all.READER.R_sex = DropDownList1.SelectedItem.Text;
             all.READER.R_tel = TextBox4.Text.Trim();
-            all.READER.R_addr = TextBox5.Text.Trim();
+            all.READER.R_email = TextBox5.Text.Trim();
             bool result = T_ReaderBLL.Update(all.READER);
             if (result)
                 //Label1.Text = all.READER.R_tel;
@@ -55,6 +67,13 @@ namespace Reader
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("IndexReader.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Button3.Visible = false;
+            TextBox2.Visible = true;
+            Panel1.Visible = true;
         }
     }
 }

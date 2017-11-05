@@ -12,7 +12,7 @@ namespace Reader
     public partial class bookDelete : System.Web.UI.Page
     {
         private static T_book tbook;
-        private static int id;
+        private static string id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (all.ID == null)
@@ -23,7 +23,7 @@ namespace Reader
             {
                 if (Request.QueryString["ID"] != null)
                 {
-                    id = int.Parse(Request.QueryString["ID"].ToString().Trim());
+                    id = Request.QueryString["ID"].ToString().Trim();
                     tbook = T_bookBLL.GetDataByID(id);
                     TextBox1.Text = id.ToString();
                     TextBox1.Enabled = false;

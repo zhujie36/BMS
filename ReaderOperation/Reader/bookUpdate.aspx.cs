@@ -24,7 +24,7 @@ namespace Reader
             {
                 if (Request.QueryString["ID"] != null)
                 {
-                    id = int.Parse(Request.QueryString["ID"].ToString().Trim());
+                    string id = Request.QueryString["ID"].ToString().Trim();
                     tbook = T_bookBLL.GetDataByID(id);
                     TextBox1.Text = id.ToString();
                     TextBox1.Enabled = false;
@@ -35,7 +35,15 @@ namespace Reader
                     TextBox6.Text = tbook.TotalAmount; 
                     TextBox7.Text = tbook.Location;
                     TextBox8.Text = tbook.LoanAmount;
+                    for (int i = 0; i < DropDownList1.Items.Count; i++)
+                    {
+                        if (DropDownList1.Items[i].Value.Trim() == tbook.IsCanLend)
+                        {
+                            DropDownList1.Items[i].Selected = true;
+                        }
+                    }
                     writeTextBox.Text = tbook.Author;
+                    RangeValidator1.MaximumValue = tbook.TotalAmount;
                     Image1.ImageUrl = tbook.Pic;
 
                 }
@@ -54,6 +62,7 @@ namespace Reader
             tbook.Press = TextBox5.Text.Trim();
             tbook.TotalAmount = TextBox6.Text.Trim();
             tbook.LoanAmount = TextBox8.Text.Trim();
+            tbook.IsCanLend = DropDownList1.SelectedValue.Trim();
             tbook.Author = writeTextBox.Text.Trim();
             bool fileIsValid = false;
             if (FileUpload1.HasFile)

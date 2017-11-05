@@ -22,12 +22,12 @@ namespace BLL
             return T_bookDAL.Update(stu);
         }
 
-        public static bool Delete(int id)
+        public static bool Delete(string id)
         {
             return T_bookDAL.Delete(id);
         }
 
-        public static T_book GetDataByID(int id)
+        public static T_book GetDataByID(string id)
         {
             return T_bookDAL.GetDataByID(id);
         }
@@ -37,9 +37,9 @@ namespace BLL
             return T_bookDAL.getByName(name);
         }
 
-        public static List<T_book> GetByCategory(string c)
+        public static List<T_book> GetByAuthor(string c)
         {
-            return T_bookDAL.getByCategory(c);
+            return T_bookDAL.getByAuthor(c);
         }
         
 
@@ -49,9 +49,14 @@ namespace BLL
         }
 
 
-        public static bool setLoanAmount(int id, int value)
+        public static bool setLoanAmount(string id, int value)
         {
             return T_bookDAL.setLoanAmount(id,value);
+        }
+
+        public static bool setTotalAmount(T_book book, int value)
+        {
+            return T_bookDAL.set(book, "totalAmount", value.ToString());
         }
     }
 }

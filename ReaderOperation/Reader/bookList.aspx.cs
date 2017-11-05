@@ -30,7 +30,7 @@ namespace Reader
         {
             if (TextBox3.Text.Trim() != "")
             {
-                int id = int.Parse(TextBox3.Text.Trim());
+                string id = TextBox3.Text.Trim();
                 List<T_book> lb = new List<T_book>();
                 lb.Add(T_bookBLL.GetDataByID(id));
                 LBook.DataSource = lb; 
@@ -43,7 +43,7 @@ namespace Reader
             else if(TextBox1.Text.Trim() != "")
             {
                 string category = TextBox1.Text.Trim();
-                LBook.DataSource = T_bookBLL.GetByCategory(category);
+                LBook.DataSource = T_bookBLL.GetByAuthor(category);
             }
             else
             {

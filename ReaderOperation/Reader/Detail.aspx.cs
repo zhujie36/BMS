@@ -59,7 +59,7 @@ namespace Reader
 
 
             ///获得借阅读书的编号
-            int bookid = Convert.ToInt32(Request.QueryString["BookID"]);
+            string bookid = Request.QueryString["BookID"];
             T_book book = T_bookBLL.GetDataByID(bookid);
             int loan = int.Parse(book.LoanAmount);
 
