@@ -5,10 +5,11 @@ using System.Text;
 
 namespace Model
 {
-    public class bookID
+    public class T_bookID
     {
         private string book_id;
         private string ISBN;
+        private int inLibrarain;
 
         public string Book_id
         {
@@ -16,18 +17,26 @@ namespace Model
             set { book_id = value; }
         }
 
+        public int  InLibrarain
+        {
+            get { return inLibrarain; }
+            set { inLibrarain = value; }
+        }
+
+
+
         public string iSBN
         {
             get { return ISBN; }
             set { ISBN = value; }
         }
 
-        public bookID()
+        public T_bookID()
         {
 
         }
 
-        public bookID(string id, string isbn)
+        public T_bookID(string id, string isbn)
         {
             book_id = id;
             ISBN = isbn;

@@ -17,6 +17,7 @@ namespace Model
         private string tel;
         private string email;
         private float state;
+        private int booknumber;
         #endregion
 
         #region properties
@@ -32,6 +33,12 @@ namespace Model
             get { return state; }
             set { state = value; }
         }
+        public int R_booknumber
+        {
+            get { return booknumber; }
+            set { booknumber = value; }
+        }
+
 
         public string R_id
         {

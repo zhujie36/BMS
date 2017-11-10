@@ -9,7 +9,7 @@ namespace BLL
     public class T_bookIDBLL
     {
         //添加
-        public static bool Add(bookID b, T_book book)
+        public static bool Add(T_bookID b, T_book book)
         {
             bool result1 = T_bookIDDAL.Add(b);
             bool result2 = true;
@@ -37,7 +37,7 @@ namespace BLL
         }
 
         ///删除
-        public static bool Delete(bookID b)
+        public static bool Delete(T_bookID b)
         {
             bool result1 = T_bookIDDAL.Delete(b.Book_id);
             if(result1)
@@ -73,9 +73,28 @@ namespace BLL
         }
 
         //取出全部
-        public static IList<bookID> GetAllData()
+        public static IList<T_bookID> GetAllData()
         {
             return T_bookIDDAL.GetAllData();
+        }
+
+        public static T_bookID GetDataByID(string id)
+        {
+            return T_bookIDDAL.GetDataByID(id);
+        }
+
+
+        //由book_id查询inLibrarain
+        public static int GetInLibrarainByID(string ID)
+        {
+            return T_bookIDDAL.GetInLibrarainByID(ID);
+        }
+
+
+        ///用Book_id设置inLibrarain值
+        public static bool setInLibrarain(string id, int value)
+        {
+            return T_bookIDDAL.setInLibrarain(id, value);
         }
     }
 }

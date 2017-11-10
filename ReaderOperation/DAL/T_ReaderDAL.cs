@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using System.Data;
+
+
 namespace DAL
 {
     public class T_ReaderDAL
@@ -16,7 +18,7 @@ namespace DAL
 
         public static bool Add(T_Reader stu)//添加
         {
-            sql = string.Format("insert into T_Reader (R_id,R_name,R_pwd,R_sex,R_cred,R_tel,R_email,R_state) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",stu.R_id, stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_email,0);
+            sql = string.Format("insert into T_Reader (R_id,R_name,R_pwd,R_sex,R_cred,R_tel,R_email,R_state,R_booknumber) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",stu.R_id, stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_email,0,0);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -26,11 +28,19 @@ namespace DAL
             return CSDBC.ExecSqlCommand(sql);
         }
 
-        public static bool setState(string name, float state)//编辑
+        public static bool setState(string id, float state)//编辑
         {
-            sql = string.Format("update T_Reader set R_state='{0}' where R_id={1}", state, name);
+            sql = string.Format("update T_Reader set R_state='{0}' where R_id={1}", state, id);
             return CSDBC.ExecSqlCommand(sql);
         }
+
+
+        public static bool setBookNumber(string id, int n)//编辑
+        {
+            sql = string.Format("update T_Reader set R_booknumber='{0}' where R_id={1}", n, id);
+            return CSDBC.ExecSqlCommand(sql);
+        }
+
 
         public static bool Delete(string id)
         {
@@ -53,6 +63,7 @@ namespace DAL
                 stu.R_tel = dr["R_tel"].ToString().Trim();
                 stu.R_email = dr["R_email"].ToString().Trim();
                 stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
+                stu.R_booknumber = int.Parse(dr["R_booknumber"].ToString().Trim());
                 return stu;
             }
             catch
@@ -79,10 +90,51 @@ namespace DAL
                     stu.R_tel = dr["R_tel"].ToString().Trim();
                     stu.R_email = dr["R_email"].ToString().Trim();
                     stu.R_state = float.Parse(dr["R_state"].ToString().Trim());
+                    stu.R_booknumber = int.Parse(dr["R_booknumber"].ToString().Trim());
                     list.Add(stu);
                 }
                 return list;
             }
+        }
+
+
+        /// <summary>
+        /// 判断现在是否可以借书
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static bool judgeBorrow(string id)
+        {
+            T_Reader reader = T_ReaderDAL.GetDataByID(id);
+            if (reader.R_state < 0)
+                return false;
+
+
+            if(reader.R_booknumber > 1)
+                return false;
+            
+
+
+            List<BorrowList> list = BorrowListDAL.GetAllByReader(id);
+            if (list != null)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if(list[i].Ret == 0)
+                    {
+                        ///获得现在距离借阅时的时间
+                        DateTime now = DateTime.Now;
+                        DateTime borrow = list[i].StartTime;
+                        System.TimeSpan time = now - borrow;
+                        double days = time.TotalDays;
+
+                        if (days > 30)
+                            return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         public static IList<T_Reader> GetAllData()//取出全部

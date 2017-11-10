@@ -125,6 +125,7 @@
     <Content Include="images\sy2.JPG" />
     <Content Include="images\tableftJ.gif" />
     <Content Include="images\tabrightJ.gif" />
+    <Content Include="images\tree_jia.gif" />
     <Content Include="images\WN.jpg" />
     <Content Include="images\兰花.jpg" />
     <Content Include="images\叶子.jpg" />
@@ -145,6 +146,7 @@
     <Content Include="RBorrowlist.aspx" />
     <Content Include="Redit.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="Return.aspx" />
     <Content Include="test.aspx" />
     <Content Include="test2.aspx" />
     <Content Include="test3.html" />
@@ -305,6 +307,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return.aspx.cs">
+      <DependentUpon>Return.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return.aspx.designer.cs">
+      <DependentUpon>Return.aspx</DependentUpon>
     </Compile>
     <Compile Include="RNacigator.Master.cs">
       <DependentUpon>RNacigator.Master</DependentUpon>

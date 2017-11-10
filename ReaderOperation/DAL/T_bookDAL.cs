@@ -36,17 +36,17 @@ namespace DAL
         }
 
         ///删除
-        public static bool Delete(string id)
+        public static bool Delete(string isbn)
         {
-            sql = string.Format("Delete T_book where ISBN='{0}'", id);
+            sql = string.Format("Delete T_book where ISBN='{0}'", isbn);
             return CSDBC.ExecSqlCommand(sql);
         }
 
         //取出单条
-        public static T_book GetDataByID(string id)
+        public static T_book GetDataByID(string isbn)
         {
             book = new T_book();
-            string sql = string.Format("select * from T_book where ISBN='{0}'", id);
+            string sql = string.Format("select * from T_book where ISBN='{0}'", isbn);
             dr = CSDBC.GetDateRow(sql);
             try
             {
@@ -69,11 +69,7 @@ namespace DAL
         }
 
 
-        public static bool setLoanAmount(string id,int value)
-        {
-            sql = string.Format("update T_book set loanAmount='{0}' where ISBN='{1}'", value,id);
-           return CSDBC.ExecSqlCommand(sql);
-        }
+       
 
         //取出全部
         public static IList<T_book> GetAllData()
@@ -118,10 +114,17 @@ namespace DAL
             sql = "UPDATE T_book SET " + type + "='" + b + "' WHERE ISBN=" + a.iSBN;
             return CSDBC.ExecSqlCommand(sql);
         }
+        
 
         public static bool setTotalAmount(T_book book, int value)
         {
             sql = string.Format("update T_book set totalAmount='{0}' where ISBN='{1}'", value, book.iSBN);
+            return CSDBC.ExecSqlCommand(sql);
+        }
+
+        public static bool setLoanAmount(string isbn, int value)
+        {
+            sql = string.Format("update T_book set loanAmount='{0}' where ISBN='{1}'", value, isbn);
             return CSDBC.ExecSqlCommand(sql);
         }
 

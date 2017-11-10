@@ -20,7 +20,7 @@ namespace Reader
         }
 
         T_book book = new T_book();
-        bookID bi = new bookID();
+        T_bookID bi = new T_bookID();
         protected void Button1_Click(object sender, EventArgs e)
         {
             bi.Book_id = TextBox7.Text.Trim();

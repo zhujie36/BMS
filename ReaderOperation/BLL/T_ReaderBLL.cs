@@ -45,9 +45,30 @@ namespace BLL
             return T_ReaderDAL.GetAllData();
         }
 
-        public static bool setState(string name, float state)
+        public static bool setState(string id, float state)
         {
-            return T_ReaderDAL.setState(name, state);
+            return T_ReaderDAL.setState(id, state);
+        }
+
+        public static bool setBookNumber(string id, int n)
+        {
+            return T_ReaderDAL.setBookNumber(id, n);
+        }
+
+        public static bool judgeBorrow(string id)
+        {
+            return T_ReaderDAL.judgeBorrow(id);
+        }
+
+        public static int getBookNumber(string id)
+        {
+            T_Reader reader = T_ReaderDAL.GetDataByID(id);
+            if (reader == null)
+                return -1;
+            else
+            {
+                return reader.R_booknumber;
+            }
         }
     }
 }

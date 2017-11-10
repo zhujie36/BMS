@@ -13,13 +13,23 @@ namespace Model
         #region fields
         private int borrowID;
         private String bookName;
-        private int bookID;
+        private string bookID;
         private string reader;
+        private int ret;
         private DateTime startTime;
+        private DateTime returnTime;
+
         private String pic;
         private string num;
         private double money;
         #endregion
+
+        public int Ret
+        {
+            get { return ret; }
+            set { ret = value; }
+        }
+
 
 
         public string Num
@@ -56,7 +66,7 @@ namespace Model
         /// <summary>
         /// 书
         /// </summary>
-        public int BookID
+        public string BookID
         {
             get { return bookID; }
             set { bookID = value; }
@@ -86,12 +96,16 @@ namespace Model
             set { startTime = value; }
         }
         #endregion
-
+        public DateTime ReturnTime
+        {
+            get { return returnTime; }
+            set { returnTime = value; }
+        }
 
         /// <summary>
         /// constructor
         /// </summary>
-        public BorrowList(int bookiD, string reader, String bookname, DateTime time,String p,string number)
+        public BorrowList(string bookiD, string reader, String bookname, DateTime time,String p,string number)
         {
             bookID = bookiD;
             this.reader = reader;
@@ -99,6 +113,7 @@ namespace Model
             startTime = time;
             pic = p;
             num = number;
+            ret = 0;
         }
         public BorrowList()
         {

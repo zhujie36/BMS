@@ -9,24 +9,33 @@ namespace DAL
     public class T_bookIDDAL
     {
         private static String sql;
-        private static bookID book;
+        private static T_bookID book;
         private static DataSet ds;
         private static DataRow dr;
 
-
-        ///添加
-        public static bool Add(bookID b)
+        ///用Book_id设置inLibrarain值
+        public static bool setInLibrarain(string id,int value)
         {
-            
-            sql = string.Format("insert into T_bookID (book_id,ISBN) values ('{0}','{1}')", b.Book_id,b.iSBN);
+            sql = string.Format("update T_bookID set inLibrarain='{0}' where book_id='{1}'", value,id);
             return CSDBC.ExecSqlCommand(sql);
         }
 
+
+
+        ///添加
+        public static bool Add(T_bookID b)
+        {
+            
+            sql = string.Format("insert into T_bookID (book_id,ISBN,inLibrarain) values ('{0}','{1}','{2}')", b.Book_id,b.iSBN,1);
+            return CSDBC.ExecSqlCommand(sql);
+        }
+
+
         ///编辑
-        public static bool Update(bookID b)
+        public static bool Update(T_bookID b)
         {
             //sql = string.Format("update T_book set id='{0}',name='{1}',price='{2}',category='{3}',press='{4}',isLend='{5}' where id='{6}'", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend, b.Id);
-            sql = string.Format("update T_bookID set ISBN='{0} where book_id='{1}'",b.iSBN,b.Book_id);
+            sql = string.Format("update T_bookID set ISBN='{0}' where book_id='{1}'",b.iSBN,b.Book_id);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -38,15 +47,16 @@ namespace DAL
         }
 
         //取出单条
-        public static bookID GetDataByID(string id)
+        public static T_bookID GetDataByID(string id)
         {
-            book = new bookID();
+            book = new T_bookID();
             string sql = string.Format("select * from T_bookID where book_id='{0}'", id);
             dr = CSDBC.GetDateRow(sql);
             try
             {
                 book.Book_id = dr["book_id"].ToString().Trim();
                 book.iSBN = dr["ISBN"].ToString().Trim();
+                book.InLibrarain = Convert.ToInt32(dr["inLibrarain"].ToString().Trim());
                 return book;
             }
             catch
@@ -67,12 +77,31 @@ namespace DAL
             catch
             { return null; }
         }
-        
+
+
+        //由book_id查询inLibrarain
+        public static int GetInLibrarainByID(string ID)
+        {
+            int a;
+            string sql = string.Format("select * from T_bookID where book_id='{0}'", ID);
+            dr = CSDBC.GetDateRow(sql);
+
+            try
+            {
+                a = Convert.ToInt32(dr["inLibrarain"].ToString().Trim());
+                return a;
+            }
+            catch
+            { return -1; }
+        }
+
+
+
 
         //取出全部
-        public static IList<bookID> GetAllData()
+        public static IList<T_bookID> GetAllData()
         {
-            List<bookID> list = new List<bookID>();
+            List<T_bookID> list = new List<T_bookID>();
             sql = "select * from T_bookID order by book_id desc";
             ds = CSDBC.GetDataSet(sql);
             if (ds == null)
@@ -81,9 +110,10 @@ namespace DAL
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    bookID book = new bookID();
+                    T_bookID book = new T_bookID();
                     book.Book_id = dr["book_id"].ToString().Trim();
                     book.iSBN = dr["ISBN"].ToString().Trim();
+                    book.InLibrarain = Convert.ToInt32(dr["inLibrarain"].ToString().Trim());
                     list.Add(book);
                 }
                 return list;
