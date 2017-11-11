@@ -59,10 +59,10 @@
                         <div>
                             <div class="col-sm-6">
                                 <label class="col-sm-4">
-                                    category:
+                                    TimeOfPublication:
                                 </label>
                                 <label class="col-sm-8">
-                                    <%#Eval("category") %>
+                                    <%#Eval("yearOfPublication") %>
                                 </label>                                 
                             </div>
                             <div class="col-sm-6">
@@ -98,6 +98,16 @@
                                 <label class="col-sm-6">
                                     <%#Eval("isCanLend") %>
                                 </label>                                
+                            </div>
+                        </div>
+                        <div style="padding-top:10px">
+                            <div>
+                                <label>
+                                    <b>Brief</b>
+                                </label>
+                            </div>
+                            <div>
+                                <%#Eval("brief") %>
                             </div>
                         </div>
                     </div>

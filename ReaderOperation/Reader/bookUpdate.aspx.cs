@@ -30,11 +30,12 @@ namespace Reader
                     TextBox1.Enabled = false;
                     TextBox2.Text = tbook.Name;
                     TextBox3.Text = tbook.Price;
-                    TextBox4.Text = tbook.Category;
+                    TextBox4.Text = tbook.YearOfPublication;
                     TextBox5.Text = tbook.Press;
                     TextBox6.Text = tbook.TotalAmount; 
                     TextBox7.Text = tbook.Location;
                     TextBox8.Text = tbook.LoanAmount;
+                    TextBox9.Text = tbook.Brief;
                     for (int i = 0; i < DropDownList1.Items.Count; i++)
                     {
                         if (DropDownList1.Items[i].Value.Trim() == tbook.IsCanLend)
@@ -58,12 +59,13 @@ namespace Reader
         {
             tbook.Name = TextBox2.Text.Trim();
             tbook.Price = TextBox3.Text.Trim();
-            tbook.Category = TextBox4.Text.Trim();
+            tbook.YearOfPublication = TextBox4.Text.Trim();
             tbook.Press = TextBox5.Text.Trim();
             tbook.TotalAmount = TextBox6.Text.Trim();
             tbook.LoanAmount = TextBox8.Text.Trim();
             tbook.IsCanLend = DropDownList1.SelectedValue.Trim();
             tbook.Author = writeTextBox.Text.Trim();
+            tbook.Brief = TextBox9.Text.Trim();
             bool fileIsValid = false;
             if (FileUpload1.HasFile)
             {

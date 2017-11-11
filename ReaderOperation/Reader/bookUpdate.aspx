@@ -33,21 +33,21 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label4" runat="server" Text="category" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
-        <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox4" ForeColor="Indigo"  ErrorMessage="Please input the book's cateory." ></asp:RequiredFieldValidator>
-        </div>
-    </div>
-    <div class="form-group">
         <asp:Label ID="writerLabel" runat="server" Text="author" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="writeTextBox" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="writeTextBox" ForeColor="Indigo" ErrorMessage="Please input the book's author."></asp:RequiredFieldValidator>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label4" runat="server" Text="TimeOfPublication" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox4" ForeColor="Indigo"  ErrorMessage="Please input the book's cateory." ></asp:RequiredFieldValidator>
         </div>
     </div>
     <div class="form-group">
@@ -108,6 +108,12 @@
     <div class="form-group">
         <div class="col-sm-offset-5 col-sm-3">
             <asp:Image ID="Image1" runat="server" Width="150px" Height="200px" CssClass="img-thumbnail" />
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label11" runat="server" Text="Brief:" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-6 col-md-6">
+            <asp:TextBox ID="TextBox9" runat="server"  CssClass="form-control" TextMode="MultiLine" Height="100px"></asp:TextBox>
         </div>
     </div>
     <div class="form-group">           

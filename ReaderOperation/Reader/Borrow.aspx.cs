@@ -37,9 +37,19 @@ namespace Reader
             {
                 ///判断是否已被借出
                 T_bookID BID = T_bookIDBLL.GetDataByID(book_id);
+                if(BID == null)
+                {
+                    Panel2.Visible = true;
+                    Label4.Text = "cannot get the book information!";
+                }
                 int flag1 = BID.InLibrarain;
                 if(flag1 == 0)
+                {
+                    Panel2.Visible = true;
+                    Label4.Text = "this book isn't in library!";
                     return;
+                }
+                    
                
                
 
@@ -87,8 +97,8 @@ namespace Reader
                         Panel2.Visible = true;
                         Label4.Text = "Borrow succeed!";
                     }
-                        /*
-                        int loan = 1 + int.Parse(book.LoanAmount);
+                        
+                       /* int loan = 1 + int.Parse(book.LoanAmount);
                         bool result1 = T_bookBLL.setLoanAmount(isbn, loan);
 
                         ///插入借阅记录
@@ -112,12 +122,12 @@ namespace Reader
             else
             {
                 ///判断是否已被借出
-                /*int flag1 = T_bookIDBLL.GetInLibrarainByID(book_id);
+                int flag1 = T_bookIDBLL.GetInLibrarainByID(book_id);
                 if (flag1 == 0)
                 {
                     Label4.Text = "The first book has already be lent!";
                     return;
-                }*/
+                }
 
                 ///判断是否已被借出
                 int flag2 = T_bookIDBLL.GetInLibrarainByID(book2);
@@ -128,7 +138,7 @@ namespace Reader
                 }
 
                 string isbn2 = T_bookIDBLL.GetISBNByID(book2);
-                /* if (isbn == null && isbn2 != null)
+                if (isbn == null && isbn2 != null)
                  {
                      //Response.Write("<script>alert('cannot get book information!')</script>");
                      Panel2.Visible = true;
@@ -141,19 +151,18 @@ namespace Reader
                      Label4.Text = "cannot get the second book information!";
                      return;
                  }
-                 else */
-                if (isbn2 == null)
+                 else if (isbn2 == null && isbn == null)
                 {
                     Panel2.Visible = true;
-                    Label4.Text = "cannot get the second book information!";
+                    Label4.Text = "cannot get the both book information!";
                     return;
                 }
                 else
                 {
-                    //T_book book = T_bookBLL.GetDataByID(isbn);
+                    T_book book = T_bookBLL.GetDataByID(isbn);
                     T_book b2 = T_bookBLL.GetDataByID(isbn2);
                     ///该书是否可借
-                    /*if (Convert.ToInt32(book.IsCanLend) == 0 && Convert.ToInt32(b2.IsCanLend) != 0)
+                    if (Convert.ToInt32(book.IsCanLend) == 0 && Convert.ToInt32(b2.IsCanLend) != 0)
                     {
                         //Response.Write("<script>alert('The book can not lend!')</script>");
                         Panel2.Visible = true;
@@ -167,19 +176,18 @@ namespace Reader
                         Label4.Text = "The second book can not lend!";
                         return;
                     }
-                    elsr*/
-                    if (Convert.ToInt32(b2.IsCanLend) == 0)
+                    else if (Convert.ToInt32(book.IsCanLend) == 0 && Convert.ToInt32(b2.IsCanLend) == 0)
                     {
                         //Response.Write("<script>alert('The book can not lend!')</script>");
                         Panel2.Visible = true;
-                        Label4.Text = "The both second can not lend!";
+                        Label4.Text = "The both book can not lend!";
                         return;
                     }
-                    //bool r1 = BorrowListBLL.borrowBook(reader_id, book_id);
+                    bool r1 = BorrowListBLL.borrowBook(reader_id, book_id);
                     bool r2 = BorrowListBLL.borrowBook(reader_id, book2);
 
 
-                    /* if (!r1 && r2)
+                     if (!r1 && r2)
                      {
                          Panel2.Visible = true;
                          Label4.Text = "The first book borrow failed!";
@@ -189,8 +197,7 @@ namespace Reader
                          Panel2.Visible = true;
                          Label4.Text = "The second book borrow failed!";
                      }
-                     else */
-                    if (!r2)
+                     else if (!r2 && !r1)
                     {
                         Panel2.Visible = true;
                         Label4.Text = "The both book borrow failed!";
@@ -211,17 +218,18 @@ namespace Reader
             Response.Redirect("IndexLibrarian.aspx");
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+       
+        protected void Button3_Click1(object sender, EventArgs e)
         {
-            if(Panel1.Visible == false)
+            if (Panel1.Visible == false)
             {
                 string reader_id = TextBox1.Text.Trim();
-                if(!T_ReaderBLL.judgeBorrow(reader_id))
+                if (!T_ReaderBLL.judgeBorrow(reader_id))
                 {
                     Label4.Text = "You have already borrowed 2 books or you have books exceed 30 days time,so you can not borrow books now!Please pay the fine or return your books!";
                     Panel2.Visible = true;
                 }
-                else if(T_ReaderBLL.getBookNumber(reader_id) == 1)
+                else if (T_ReaderBLL.getBookNumber(reader_id) == 1)
                 {
                     Label4.Text = "You only can borrow a book!";
                     Panel2.Visible = true;
@@ -229,7 +237,7 @@ namespace Reader
                 else
                 {
                     Panel1.Visible = true;
-                } 
+                }
             }
             else
             {

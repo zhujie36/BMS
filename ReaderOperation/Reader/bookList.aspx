@@ -5,7 +5,7 @@
     
     <div class="form-group">
         <div style="width:100%; text-align:center">
-            <h2>Book Search</h2>
+            <h2>Modify book information</h2>
         </div>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
             <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" CssClass="btn btn-primary" />
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button3" runat="server" Text="Return" OnClick="Button3_Click" CssClass="btn btn-default" />
+            <asp:Button ID="Button3" runat="server" Text="Return" OnClick="Button3_Click" CssClass="btn btn-default" UseSubmitBehavior="False" />
         </div>
     </div>
     <table class="table table-hover table-responsive table-striped text-center">
@@ -44,10 +44,10 @@
                 Price
             </th>
             <th class="text-center">
-                Category
+                author
             </th>
             <th class="text-center">
-                author
+                TimeOfPublication
             </th>
             <th class="text-center">
                 Press
@@ -86,10 +86,10 @@
                         <%#Eval("price") %>
                     </td>
                     <td style="vertical-align:middle">
-                        <%#Eval("category") %>
+                        <%#Eval("author") %>
                     </td>
                     <td style="vertical-align:middle">
-                        <%#Eval("author") %>
+                        <%#Eval("yearOfPublication") %>
                     </td>
                     <td style="vertical-align:middle">
                         <%#Eval("press") %>

@@ -39,7 +39,9 @@ namespace Reader
                 bool result = BorrowListBLL.bookReturn(book_id);
                 if(result == true)
                 {
-                    Response.Write("Return succeed!");
+                    Panel2.Visible = true;
+                    Label4.Text = "Return succeed!";
+                    TextBox2.Text = "";
                 }
                 else
                 {
@@ -48,8 +50,6 @@ namespace Reader
                     Label4.Text = "Return failed!";
                 }
             }
-            TextBox2.Text = "";
-
         }
 
 

@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="category" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Author" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
         <div class="col-sm-2">
             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
@@ -24,7 +24,7 @@
             <asp:Button ID="Button2" runat="server" Text="search" OnClick="Button2_Click" CssClass="btn btn-primary" />
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button3" runat="server" Text="return" OnClick="Button3_Click" CssClass="btn btn-default" />
+            <asp:Button ID="Button3" runat="server" Text="return" OnClick="Button3_Click" CssClass="btn btn-default" UseSubmitBehavior="False" />
         </div>
     </div>
     <div class="form-group text-right">
@@ -46,10 +46,13 @@
                 Name
             </th>
             <th class="text-center">
+                Author
+            </th>
+            <th class="text-center">
                 Price
             </th>
             <th class="text-center">
-                Category
+                Year Of Publication
             </th>
             <th class="text-center">
                 Press
@@ -82,10 +85,13 @@
                         <%#Eval("name") %>
                     </td>
                     <td style="vertical-align:middle">
+                        <%#Eval("author") %>
+                    </td>
+                    <td style="vertical-align:middle">
                         <%#Eval("price") %>
                     </td>
                     <td style="vertical-align:middle">
-                        <%#Eval("category") %>
+                        <%#Eval("yearOfPublication") %>
                     </td>
                     <td style="vertical-align:middle">
                         <%#Eval("press") %>

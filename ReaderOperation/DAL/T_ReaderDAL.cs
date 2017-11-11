@@ -18,7 +18,7 @@ namespace DAL
 
         public static bool Add(T_Reader stu)//添加
         {
-            sql = string.Format("insert into T_Reader (R_id,R_name,R_pwd,R_sex,R_cred,R_tel,R_email,R_state,R_booknumber) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",stu.R_id, stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_email,0,0);
+            sql = string.Format("insert into T_Reader (R_id,R_name,R_pwd,R_sex,R_cred,R_tel,R_email,R_state,R_booknumber) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",stu.R_id, stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_email,0,0);
             return CSDBC.ExecSqlCommand(sql);
         }
 

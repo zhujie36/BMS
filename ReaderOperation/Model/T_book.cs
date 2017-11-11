@@ -24,6 +24,14 @@ namespace Model
         private string author;
         private string isCanLend;
         private string yearOfPublucation;
+        private string brief;
+
+
+        public string Brief
+        {
+            get { return brief; }
+            set { brief = value; }
+        }
        
 
         public string IsCanLend

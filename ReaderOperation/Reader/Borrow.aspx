@@ -22,7 +22,7 @@
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
         </div>
         <div class="col-sm-1" style="vertical-align:middle">
-            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/tree_jia.gif" OnClick="ImageButton1_Click" CausesValidation="False" />
+            <asp:Button ID="Button3" runat="server" Text="again" CausesValidation="False" OnClick="Button3_Click1" UseSubmitBehavior="False" />
         </div>
         <div class="col-sm-3">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the book ID." ForeColor="Indigo" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
@@ -53,10 +53,10 @@
     </div>
     <div class="form-group">       
         <div class="col-sm-offset-4 col-sm-1" style="padding-left:20px">
-            <asp:Button ID="Button1" runat="server" Text="sumbit" OnClick="Button1_Click" CssClass="btn btn-primary" TabIndex="4" />
+            <asp:Button ID="Button1" runat="server" Text="sumbit" OnClick="Button1_Click" CssClass="btn btn-primary" TabIndex="4" UseSubmitBehavior="False" />
         </div>
         <div class=" col-sm-1" style="padding-left:20px">
-            <asp:Button ID="Button2" runat="server" Text="cancel" CssClass="btn btn-default" CausesValidation="False" OnClick="Button2_Click" TabIndex="5" />
+            <asp:Button ID="Button2" runat="server" Text="cancel" CssClass="btn btn-default" CausesValidation="False" OnClick="Button2_Click" TabIndex="5" UseSubmitBehavior="False" />
         </div>
     </div>
 

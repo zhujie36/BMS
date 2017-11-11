@@ -22,7 +22,7 @@ namespace DAL
         public static bool Add(T_book b)
         {
             //sql = string.Format("insert into T_book (Name,Sex) values ('{0}','{1}','{2}','{3}','{4}','{5}')", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend);
-           sql = string.Format("insert into T_book (ISBN,name,price,category,press,totalAmount,loanAmount,pic,location,author,isCanLend,yearOfPublication) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",b.iSBN,b.Name, b.Price, b.Category, b.Press,1,0,b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication);
+           sql = string.Format("insert into T_book (ISBN,name,price,category,press,totalAmount,loanAmount,pic,location,author,isCanLend,yearOfPublication,brief) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",b.iSBN,b.Name, b.Price, b.Category, b.Press,1,0,b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication, b.Brief);
            //sql = string.Format("insert into T_book (name,price,category,press,isLend) values ('{0}','{1}','{2}','{3}','{4}')",2, 2, 1, 1,1);
             return CSDBC.ExecSqlCommand(sql);
         }
@@ -31,7 +31,7 @@ namespace DAL
         public static bool Update(T_book b)
         {
             //sql = string.Format("update T_book set id='{0}',name='{1}',price='{2}',category='{3}',press='{4}',isLend='{5}' where id='{6}'", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend, b.Id);
-            sql = string.Format("update T_book set name='{0}',price='{1}',category='{2}',press='{3}',totalAmount='{4}',loanAmount='{5}',pic='{6}',location='{7}',author='{8}',isCanLend='{9}',yearOfPublication='{10}' where ISBN='{11}'",b.Name, b.Price, b.Category, b.Press, b.TotalAmount, b.LoanAmount, b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication, b.iSBN);
+            sql = string.Format("update T_book set name='{0}',price='{1}',category='{2}',press='{3}',totalAmount='{4}',loanAmount='{5}',pic='{6}',location='{7}',author='{8}',isCanLend='{9}',yearOfPublication='{10}', brief='{11}' where ISBN='{12}'",b.Name, b.Price, b.Category, b.Press, b.TotalAmount, b.LoanAmount, b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication, b.Brief, b.iSBN);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -62,6 +62,7 @@ namespace DAL
                 book.Author = dr["author"].ToString().Trim();
                 book.IsCanLend = dr["isCanLend"].ToString().Trim();
                 book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
+                book.Brief = dr["brief"].ToString().Trim();
                 return book;
             }
             catch
@@ -96,6 +97,7 @@ namespace DAL
                     book.Author = dr["author"].ToString().Trim();
                     book.IsCanLend = dr["isCanLend"].ToString().Trim();
                     book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
+                    book.Brief = dr["brief"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;
@@ -150,6 +152,7 @@ namespace DAL
                 book.Author = dr["author"].ToString().Trim();
                 book.IsCanLend = dr["isCanLend"].ToString().Trim();
                 book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
+                book.Brief = dr["brief"].ToString().Trim();
                 list.Add(book);
             }
             return list;
@@ -187,6 +190,7 @@ namespace DAL
                     book.Author = dr["author"].ToString().Trim();
                     book.IsCanLend = dr["isCanLend"].ToString().Trim();
                     book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
+                    book.Brief = dr["brief"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;
@@ -224,6 +228,7 @@ namespace DAL
                     book.Author = dr["author"].ToString().Trim();
                     book.IsCanLend = dr["isCanLend"].ToString().Trim();
                     book.YearOfPublication = dr["yearOfPublication"].ToString().Trim();
+                    book.Brief = dr["brief"].ToString().Trim();
                     list.Add(book);
                 }
                 return list;
