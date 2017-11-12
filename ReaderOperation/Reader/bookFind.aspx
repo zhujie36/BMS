@@ -28,6 +28,7 @@
 
     <asp:Repeater ID="LBook" runat="server">
             <ItemTemplate>
+                <a href="RBookIntro.aspx?id=<%#Eval("ISBN") %>"  >
                  <div class="form-group bigger" style="padding:12px; ">
                     <div class="col-sm-offset-2 col-sm-2">
                         <img width="120" height="140" src='<%#Eval("Pic") %>' alt="Didn't upload book picture." class="img-rounded" />
@@ -100,22 +101,13 @@
                                 </label>                                
                             </div>
                         </div>
-                        <div style="padding-top:10px">
-                            <div>
-                                <label>
-                                    <b>Brief</b>
-                                </label>
-                            </div>
-                            <div>
-                                <%#Eval("brief") %>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-sm-2">
                         <a></a>
                     </div>
                 </div>
+                </a>
             </ItemTemplate>
         </asp:Repeater>
-        </div>
+        
 </asp:Content>

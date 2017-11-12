@@ -2,12 +2,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headstyle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  1<asp:TextBox ID="TextBox1" runat="server" AutoCompleteType="Email"></asp:TextBox><br />
-
-    2<asp:TextBox ID="TextBox2" runat="server" TabIndex="1"></asp:TextBox><br />
-    3<asp:TextBox ID="TextBox3" runat="server" TabIndex="2"></asp:TextBox><br />
-    4<asp:TextBox ID="TextBox4" runat="server" TabIndex="3"></asp:TextBox><br />
-    <asp:Button ID="Button2" runat="server" Text="Button" TabIndex="4" OnClick="Button2_Click" />
-    <asp:Button ID="Button1" runat="server" Text="Button" TabIndex="4" OnClick="Button1_Click1"/>
-    
+  <div class="form-group">
+      <asp:Label ID="Label1" runat="server" Text="name:" CssClass="col-sm-4 control-label"></asp:Label>
+      <div class="col-sm-4">
+          <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+      </div>
+  </div>
+  <div class="form-group">
+      <asp:Label ID="Label2" runat="server" Text="password:" CssClass="col-sm-4 control-label"></asp:Label>
+      <div class="col-sm-4">
+          <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+      </div>
+  </div>
+    <div class="form-group text-center">
+        <asp:Button ID="Button1" runat="server" Text="sumbit" OnClick="Button1_Click" CssClass="btn btn-default" />
+    </div>
 </asp:Content>

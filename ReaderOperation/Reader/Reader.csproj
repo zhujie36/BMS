@@ -143,6 +143,7 @@
     <Content Include="LRegister.aspx" />
     <Content Include="LwirteOff.aspx" />
     <Content Include="payFine.aspx" />
+    <Content Include="RBookIntro.aspx" />
     <Content Include="RBorrowlist.aspx" />
     <Content Include="Redit.aspx" />
     <Content Include="register.aspx" />
@@ -287,6 +288,13 @@
       <DependentUpon>payFine.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBookIntro.aspx.cs">
+      <DependentUpon>RBookIntro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RBookIntro.aspx.designer.cs">
+      <DependentUpon>RBookIntro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RBorrowlist.aspx.cs">
       <DependentUpon>RBorrowlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

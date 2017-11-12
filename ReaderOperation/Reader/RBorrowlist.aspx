@@ -8,17 +8,15 @@
         </div>
     </div>
     <div class="form-group">
-    <table class="table table-hover table-responsive table-striped text-center">
+    <table class="table table-hover table-responsive text-center">
         <thead>
             <tr>
                 <th class="money"></th>
                 <th class="text-center">Book&nbsp;name&nbsp;&nbsp;</th>
-                <th class="text-center">Book&nbsp;Amount&nbsp;&nbsp;</th>
                 <th class="text-center">Borrow&nbsp;time&nbsp;&nbsp;</th>
             </tr>
         </thead>
-        <tbody>
-            
+        <tbody>            
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>    
                         <tr>
@@ -26,7 +24,6 @@
                                 <%#Eval("Money") %>
                             </td>
                             <td><%#Eval("BookName") %></td>
-                            <td><%#Eval("Num") %></td>
                             <td><%#Eval("StartTime") %></td>
                         </tr>
                     </ItemTemplate>

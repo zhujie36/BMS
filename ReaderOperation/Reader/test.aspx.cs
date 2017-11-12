@@ -17,32 +17,19 @@ namespace Reader
             
         }
 
-
         protected void Button1_Click(object sender, EventArgs e)
-        {
-            if (TextBox1.Text.Trim() != "" && TextBox2.Text.Trim()!="")
-            {
-                string s = TextBox1.Text.Trim();
-                Response.Redirect("test2.aspx?s=" + s);
+        {/*
+           string name = TextBox1.Text.Trim();
+            string pd = TextBox2.Text.Trim();
+            bool r = T_ReaderBLL.login(name, pd);
+            if (r)
+            {               
+                Response.Write("<script>alert('login succeed!')</script>");
             }
-            
-        }
-
-        protected void Button1_Click1(object sender, EventArgs e)
-        {
-            //if (TextBox1.Text.Trim() != "" && TextBox2.Text.Trim() != "")
-                Response.Write("<script>alert('Borrow succeed,1!')</script>");
-        }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            Response.Write("<script>alert('ok,1!')</script>");
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            if (TextBox1.Text.Trim() != "" && TextBox2.Text.Trim() != "" && TextBox4.Text.Trim() != "" && TextBox4.Text.Trim() != "")
-                Response.Write("<script>alert('Borrow succeed,2!')</script>");
+            else
+            {
+                Response.Write("<script>alert('login failed!')</script>");
+            }*/
         }
     }
 }
