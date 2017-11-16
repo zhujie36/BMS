@@ -34,52 +34,53 @@
         }
     </style>
 </head>
-<body style="padding-top:60px; ">
+<body>
     <form id="form1" runat="server" class="form-horizontal" role="form">
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                 <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="margin:0; padding:0"><img src="images/xidian.png" width="40px" height="40px"/></a>
                     <a class="navbar-brand" href="#">XiDian Library Management System</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li ><a href="IndexLibrarian.aspx">Home</a></li>
+                        <li ><a href="IndexLibrarian.aspx"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                         <li class="dropdown">
                             <a href="IndexLibrarian.aspx" class="dropdown-toggle" data-toggle="dropdown">
-                                book
+                                <span class="glyphicon glyphicon-book"></span> book
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="bookAdd.aspx">Add</a></li>
-                                <li><a href="bookList.aspx">Delete</a></li>
-                                <li><a href="bookList.aspx">update</a></li>
+                                <li><a href="bookAdd.aspx"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
+                                <li><a href="bookList.aspx"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
+                                <li><a href="bookList.aspx"><span class="glyphicon glyphicon-repeat"></span> update</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="IndexLibrarian.aspx" class="dropdown-toggle" data-toggle="dropdown">
-                                Reader
+                                <span class="glyphicon glyphicon-user"></span> Reader
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="Borrow.aspx">Borrow</a></li>
-                                <li><a href="AllBorrowList.aspx">Return</a></li>
-                                <li><a href="payFine.aspx">pay fine</a></li>
+                                <li><a href="Borrow.aspx"><span class="glyphicon glyphicon-export"></span> Borrow</a></li>
+                                <li><a href="AllBorrowList.aspx"><span class="glyphicon glyphicon-import"></span> Return</a></li>
+                                <li><a href="payFine.aspx"><span class="glyphicon glyphicon-usd"></span> pay fine</a></li>
                                 <li class="divider"></li>
-                                <li><a href="register.aspx">add reader</a></li>
-                                <li><a href="writeOff.aspx">write off the reader</a></li>
+                                <li><a href="register.aspx"><span class="glyphicon glyphicon-plus"></span> add reader</a></li>
+                                <li><a href="writeOff.aspx"><span class="glyphicon glyphicon-remove"></span> write off the reader</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="IndexLibrarian.aspx" class="dropdown-toggle" data-toggle="dropdown">
-                                Librarian
+                                <span class="glyphicon glyphicon-user"></span> Librarian
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="Ledit.aspx">modify personal information</a></li>
-                                <li><a href="LwirteOff.aspx">write off the account</a></li>
+                                <li><a href="Ledit.aspx"><span class="glyphicon glyphicon-repeat"></span> modify personal information</a></li>
+                                <li><a href="LwirteOff.aspx"><span class="glyphicon glyphicon-remove"></span> write off the account</a></li>
                                 <li class="divider"></li>
-                                <li><a href="LRegister.aspx">add new librarian</a></li>                              
+                                <li><a href="LRegister.aspx"><span class="glyphicon glyphicon-plus"></span> add new librarian</a></li>                              
                             </ul>
                         </li>
                     </ul>
