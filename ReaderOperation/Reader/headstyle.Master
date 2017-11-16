@@ -15,10 +15,11 @@
     </asp:ContentPlaceHolder>
     <style>
        #header{
-            text-align:center;
+            text-align:right;
             font-size:xx-large;
             width:100%;
-            padding:10px 0;
+            padding:10px 0; 
+            background:url(images/book.jpg) no-repeat;
         }
         .center{
             line-height:40px;
@@ -34,11 +35,25 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container-flulid">
         <form id="form1" runat="server" class="form-horizontal" role="form">
-            <div id="header" style="background-color:#99CCCC">
-                XiDian Library Management System
-            </div>        
+            <div id="header">
+                <p></p>
+                <div class="row">
+                    <div  class="media col-lg-5 col-lg-offset-7" style="background-color:rgba(250, 237, 139, 0.59)">
+                    <div class="media-body"> 
+                        <h4 class="media-heading"> 西电图书管理系统</h4>
+                        XD Library Management System  
+                    </div>
+                     <a class="media-right">
+                        <img src="images/xidian.png" height="70" width="70" class="media-object"/>
+                    </a>
+                </div>
+                </div>
+                <p></p>
+            </div>
+        <!--       <p style="background-color:rgba(99, 96, 96, 0.50)"><img src="images/xidian.png" height="120" width="120"/> Library Management System    </p>-->
+            
             <div id="logInAndOut">
                <asp:Panel ID="Panel1" runat="server">
                 <asp:Label ID="LoginName" runat="server" Text=""></asp:Label>
