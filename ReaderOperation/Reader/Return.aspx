@@ -14,7 +14,8 @@
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" ></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the book ID." ForeColor="Indigo" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox2" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="ID can only contains numbers" Display="Dynamic" ControlToValidate="TextBox2" ValidationExpression="[0-9]*" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">

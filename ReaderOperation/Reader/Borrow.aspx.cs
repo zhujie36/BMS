@@ -13,8 +13,12 @@ namespace Reader
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if(!IsPostBack)
+            if (all.ID == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
+            if (!IsPostBack)
             {
                 TextBox3.Text = "";
                 if (all.ID == null)

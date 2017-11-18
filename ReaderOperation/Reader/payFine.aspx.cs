@@ -49,6 +49,12 @@ namespace Reader
                           {
                               reader.R_state += bp;
                             r2 = BorrowListBLL.setMoney(int.Parse(borrowID), bp);
+                            bool r3 = T_bookIDBLL.Delete(T_bookIDBLL.GetDataByID(book));
+                            if(!r3)
+                            {
+                                Panel2.Visible = true;
+                                Label2.Text = "delete book information failed!";
+                            }
                         }
                           bool r1 = T_ReaderBLL.Update(reader);
                         

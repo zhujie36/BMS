@@ -22,7 +22,224 @@ namespace DAL
         /// <returns></returns>
         /// 
 
-       
+
+
+        //星期转化函数
+        public static int getWeek(string a)
+        {
+            if (a == "Monday")
+                return 1;
+            else if (a == "Tuesday")
+                return 2;
+            else if (a == "Wednesday")
+                return 3;
+            else if (a == "Thursday")
+                return 4;
+            else if (a == "Friday")
+                return 5;
+            else if (a == "Saturday")
+                return 6;
+            else
+                return 7;
+        }
+
+
+
+
+
+        //罚金计算
+        public static int getFine(int flag, DateTime now)
+        {
+            string now_year = now.Year.ToString();
+            string now_month = now.Month.ToString();
+            string now_dayinyear = now.DayOfYear.ToString();
+            string now_weekday = now.DayOfWeek.ToString();
+
+            //今天
+            if (flag == 1)
+            {
+                double fine = 0;
+                blist = new BorrowList();
+                sql = string.Format("select * from BorrowList");
+                dr = CSDBC.GetDateRow(sql);
+
+                try
+                {
+                    /*blist.BookID = dr["BookID"].ToString();
+                     blist.Reader = dr["Reader"].ToString().Trim();
+                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
+                     blist.BookName = dr["BookName"].ToString();
+                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                     blist.Pic = dr["pic"].ToString().Trim();
+                     blist.Num = dr["number"].ToString().Trim();
+
+                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
+                    blist.Money = Convert.ToDouble(dr["Money"]);
+                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+
+                    if (blist.Money > 0)
+                    {
+                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                        string before_year = blist.ReturnTime.Year.ToString();
+                        string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
+
+
+                        if (before_year == now_year && before_dayinyear == now_dayinyear)
+                        {
+                            fine = fine + blist.Money;
+                        }
+                    }
+                }
+                catch
+                {
+                    return 0;
+                }
+
+                int final = (int)fine;
+                return final;
+            }//今天
+
+
+            //本周
+            else if (flag == 2)
+            {
+                double fine = 0;
+
+                try
+                {
+                    /*blist.BookID = dr["BookID"].ToString();
+                     blist.Reader = dr["Reader"].ToString().Trim();
+                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
+                     blist.BookName = dr["BookName"].ToString();
+                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                     blist.Pic = dr["pic"].ToString().Trim();
+                     blist.Num = dr["number"].ToString().Trim();
+
+                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
+                    blist.Money = Convert.ToDouble(dr["Money"]);
+                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+
+                    if (blist.Money > 0)
+                    {
+                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                        string before_year = blist.ReturnTime.Year.ToString();
+                        string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
+                        string before_weekday = blist.ReturnTime.DayOfWeek.ToString();
+
+
+
+                        //之前天
+                        int a = Convert.ToInt32(before_dayinyear);
+                        //现在天
+                        int b = Convert.ToInt32(now_dayinyear);
+                        int c = b - a;
+
+
+                        int m = getWeek(before_weekday);
+                        int n = getWeek(now_weekday);
+                        int p = n - m;
+
+                        if (before_year == now_year && (c < 7) && (p >= 0))
+                        {
+                            fine = fine + blist.Money;
+                        }
+                    }
+                }
+                catch
+                {
+                    return 0;
+                }
+
+                int final = (int)fine;
+                return final;
+            }//本周
+
+
+            //本月
+            else if (flag == 3)
+            {
+                double fine = 0;
+
+                try
+                {
+                    /*blist.BookID = dr["BookID"].ToString();
+                     blist.Reader = dr["Reader"].ToString().Trim();
+                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
+                     blist.BookName = dr["BookName"].ToString();
+                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                     blist.Pic = dr["pic"].ToString().Trim();
+                     blist.Num = dr["number"].ToString().Trim();
+
+                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
+                    blist.Money = Convert.ToDouble(dr["Money"]);
+                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+
+                    if (blist.Money > 0)
+                    {
+                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                        string before_year = blist.ReturnTime.Year.ToString();
+                        string before_month = blist.ReturnTime.Month.ToString();
+
+
+                        if (before_year == now_year && before_month == now_month)
+                        {
+                            fine = fine + blist.Money;
+                        }
+                    }
+                }
+                catch
+                {
+                    return 0;
+                }
+                int final = (int)fine;
+                return final;
+            }//本月
+
+
+            //今年
+            else if (flag == 4)
+            {
+                double fine = 0;
+
+                try
+                {
+                    /*blist.BookID = dr["BookID"].ToString();
+                     blist.Reader = dr["Reader"].ToString().Trim();
+                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
+                     blist.BookName = dr["BookName"].ToString();
+                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                     blist.Pic = dr["pic"].ToString().Trim();
+                     blist.Num = dr["number"].ToString().Trim();
+
+                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
+                    blist.Money = Convert.ToDouble(dr["Money"]);
+                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+
+                    if (blist.Money > 0)
+                    {
+                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                        string before_year = blist.ReturnTime.Year.ToString();
+
+
+                        if (before_year == now_year)
+                        {
+                            fine = fine + blist.Money;
+                        }
+                    }
+                }
+                catch
+                {
+                    return 0;
+                }
+
+                int final = (int)fine;
+                return final;
+            }//今年
+
+
+            else
+                return 0;
+        }//罚金计算
 
         public static bool Add(BorrowList b)
         {

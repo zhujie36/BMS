@@ -95,6 +95,11 @@ namespace Reader
         {
 
             bi.Book_id = TextBox7.Text.Trim();
+            if(T_bookIDBLL.GetDataByID(bi.Book_id) != null)
+            {
+                Response.Write("<script>alert('this book's id has been registered!')</script>");
+                return;
+            }
             bi.iSBN = TextBox8.Text.Trim();
 
             book.iSBN = TextBox8.Text.Trim();

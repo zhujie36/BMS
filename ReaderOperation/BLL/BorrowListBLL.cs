@@ -12,6 +12,15 @@ namespace BLL
         /// <summary>
         /// 添加借阅记录
         /// </summary>
+        /// 
+
+        //获得罚金金额
+        public static int getFine(int flag, DateTime now)
+        {
+            return BorrowListDAL.getFine(flag, now);
+        }
+
+
         public static bool Add(BorrowList borlist)
         {
             return BorrowListDAL.Add(borlist);

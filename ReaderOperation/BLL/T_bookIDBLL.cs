@@ -44,7 +44,7 @@ namespace BLL
             {
                 bool result2;
                 T_book book = T_bookDAL.GetDataByID(b.iSBN);
-                if(book.TotalAmount != "0")
+                if(book.TotalAmount != "1")
                 {
                     result2 = T_bookDAL.setTotalAmount(book, int.Parse(book.TotalAmount) - 1);
                 }

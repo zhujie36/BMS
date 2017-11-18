@@ -11,28 +11,31 @@
     <div class="form-group">
         <asp:Label ID="Label8" runat="server" Text="book ID"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" placeholder="please input book's ID!"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox7" ForeColor="Indigo"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox7" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="ID can only contains numbers" Display="Dynamic" ControlToValidate="TextBox7" ValidationExpression="[0-9]*" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label9" runat="server" Text="ISBN"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" OnTextChanged="TextBox8_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" OnTextChanged="TextBox8_TextChanged" placeholder="please input book's ISBN!"></asp:TextBox>
         </div>
         <div class="col-sm-1">
             <asp:Button ID="Button3" runat="server" Text="ok" CssClass="btn btn-default" OnClick="Button3_Click" CausesValidation="False" TabIndex="1" UseSubmitBehavior="False" />
+
         </div>
         <div class="col-sm-3">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please input the book's ISBN!" ControlToValidate="TextBox8" ForeColor="Indigo"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please input the book's ISBN!" ControlToValidate="TextBox8" ForeColor="Indigo" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="ISBN can only contains numbers" Display="Dynamic" ControlToValidate="TextBox8" ValidationExpression="[0-9]*" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="name"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"  placeholder="please input book's name!"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please input the book's name!" ControlToValidate="TextBox2" ForeColor="Indigo"></asp:RequiredFieldValidator>
@@ -41,7 +44,7 @@
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="price" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"  placeholder="please input book's price!"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ErrorMessage="Please input the book's price." ForeColor="Indigo" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
@@ -51,7 +54,7 @@
     <div class="form-group">
         <asp:Label ID="writerLabel" runat="server" Text="author" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="writeTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="writeTextBox" runat="server" CssClass="form-control"  placeholder="please input book's author!"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please input the book's writer." ControlToValidate="writeTextBox" ForeColor="Indigo"></asp:RequiredFieldValidator>
@@ -61,7 +64,7 @@
     <div class="form-group">
         <asp:Label ID="Label5" runat="server" Text="press" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"  placeholder="please input book's press!"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please input the book's press." ControlToValidate="TextBox5" ForeColor="Indigo"></asp:RequiredFieldValidator>
@@ -70,11 +73,11 @@
      <div class="form-group">
         <asp:Label ID="Label4" runat="server" Text="Year of publication" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"  placeholder="please input book's year of publication,like 1996-03-01"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the book's category." ForeColor="Indigo" ControlToValidate="TextBox4" Display="Static"></asp:RequiredFieldValidator>
-           
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the book's year of publication,like 1996-03-01" ForeColor="Indigo" ControlToValidate="TextBox4" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="please input right date,like 1996-03-01"  ControlToValidate="TextBox4" SetFocusOnError="True" Display="Dynamic" ForeColor="Indigo" ValidationExpression="[0-9]{4}(-[0-9]{1,2}){0,2}"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -89,10 +92,11 @@
     <div class="form-group">
         <asp:Label ID="Label6" runat="server" Text="Location" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" placeholder="please input book's year of publication,like B403-12"></asp:TextBox>
         </div>
         <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please input the book's location." ControlToValidate="TextBox6" ForeColor="Indigo"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please input the book's location,like B403-12" ControlToValidate="TextBox6" ForeColor="Indigo" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Please input the book's location,like B403-12"  ControlToValidate="TextBox6" SetFocusOnError="True" Display="Dynamic" ForeColor="Indigo" ValidationExpression="(A|B|C)[1-9][0-9]{2}-[1-9][0-9]{1,2}"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
