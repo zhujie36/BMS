@@ -157,7 +157,6 @@ namespace DAL
             }
         }
 
-
         ///根据读者ID取出借阅记录的集合并按借阅时间降序排列
         public static List<BorrowList> GetAllByReader(string name)
         {
@@ -186,7 +185,34 @@ namespace DAL
                 return list;
             }
         }
-
+        ///根据读者ID取出借阅记录的集合并按借阅时间降序排列
+        public static List<BorrowList> GetAllLoanByReader(string name)
+        {
+            List<BorrowList> list = new List<BorrowList>();
+            sql = "select * from BorrowList where ret='0' and reader ='" + name + "' order by StartTime desc";
+            ds = CSDBC.GetDataSet(sql);
+            if (ds == null)
+                return null;
+            else
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    blist = new BorrowList();
+                    blist.BookID = dr["BookID"].ToString();
+                    blist.Reader = dr["Reader"].ToString().Trim();
+                    blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
+                    blist.BookName = dr["BookName"].ToString();
+                    blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                    blist.Pic = dr["pic"].ToString().Trim();
+                    blist.Num = dr["number"].ToString().Trim();
+                    blist.Money = Convert.ToDouble(dr["Money"]);
+                    blist.Ret = Convert.ToInt32(dr["Ret"]);
+                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                    list.Add(blist);
+                }
+                return list;
+            }
+        }
         public static bool setNumber(int id, int value)
         {
             sql = string.Format("update BorrowList set number='{0}' where borrowID='{1}'", value, id);

@@ -17,23 +17,23 @@ namespace Reader
             {
                 Response.Redirect("login.aspx");
             }
-            TextBox6.Text = all.ID;
-            TextBox6.Enabled = false;
-            stu = all.READER;
-            for(int i=0; i<DropDownList1.Items.Count; i++)
-            {
-                if(DropDownList1.Items[i].Text.Trim() == stu.R_sex)
-                {
-                    DropDownList1.Items[i].Selected = true;
-                }
-            }
-            TextBox1.Text = stu.R_name;
-            TextBox1.Enabled = false;
-            TextBox3.Text = stu.R_state.ToString();
-            TextBox3.Enabled = false;
+            
             if (!IsPostBack)
             {
-                    TextBox2.Text = stu.R_pwd;
+                TextBox6.Text = all.ID;
+                TextBox6.Enabled = false;
+                stu = all.READER;
+                for (int i = 0; i < DropDownList1.Items.Count; i++)
+                {
+                    if (DropDownList1.Items[i].Text.Trim() == stu.R_sex)
+                    {
+                        DropDownList1.Items[i].Selected = true;
+                    }
+                }
+                TextBox1.Text = stu.R_name;
+                TextBox3.Text = stu.R_state.ToString();
+                TextBox3.Enabled = false;
+                TextBox2.Text = stu.R_pwd;
                     TextBox4.Text = stu.R_tel;
                     TextBox5.Text = stu.R_email;
                     TextBox2.Visible = false;

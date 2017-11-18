@@ -16,19 +16,68 @@ namespace Reader
             {
                 Response.Redirect("login.aspx");
             }
+            Panel2.Visible = false;
             if (!IsPostBack)
             {
-                string name = Request.QueryString["name"];
-                T_Reader reader = T_ReaderBLL.GetDataByID(name);
-                if(name != null)
+                string borrowID = Request.QueryString["borrowID"];
+                if (borrowID != null)
                 {
-                    Panel1.Visible = true;
-                    TextBox2.Text = reader.R_state.ToString();
+                    BorrowList borrow = BorrowListBLL.GetDataByBorrowID(int.Parse(borrowID));
+
+                    string book = borrow.BookID;
+                    string stu = borrow.Reader;
+                    string type = Request.QueryString["type"].Trim();
+                    bool result = BorrowListBLL.bookReturn(book);
+                      Panel1.Visible = true;
+                      TextBox1.Text = stu;
+                      if (result == false)
+                      {
+                          Panel2.Visible = true;
+                          Label2.Text = "database modify failed!";
+                      }
+                      else
+                      {
+                          float bp = float.Parse(T_bookBLL.GetDataByID(T_bookIDBLL.GetISBNByID(book)).Price);
+                          T_Reader reader = T_ReaderBLL.GetDataByID(stu);
+                        bool r2;
+                          if (type.Equals("damage"))
+                          {                           
+                              reader.R_state += bp/2;
+                           r2 = BorrowListBLL.setMoney(int.Parse(borrowID), bp / 2);
+                        }
+                          else
+                          {
+                              reader.R_state += bp;
+                            r2 = BorrowListBLL.setMoney(int.Parse(borrowID), bp);
+                        }
+                          bool r1 = T_ReaderBLL.Update(reader);
+                        
+                          if (!r1 || !r2)
+                          {
+                              Panel2.Visible = true;
+                              Label2.Text = "database modify failed!";
+                          }
+                          TextBox2.Text = reader.R_state.ToString();
+                          TextBox2.Enabled = false;
+                      }
+                      }
+                      else
+                      {
+                          string name = Request.QueryString["name"];
+                          T_Reader reader = T_ReaderBLL.GetDataByID(name);
+                          if(name != null)
+                          {
+                              Panel1.Visible = true;
+                              TextBox2.Text = reader.R_state.ToString();
+                          }
+                          else
+                          {
+                              Panel1.Visible = false;
+                          }
                 }
-                else
-                {
-                    Panel1.Visible = false;
-                }
+
+
+
             }
             
         }

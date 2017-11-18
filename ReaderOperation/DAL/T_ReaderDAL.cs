@@ -24,7 +24,7 @@ namespace DAL
 
         public static bool Update(T_Reader stu)//编辑
         {
-            sql = string.Format("update T_Reader set R_name='{0}',R_pwd='{1}',R_sex='{2}',R_cred='{3}',R_tel='{4}',R_email='{5}',R_state='{6}' where R_id={7}", stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_email,stu.R_state, stu.R_id);
+            sql = string.Format("update T_Reader set R_name='{0}',R_pwd='{1}',R_sex='{2}',R_cred='{3}',R_tel='{4}',R_email='{5}',R_state='{6}' where R_id='{7}'", stu.R_name, stu.R_pwd, stu.R_sex, stu.R_cred, stu.R_tel, stu.R_email,stu.R_state, stu.R_id);
             return CSDBC.ExecSqlCommand(sql);
         }
 

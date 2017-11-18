@@ -68,6 +68,7 @@
     <Content Include="bookDeleteList.aspx" />
     <Content Include="bookFind.aspx" />
     <Content Include="bookList.aspx" />
+    <Content Include="bookLost.aspx" />
     <Content Include="bookUpdate.aspx" />
     <Content Include="bootstrap-3.0.0-dist\css\bootstrap-theme.css" />
     <Content Include="bootstrap-3.0.0-dist\css\bootstrap-theme.min.css" />
@@ -153,6 +154,7 @@
     <Content Include="test.aspx" />
     <Content Include="test2.aspx" />
     <Content Include="test3.html" />
+    <Content Include="ViewFine.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -204,6 +206,13 @@
     </Compile>
     <Compile Include="bookList.aspx.designer.cs">
       <DependentUpon>bookList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bookLost.aspx.cs">
+      <DependentUpon>bookLost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookLost.aspx.designer.cs">
+      <DependentUpon>bookLost.aspx</DependentUpon>
     </Compile>
     <Compile Include="bookUpdate.aspx.cs">
       <DependentUpon>bookUpdate.aspx</DependentUpon>
@@ -345,6 +354,13 @@
     </Compile>
     <Compile Include="test2.aspx.designer.cs">
       <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFine.aspx.cs">
+      <DependentUpon>ViewFine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFine.aspx.designer.cs">
+      <DependentUpon>ViewFine.aspx</DependentUpon>
     </Compile>
     <Compile Include="writeOff.aspx.cs">
       <DependentUpon>writeOff.aspx</DependentUpon>

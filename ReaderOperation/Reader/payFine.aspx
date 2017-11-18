@@ -29,4 +29,16 @@
             </div>            
         </div>
     </asp:Panel>
+    <div class="form-group">
+        <asp:Panel ID="Panel2" runat="server">
+            <div class="alert alert-warning col-sm-offset-4 col-sm-4">
+	            <a href="#" class="close" data-dismiss="alert">
+		            &times;
+	            </a>
+                <span>
+                    <asp:Label ID="Label2" runat="server" Text="" CssClass="control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+                </span>
+            </div>
+        </asp:Panel>
+    </div>
 </asp:Content>

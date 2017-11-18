@@ -47,8 +47,8 @@
                 </h2>
             </div>          
             <div id="demo1" class="collapse in row panel-body">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-2 text-center">
+                
+                <div class="col-lg-4 text-center">
                     <div>
                         <a href="Borrow.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/4-4.jpg',1)"><img src="images/4.jpg" width="146" height="104" border="0" id="Image4" class="img-rounded" /></a>
                     </div>
@@ -56,7 +56,7 @@
                         Borrow
                     </div>
                 </div>
-                <div class="col-lg-2 text-center">
+                <div class="col-lg-4 text-center">
                     <div>
                         <a href="Return.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/5-5.jpg',1)"><img src="images/5.jpg" width="146" height="104" border="0" id="Image5" class="img-rounded" /></a>
                     </div>
@@ -64,7 +64,7 @@
                         Return
                     </div>
                 </div>
-                <div class="col-lg-2 text-center">
+                <div class="col-lg-4 text-center">
                     <div>
                         <a href="payFine.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/15-15.jpg',1)"><img src="images/15.jpg" width="146" height="104" border="0" id="Image15" class="img-rounded" /></a>
                     </div>
@@ -72,7 +72,8 @@
                         pay fine
                     </div>
                 </div>
-                <div class="col-lg-2 text-center">
+                <div style="padding-top:20px">
+                    <div class="col-sm-4 text-center">
                     <div>
                         <a href="writeOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/6-6.jpg',1)"><img src="images/6.jpg" width="146" height="104" border="0" id="Image6" class="img-rounded" /></a>
                     </div>
@@ -80,7 +81,7 @@
                         Delete reader
                     </div>
                 </div>
-                 <div class="col-lg-2">
+                 <div class="col-sm-4 text-center">
                     <div>
                         <a href="register.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','images/12-12.jpg',1)"><img src="images/12.jpg" width="146" height="104" border="0" id="Image12" class="img-rounded" /></a>
                     </div>
@@ -88,6 +89,16 @@
                         add reader
                     </div>
                 </div>
+                 <div class="col-sm-4 text-center">
+                    <div>
+                        <a href="bookLost.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/16-16.jpg',1)"><img src="images/16.jpg" width="146" height="104" border="0" id="Image16" class="img-rounded" /></a>
+                    </div>
+                    <div style="padding:10px 0; font-weight:bold">
+                        damage or lost
+                    </div>
+                </div>
+                </div>
+                
             </div>
         </div>
     </div>

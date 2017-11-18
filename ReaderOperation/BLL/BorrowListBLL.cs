@@ -50,7 +50,7 @@ namespace BLL
         {
             return BorrowListDAL.GetDataByReader(reader_id);
         }
-
+        
         public static bool setRet(int id, int value)
         {
             return BorrowListDAL.setRet(id,value);
@@ -62,7 +62,11 @@ namespace BLL
         {
             return BorrowListDAL.GetAllByReader(name);
         }
-
+        ///根据读者ID取出全部记录
+        public static List<BorrowList> GetAllLoanByReader(string name)
+        {
+            return BorrowListDAL.GetAllLoanByReader(name);
+        }
         public static BorrowList GetDataByBookID(string id)
         {
             return BorrowListDAL.GetDataByBookID(id);
