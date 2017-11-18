@@ -90,6 +90,11 @@ namespace BLL
             return T_bookIDDAL.GetInLibrarainByID(ID);
         }
 
+        //由ISBN查询book_id
+        public static List<T_bookID> GetIDByISBN(string isbn)
+        {
+            return T_bookIDDAL.GetIDByISBN(isbn);
+        }
 
         ///用Book_id设置inLibrarain值
         public static bool setInLibrarain(string id, int value)

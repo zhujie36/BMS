@@ -15,7 +15,7 @@ namespace Reader
         {
             if(!IsPostBack)
             {
-                RadioButtonList1.SelectedIndex = 1;              
+                RadioButtonList1.SelectedIndex = 0;              
             }
         }
 

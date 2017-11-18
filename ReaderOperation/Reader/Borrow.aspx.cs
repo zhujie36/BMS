@@ -174,6 +174,7 @@ namespace Reader
                 int flag1 = T_bookIDBLL.GetInLibrarainByID(book_id);
                 if (flag1 == 0)
                 {
+                    Panel2.Visible = true;
                     Label4.Text = "The first book has already be lent!";
                     return;
                 }
@@ -182,6 +183,7 @@ namespace Reader
                 int flag2 = T_bookIDBLL.GetInLibrarainByID(book2);
                 if (flag2 == 0)
                 {
+                    Panel2.Visible = true;
                     Label4.Text = "The second book has already be lent!";
                     return;
                 }
@@ -204,6 +206,12 @@ namespace Reader
                 {
                     Panel2.Visible = true;
                     Label4.Text = "Cannot get the two books' information!";
+                    return;
+                }
+                else if(isbn == isbn2)
+                {
+                    Panel2.Visible = true;
+                    Label4.Text = "two book's ID is similar!";
                     return;
                 }
                 else
@@ -274,9 +282,16 @@ namespace Reader
            
             if (Panel1.Visible == false)
             {
+                string reader_id = TextBox1.Text.Trim();
+                string book = TextBox2.Text.Trim();
                 if (TextBox1.Text.Trim() == null || TextBox1.Text.Trim() == "")
                 {
                     Label4.Text = "Please input stu_id";
+                    Panel2.Visible = true;
+                }
+                else if(T_ReaderBLL.GetDataByID(reader_id) == null)
+                {
+                    Label4.Text = "this student hasn't registered";
                     Panel2.Visible = true;
                 }
                 else if(TextBox2.Text.Trim() == null || TextBox2.Text.Trim() == "")
@@ -284,9 +299,13 @@ namespace Reader
                     Label4.Text = "Please input the first book";
                     Panel2.Visible = true;
                 }
+                else if(T_bookIDBLL.GetDataByID(book) == null)
+                {
+                    Label4.Text = "this book hasn't registered";
+                    Panel2.Visible = true;
+                }
                 else
                 {
-                    string reader_id = TextBox1.Text.Trim();
                     if (!T_ReaderBLL.judgeBorrow(reader_id))
                     {
                         Label4.Text = "You have already borrowed 2 books or you have books exceed 30 days time,so you can not borrow books now!Please pay the fine or return your books!";

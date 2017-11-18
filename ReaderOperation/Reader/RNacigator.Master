@@ -28,6 +28,10 @@
             border:3px solid cornflowerblue;
             box-shadow:none;
         }
+        .white
+        {
+            background-color:white;
+        }
     </style>
 </head>
 <body style="background-color:rgba(252, 248, 161, 0.43); padding-top:50px">

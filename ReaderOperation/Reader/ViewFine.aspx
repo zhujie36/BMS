@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/headstyle.Master" AutoEventWireup="true" CodeBehind="ViewFine.aspx.cs" Inherits="Reader.ViewFine1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="headstyle" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LNavigation.Master" AutoEventWireup="true" CodeBehind="ViewFine.aspx.cs" Inherits="Reader.ViewFine1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -54,6 +54,8 @@
         </tr>
     </table>
 
-
-
+    <asp:Label ID="Label13" runat="server" Text="Label"></asp:Label> <br/>
+    <asp:Label ID="Label14" runat="server" Text="Label"></asp:Label><br/>
+    <asp:Label ID="Label15" runat="server" Text="Label"></asp:Label><br/>
+    <asp:Label ID="Label16" runat="server" Text="Label"></asp:Label>
 </asp:Content>

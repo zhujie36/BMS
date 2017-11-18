@@ -8,6 +8,13 @@
         </div>
     </div>
     <div class="form-group">
+        <div class="col-sm-12 text-center ">
+            <a ID="selectNot" class="btn btn-default">not returned</a>
+            &nbsp;
+            <a ID="selectAll" class="btn btn-default">ALL</a>
+        </div>
+    </div>
+    <div class="form-group">
     <table class="table table-hover table-responsive text-center">
         <thead>
             <tr>
@@ -19,12 +26,13 @@
         <tbody>            
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>    
-                        <tr>
+                        <tr class="white">
                             <td class="money" id="qq">
                                 <%#Eval("Money") %>
                             </td>
                             <td><%#Eval("BookName") %></td>
-                            <td><%#Eval("StartTime") %></td>
+                            <td><%#Eval("startTime") %></td>
+                            <td class="loan"><%#Eval("ret") %></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -42,14 +50,38 @@
                 }
             });*/
             $(".money").hide();
+            $(".loan").hide();
+            $("tr").each(function () {
+                if ($(this).children(".loan").length != 0) {
+                    if ($(this).children(".loan").text().trim() != "1") {
+                        $(this).addClass("danger");
+                        //alert($(this).children(".loan").text().trim());
+                    }
+                }
+
+            })
             $("tr").each(function (j, item) {
                 var t = item.firstElementChild;
+//alert(t.textContent);
                 if (t.textContent.toString().trim() != "0" && t.textContent.toString().trim() != "") {
-                    //alert(t.textContent);
-                    $(this).addClass("danger");
+                    
+                    $(this).addClass("success");
                 }
             });
-            
+            $("#selectAll").click(function () {
+                $("tr").each(function (j, item) {
+                    $(this).show();
+                });
+            });
+            $("#selectNot").click(function () {
+                $("tr").each(function (j, item) {
+                    if ($(this).children(".loan").length != 0) {
+                        if ($(this).children(".loan").text().trim() == "1") {
+                            $(this).hide();
+                        }
+                    }
+                });
+            });
         });
     </script>
 </asp:Content>

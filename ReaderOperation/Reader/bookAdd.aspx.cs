@@ -76,7 +76,6 @@ namespace Reader
                     {
 
                         s = s.Remove(s.Length - 1, 1);
-                        Label11.Text = s;
                     }
                     TextBox3.Text = s;
                 }
@@ -97,25 +96,26 @@ namespace Reader
             bi.Book_id = TextBox7.Text.Trim();
             if(T_bookIDBLL.GetDataByID(bi.Book_id) != null)
             {
-                Response.Write("<script>alert('this book's id has been registered!')</script>");
-                return;
-            }
-            bi.iSBN = TextBox8.Text.Trim();
-
-            book.iSBN = TextBox8.Text.Trim();
-            
-            book.Name = TextBox2.Text.ToString().Trim();
-             book.Price = TextBox3.Text.ToString().Trim();
-             book.YearOfPublication = TextBox4.Text.ToString().Trim();
-            book.Author = writeTextBox.Text.Trim();
-             book.Press = TextBox5.Text.ToString().Trim();
-            book.IsCanLend = DropDownList1.SelectedValue;
-            book.Location = TextBox6.Text.ToString().Trim();
-            book.Brief = TextBox1.Text.Trim();
-            book.Pic = Image1.ImageUrl;
-                bool result = T_bookIDBLL.Add(bi, book);
+                Response.Write("<script>alert('book's ID has been registered')</script>");
                 
-            Label11.Text = book.Name + ", " + book.Brief;
+            }
+            else
+            {
+                bi.iSBN = TextBox8.Text.Trim();
+
+                book.iSBN = TextBox8.Text.Trim();
+
+                book.Name = TextBox2.Text.ToString().Trim();
+                book.Price = TextBox3.Text.ToString().Trim();
+                book.YearOfPublication = TextBox4.Text.ToString().Trim();
+                book.Author = writeTextBox.Text.Trim();
+                book.Press = TextBox5.Text.ToString().Trim();
+                book.IsCanLend = DropDownList1.SelectedValue;
+                book.Location = TextBox6.Text.ToString().Trim();
+                book.Brief = TextBox1.Text.Trim();
+                book.Pic = Image1.ImageUrl;
+                bool result = T_bookIDBLL.Add(bi, book);
+
                 if (result)
                 {
                     Response.Write("<script>alert('add succeed!')</script>");
@@ -123,6 +123,8 @@ namespace Reader
                 }
                 else
                     Response.Write("<script>alert('add failed!')</script>");
+            }
+           
             
         }
 

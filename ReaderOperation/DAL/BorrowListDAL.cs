@@ -59,44 +59,49 @@ namespace DAL
             if (flag == 1)
             {
                 double fine = 0;
-                blist = new BorrowList();
-                sql = string.Format("select * from BorrowList");
-                dr = CSDBC.GetDateRow(sql);
+                List<BorrowList> list = new List<BorrowList>();
+                sql = "select * from BorrowList";
+                ds = CSDBC.GetDataSet(sql);
 
-                try
-                {
-                    /*blist.BookID = dr["BookID"].ToString();
-                     blist.Reader = dr["Reader"].ToString().Trim();
-                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
-                     blist.BookName = dr["BookName"].ToString();
-                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
-                     blist.Pic = dr["pic"].ToString().Trim();
-                     blist.Num = dr["number"].ToString().Trim();
-
-                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
-                    blist.Money = Convert.ToDouble(dr["Money"]);
-                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-
-                    if (blist.Money > 0)
-                    {
-                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-                        string before_year = blist.ReturnTime.Year.ToString();
-                        string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
-
-
-                        if (before_year == now_year && before_dayinyear == now_dayinyear)
-                        {
-                            fine = fine + blist.Money;
-                        }
-                    }
-                }
-                catch
+                if(ds == null)
                 {
                     return 0;
                 }
+                else
+                {
 
-                int final = (int)fine;
-                return final;
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        BorrowList blist = new BorrowList();
+                        try
+                        {
+                            blist.Money = Convert.ToDouble(dr["Money"]);
+                            int t = Convert.ToInt32(blist.Money);
+                            return t;
+
+                            if (blist.Money > 0)
+                            {
+                                blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                                string before_year = blist.ReturnTime.Year.ToString();
+                                string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
+
+
+                                if (before_year == now_year && before_dayinyear == now_dayinyear)
+                                {
+                                    fine = fine + blist.Money;
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                   
+
+                    int final = (int)fine;
+                    return final;
+                }
             }//今天
 
 
@@ -104,54 +109,57 @@ namespace DAL
             else if (flag == 2)
             {
                 double fine = 0;
+                List<BorrowList> list = new List<BorrowList>();
+                sql = "select * from BorrowList";
+                ds = CSDBC.GetDataSet(sql);
 
-                try
-                {
-                    /*blist.BookID = dr["BookID"].ToString();
-                     blist.Reader = dr["Reader"].ToString().Trim();
-                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
-                     blist.BookName = dr["BookName"].ToString();
-                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
-                     blist.Pic = dr["pic"].ToString().Trim();
-                     blist.Num = dr["number"].ToString().Trim();
-
-                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
-                    blist.Money = Convert.ToDouble(dr["Money"]);
-                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-
-                    if (blist.Money > 0)
-                    {
-                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-                        string before_year = blist.ReturnTime.Year.ToString();
-                        string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
-                        string before_weekday = blist.ReturnTime.DayOfWeek.ToString();
-
-
-
-                        //之前天
-                        int a = Convert.ToInt32(before_dayinyear);
-                        //现在天
-                        int b = Convert.ToInt32(now_dayinyear);
-                        int c = b - a;
-
-
-                        int m = getWeek(before_weekday);
-                        int n = getWeek(now_weekday);
-                        int p = n - m;
-
-                        if (before_year == now_year && (c < 7) && (p >= 0))
-                        {
-                            fine = fine + blist.Money;
-                        }
-                    }
-                }
-                catch
+                if(ds == null)
                 {
                     return 0;
                 }
+                else
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        try
+                        {
+                            blist.Money = Convert.ToDouble(dr["Money"]);
 
-                int final = (int)fine;
-                return final;
+                            if (blist.Money > 0)
+                            {
+                                blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                                string before_year = blist.ReturnTime.Year.ToString();
+                                string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
+                                string before_weekday = blist.ReturnTime.DayOfWeek.ToString();
+
+
+
+                                //之前天
+                                int a = Convert.ToInt32(before_dayinyear);
+                                //现在天
+                                int b = Convert.ToInt32(now_dayinyear);
+                                int c = b - a;
+
+
+                                int m = getWeek(before_weekday);
+                                int n = getWeek(now_weekday);
+                                int p = n - m;
+
+                                if (before_year == now_year && (c < 7) && (p >= 0))
+                                {
+                                    fine = fine + blist.Money;
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    } 
+
+                    int final = (int)fine;
+                    return final;
+                }
             }//本周
 
 
@@ -159,40 +167,47 @@ namespace DAL
             else if (flag == 3)
             {
                 double fine = 0;
-
-                try
-                {
-                    /*blist.BookID = dr["BookID"].ToString();
-                     blist.Reader = dr["Reader"].ToString().Trim();
-                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
-                     blist.BookName = dr["BookName"].ToString();
-                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
-                     blist.Pic = dr["pic"].ToString().Trim();
-                     blist.Num = dr["number"].ToString().Trim();
-
-                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
-                    blist.Money = Convert.ToDouble(dr["Money"]);
-                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-
-                    if (blist.Money > 0)
-                    {
-                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-                        string before_year = blist.ReturnTime.Year.ToString();
-                        string before_month = blist.ReturnTime.Month.ToString();
+                List<BorrowList> list = new List<BorrowList>();
+                sql = "select * from BorrowList";
+                ds = CSDBC.GetDataSet(sql);
 
 
-                        if (before_year == now_year && before_month == now_month)
-                        {
-                            fine = fine + blist.Money;
-                        }
-                    }
-                }
-                catch
+                if(ds == null)
                 {
                     return 0;
                 }
-                int final = (int)fine;
-                return final;
+                else
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        try
+                        {
+                            blist.Money = Convert.ToDouble(dr["Money"]);
+
+                            if (blist.Money > 0)
+                            {
+                                blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                                string before_year = blist.ReturnTime.Year.ToString();
+                                string before_month = blist.ReturnTime.Month.ToString();
+
+
+                                if (before_year == now_year && before_month == now_month)
+                                {
+                                    fine = fine + blist.Money;
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+
+
+                    
+                    int final = (int)fine;
+                    return final;
+                }
             }//本月
 
 
@@ -200,40 +215,45 @@ namespace DAL
             else if (flag == 4)
             {
                 double fine = 0;
-
-                try
-                {
-                    /*blist.BookID = dr["BookID"].ToString();
-                     blist.Reader = dr["Reader"].ToString().Trim();
-                     blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
-                     blist.BookName = dr["BookName"].ToString();
-                     blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
-                     blist.Pic = dr["pic"].ToString().Trim();
-                     blist.Num = dr["number"].ToString().Trim();
-
-                     blist.Ret = Convert.ToInt32(dr["Ret"]);*/
-                    blist.Money = Convert.ToDouble(dr["Money"]);
-                    ///blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-
-                    if (blist.Money > 0)
-                    {
-                        blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-                        string before_year = blist.ReturnTime.Year.ToString();
+                List<BorrowList> list = new List<BorrowList>();
+                sql = "select * from BorrowList";
+                ds = CSDBC.GetDataSet(sql);
 
 
-                        if (before_year == now_year)
-                        {
-                            fine = fine + blist.Money;
-                        }
-                    }
-                }
-                catch
+                if(ds == null)
                 {
                     return 0;
                 }
+                else
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        try
+                        {
+                            blist.Money = Convert.ToDouble(dr["Money"]);
 
-                int final = (int)fine;
-                return final;
+                            if (blist.Money > 0)
+                            {
+                                blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                                string before_year = blist.ReturnTime.Year.ToString();
+
+
+                                if (before_year == now_year)
+                                {
+                                    fine = fine + blist.Money;
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                    
+
+                    int final = (int)fine;
+                    return final;
+                }
             }//今年
 
 
@@ -277,6 +297,7 @@ namespace DAL
                 blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
                 blist.BookName = dr["BookName"].ToString().Trim();
                 blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                //blist.ReturnTime = Convert.ToDateTime(dr["returnTime"]);
                 blist.Pic = dr["pic"].ToString().Trim();
                 blist.Num = dr["number"].ToString().Trim();
                 blist.Money = Convert.ToDouble(dr["Money"]);
@@ -306,6 +327,7 @@ namespace DAL
                 blist.BorrowID = Convert.ToInt32(dr["BorrowID"]);
                 blist.BookName = dr["BookName"].ToString().Trim();
                 blist.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                //blist.ReturnTime = Convert.ToDateTime(dr["returnTime"]);
                 blist.Pic = dr["pic"].ToString().Trim();
                 blist.Num = dr["number"].ToString().Trim();
                 blist.Money = Convert.ToDouble(dr["Money"]);

@@ -77,6 +77,15 @@
         </div>
     </div>
     <div class="form-group">
+        <asp:Label ID="Label8" runat="server" Text="E-mail：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:DropDownList ID="DropDownList2" runat="server">
+                <asp:ListItem Value="0">no</asp:ListItem>
+                <asp:ListItem Value="1">yes</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-sm-offset-4 col-sm-8">
             <asp:Button ID="Button2" runat="server" Text="submit" onclick="Button2_Click" CssClass="btn btn-primary" UseSubmitBehavior="False" />
             &nbsp;

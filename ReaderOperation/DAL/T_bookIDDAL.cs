@@ -78,6 +78,27 @@ namespace DAL
             { return null; }
         }
 
+        //由ISBN查询book_id
+        public static List<T_bookID> GetIDByISBN(string isbn)
+        {
+            List<T_bookID> list = new List<T_bookID>();
+            sql = string.Format("select * from T_bookID where ISBN='{0}'", isbn);
+            ds = CSDBC.GetDataSet(sql);
+            if (ds == null)
+                return null;
+            else
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    T_bookID b = new T_bookID();
+                    b.Book_id = dr["book_Id"].ToString().Trim();
+                    b.iSBN = dr["ISBN"].ToString().Trim();
+                    b.InLibrarain = int.Parse(dr["inLibrarain"].ToString().Trim());
+                    list.Add(b);
+                }
+                return list;
+            }
+        }
 
         //由book_id查询inLibrarain
         public static int GetInLibrarainByID(string ID)
@@ -99,6 +120,7 @@ namespace DAL
 
 
         //取出全部
+        
         public static IList<T_bookID> GetAllData()
         {
             List<T_bookID> list = new List<T_bookID>();
@@ -118,6 +140,6 @@ namespace DAL
                 }
                 return list;
             }
-        }     
+        }    
     }
 }

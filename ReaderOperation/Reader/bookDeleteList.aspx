@@ -27,9 +27,12 @@
             <asp:Button ID="Button3" runat="server" Text="return" OnClick="Button3_Click" CssClass="btn btn-default" UseSubmitBehavior="False" />
         </div>
     </div>
-    <div class="form-group text-right">
-        <a ID="selectAll" class="btn btn-default">select ALL</a>
-        <a ID="cancelAll" class="btn btn-default">cancel ALL</a>
+    <div class="form-group">
+        <div class="col-sm-12 text-right ">
+            <a ID="selectAll" class="btn btn-default">select ALL</a>
+            <a ID="cancelAll" class="btn btn-default">cancel ALL</a>
+        </div>
+        
     </div>
     <div class="form-group">
     <table class="table table-hover table-responsive table-striped text-center">
@@ -37,7 +40,7 @@
         <tr>
             <th></th>
             <th class="text-center">
-                ID
+                ISBN
             </th>
             <th class="text-center">
                 Picture
@@ -65,6 +68,9 @@
             </th>
             <th class="text-center">
                 Loaction
+            </th>
+            <th class="text-center">
+                Operation
             </th>
         </tr>
         </thead>
@@ -105,6 +111,11 @@
                     <td style="vertical-align:middle">
                         <%#Eval("location") %>
                     </td>
+                    <td style="vertical-align:middle">
+                        <a class="btn btn-default" href="bookDelete.aspx?isbn=<%#Eval("ISBN") %>">
+                            detail
+                        </a>
+                    </td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
@@ -116,7 +127,7 @@
         <asp:TextBox ID="TextBox4" runat="server" ClientIDMode="Static"></asp:TextBox>
     </div>
     <div class="form-group text-right">
-        <asp:Button ID="sure" runat="server" Text="sumit" ClientIDMode="Static" CausesValidation="False" OnClick="Button1_Click"  />
+        <asp:Button ID="sure" runat="server" Text="sumit" ClientIDMode="Static" CausesValidation="False" OnClick="Button1_Click" CssClass="btn btn-default"  />
     </div>
     
     <script type="text/javascript">
@@ -127,7 +138,7 @@
                 {
                     if ($(this).children(".loan").text().trim() != "0")
                     {
-                        $(this).addClass("warning");
+                        $(this).addClass("danger");
                         $(this).children(".check").children("input").prop("disabled", true);
                     }
                 }

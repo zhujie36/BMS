@@ -38,7 +38,10 @@ namespace Reader
                 Repeater1.DataSource = BorrowListBLL.GetAllLoanByReader(reader);
                 Repeater1.DataBind();
             }
-
+            if(!IsPostBack)
+            {
+                Panel2.Visible = false;
+            }
         }
 
        
@@ -58,6 +61,7 @@ namespace Reader
                 Label2.Text = "Cannot get this student's infromation,please input right student's ID!";
                 return;
             }
+            Panel2.Visible = true;
             ///刷新每个借阅条目的超期值
             List<BorrowList> list = BorrowListBLL.GetAllLoanByReader(stu);
             if (list != null)

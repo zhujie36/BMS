@@ -12,7 +12,7 @@ namespace Reader
     public partial class bookDelete : System.Web.UI.Page
     {
         private static T_book tbook;
-        private static string id;
+        private static string isbn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (all.ID == null)
@@ -21,21 +21,22 @@ namespace Reader
             }
             if (!IsPostBack)
             {
-                if (Request.QueryString["ID"] != null)
+                if (Request.QueryString["isbn"] != null)
                 {
-                    id = Request.QueryString["ID"].ToString().Trim();
-                    tbook = T_bookBLL.GetDataByID(id);
-                    TextBox1.Text = id.ToString();
-                    TextBox1.Enabled = false;
+                    isbn = Request.QueryString["isbn"].ToString().Trim();
+                    tbook = T_bookBLL.GetDataByID(isbn);
                     TextBox2.Text = tbook.Name; TextBox2.Enabled = false;
                     TextBox3.Text = tbook.Price; TextBox3.Enabled = false;
-                    TextBox4.Text = tbook.Category; TextBox4.Enabled = false;
+                    TextBox4.Text = tbook.YearOfPublication; TextBox4.Enabled = false;
                     TextBox5.Text = tbook.Press; TextBox5.Enabled = false;
                     TextBox6.Text = tbook.TotalAmount; TextBox6.Enabled = false;
                     TextBox7.Text = tbook.LoanAmount; TextBox7.Enabled = false;
                     TextBox8.Text = tbook.Location; TextBox8.Enabled = false;
-                    writerLabel.Text = tbook.Author; writerLabel.Enabled = false;
+                    writeTextBox.Text = tbook.Author; writeTextBox.Enabled = false;
                     Image1.ImageUrl = tbook.Pic;
+
+                    LBook.DataSource = T_bookIDBLL.GetIDByISBN(isbn);
+                    LBook.DataBind();
                 }
                 else
                 {
@@ -46,19 +47,27 @@ namespace Reader
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if(int.Parse(tbook.LoanAmount) != 0)
+            string s = TextBox1.Text.Trim();
+            string[] booklist = s.Split(',');
+            bool result = true;
+            for (int i = 0; i < booklist.Length && booklist[i] != ""; i++)
             {
-                Response.Write("<script>alert('There are still books which are not returned,so can not delete the book!')</script>");
+                if (!T_bookIDBLL.Delete(T_bookIDBLL.GetDataByID(booklist[i])))
+                {
+                    result = false;
+                    break;
+                }
+            }
+            if (result)
+            {
+                Response.Write("<script>alert('delete succeed!')</script>");
+                Response.Write("<script>javascript:location.href='bookDeleteList.aspx?'</script>");
             }
             else
             {
-                bool result = T_bookBLL.Delete(id);
-                if (result)
-                    Response.Redirect("bookDeleteList.aspx");
-                else
-                    Response.Write("<script>alert('Delete false!')</script>");
+                Response.Write("<script>alert('delete failed!')</script>");
             }
-            
+
 
         }
 

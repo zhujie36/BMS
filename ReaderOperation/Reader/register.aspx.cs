@@ -22,8 +22,8 @@ namespace Reader
         protected void Button2_Click(object sender, EventArgs e)
         {
 
-            //String f = this.flag.Value;
-            //if (f == "1")
+            
+            if (DropDownList2.SelectedValue == "1")
             {
 
                 T_Reader reader = new T_Reader();
@@ -51,10 +51,13 @@ namespace Reader
                         Response.Write("<script>alert('add failed!')</script>");
                     }
                 }
-
+                
 
             }
-
+            else
+            {
+                Response.Write("<script>alert('please deposit!')</script>");
+            }
             
             
 

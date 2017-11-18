@@ -17,8 +17,10 @@ namespace Reader
             {
                 Response.Redirect("login.aspx");
             }
+            if(!IsPostBack)
+            {
                 ///刷新每个借阅条目的超期值
-                List<BorrowList> list = BorrowListBLL.GetAllByReader(reader);
+                List<BorrowList> list = BorrowListBLL.GetAllLoanByReader(reader);
                 if (list != null)
                 {
                     for (int i = 0; i < list.Count; i++)
@@ -30,6 +32,8 @@ namespace Reader
 
                 Repeater1.DataSource = BorrowListBLL.GetAllByReader(reader);
                 Repeater1.DataBind();
+            }
+               
             
 
         }

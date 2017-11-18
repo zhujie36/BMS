@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
     <div class="form-group">
         <div class="text-center">
             <h2>Please input the information of the book you want to add.</h2>

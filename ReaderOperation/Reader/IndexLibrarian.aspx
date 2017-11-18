@@ -111,7 +111,7 @@
                 </h2>
             </div>
             <div id="demo2" class="collapse in row panel-body">
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-3 text-center">
                     <div>
                         <a href="Ledit.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/7-7.jpg',1)"><img src="images/7.jpg" width="146" height="104" border="0" id="Image7" class="img-rounded" /></a>
                     </div>
@@ -119,7 +119,7 @@
                         Modify personal information
                     </div>
                 </div>
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-3 text-center">
                     <div>
                         <a href="LRegister.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','images/8-8.jpg',1)"><img src="images/8.jpg" width="146" height="104" border="0" id="Image8" class="img-rounded" /></a>
                     </div>
@@ -127,12 +127,20 @@
                         Add new Liabrarian
                     </div>
                 </div>
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-3 text-center">
                     <div>
                         <a href="LwirteOff.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/9-9.jpg',1)"><img src="images/9.jpg" width="146" height="104" border="0" id="Image9" class="img-rounded" /></a>
                     </div>
                     <div style="padding:10px 0; font-weight:bold">
                         Write off
+                    </div>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div>
+                        <a href="ViewFine.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','images/18-18.jpg',1)"><img src="images/18.jpg" width="146" height="104" border="0" id="Image18" class="img-rounded" /></a>
+                    </div>
+                    <div style="padding:10px 0; font-weight:bold">
+                        See earnings
                     </div>
                 </div>
             </div>

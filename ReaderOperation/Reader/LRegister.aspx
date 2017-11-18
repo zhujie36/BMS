@@ -21,7 +21,7 @@
     <div class="form-group">
         <asp:Label ID="Label2" runat="server" Text="password" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" placeholder="password containing 6~10 characters or numbers"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" placeholder="password containing 6~10 characters or numbers" TextMode="Password"></asp:TextBox>
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the password." ControlToValidate="TextBox3" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -31,7 +31,7 @@
     <div class="form-group">
         <asp:Label ID="Label3" runat="server" Text="again input" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" placeholder="input password again"></asp:TextBox> 
+            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" placeholder="input password again" TextMode="Password"></asp:TextBox> 
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the passwor." ControlToValidate="TextBox4" ForeColor="Indigo" Display="Dynamic"></asp:RequiredFieldValidator>

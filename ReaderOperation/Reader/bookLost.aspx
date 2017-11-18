@@ -16,11 +16,15 @@
             <asp:Button ID="Button1" runat="server" Text="ok" OnClick="Button1_Click" CssClass="btn btn-primary" />
         </div>
         <div class="col-sm-2">
-            <asp:Button ID="Button2" runat="server" Text="return" OnClick="Button2_Click" CssClass="btn btn-default" UseSubmitBehavior="False" />
+            <asp:Button ID="Button2" runat="server" Text="return" OnClick="Button2_Click" CssClass="btn btn-default" UseSubmitBehavior="False" CausesValidation="False" />
         </div>
     </div>
     <div class="form-group">
        <asp:Panel ID="Panel1" runat="server">
+           <div class="text-center">
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox1" ForeColor="Indigo" ErrorMessage="Please input the reader name." Display="Dynamic" Font-Size="Large"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="please input right student's ID!" Display="Dynamic" ForeColor="Indigo" ControlToValidate="TextBox1" ValidationExpression="[0-9]{11}" SetFocusOnError="True" Font-Size="Large"></asp:RegularExpressionValidator>
+           </div>
             <div class="alert alert-warning col-sm-offset-4 col-sm-4">
 	            <a href="#" class="close" data-dismiss="alert">
 		            &times;
@@ -32,6 +36,7 @@
         </asp:Panel>  
     </div>
     <div class="form-group">
+        <asp:Panel ID="Panel2" runat="server">
     <table class="table table-hover table-responsive table-striped text-center">
         <thead>
             <tr>
@@ -68,6 +73,7 @@
                        
         </tbody>       
        </table>
+            </asp:Panel>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {

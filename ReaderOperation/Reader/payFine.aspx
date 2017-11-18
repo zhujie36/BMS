@@ -11,6 +11,10 @@
             <asp:Button ID="Button3" runat="server" Text="ok" OnClick="Button3_Click" />
         </div>
     </div>
+    <div class="form-group text-center">
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox1" ForeColor="Indigo" ErrorMessage="Please input the reader name." Display="Dynamic" Font-Size="Large" Font-Bold="True"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="please input right student's ID!" Display="Dynamic" ForeColor="Indigo" ControlToValidate="TextBox1" ValidationExpression="[0-9]{11}" SetFocusOnError="True" Font-Bold="True" Font-Size="Large"></asp:RegularExpressionValidator>
+    </div>
     <asp:Panel ID="Panel1" runat="server" style="margin-top:30px">
         <div class="form-group">
             <asp:Label ID="Label4" runat="server" Text="fine:" CssClass="control-label col-sm-4" Font-Bold="True" Font-Size="Large"></asp:Label>

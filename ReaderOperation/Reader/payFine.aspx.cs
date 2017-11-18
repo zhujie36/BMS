@@ -118,7 +118,9 @@ namespace Reader
             }
             else
             {
-                Response.Write("<script>alert('please input true stu_id!')</script>");
+                //Response.Write("<script>alert('please input true stu_id!')</script>");
+                Panel2.Visible = true;
+                Label2.Text = "this student doesn't registered!";
             }
         }
     }
