@@ -30,14 +30,14 @@ namespace DAL
 
         public static bool setState(string id, float state)//编辑
         {
-            sql = string.Format("update T_Reader set R_state='{0}' where R_id={1}", state, id);
+            sql = string.Format("update T_Reader set R_state='{0}' where R_id='{1}'", state, id);
             return CSDBC.ExecSqlCommand(sql);
         }
 
 
         public static bool setBookNumber(string id, int n)//编辑
         {
-            sql = string.Format("update T_Reader set R_booknumber='{0}' where R_id={1}", n, id);
+            sql = string.Format("update T_Reader set R_booknumber='{0}' where R_id='{1}'",n, id);
             return CSDBC.ExecSqlCommand(sql);
         }
 

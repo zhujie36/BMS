@@ -12,14 +12,14 @@ namespace Model
     {
         #region fields
         private int borrowID;
-        private String bookName;
+        private string bookName;
         private string bookID;
         private string reader;
         private int ret;
         private DateTime startTime;
         private DateTime returnTime;
 
-        private String pic;
+        private string pic;
         private string num;
         private double money;
         #endregion

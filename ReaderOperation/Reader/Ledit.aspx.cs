@@ -26,6 +26,7 @@ namespace Reader
                 TextBox3.Text = all.ID;               
                 TextBox1.Text = all.NAME;
                 TextBox2.Text = all.LIB.L_pwd;
+                TextBox1.Enabled = false;
                 TextBox2.Visible = false;
                 Panel1.Visible = false;
             }

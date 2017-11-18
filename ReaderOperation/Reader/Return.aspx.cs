@@ -26,8 +26,32 @@ namespace Reader
         {
            
             string book_id = TextBox2.Text.Trim();
+            string isbn = T_bookIDBLL.GetISBNByID(book_id);
+
+
+
+
+            ///判断是否有这本书
+            T_bookID BID = T_bookIDBLL.GetDataByID(book_id);
+            if (BID == null)
+            {
+                Panel2.Visible = true;
+                Label4.Text = "Cannot get the book's information!";
+                return;
+            }
+            if (isbn == null)
+            {
+
+                //Response.Write("<script>alert('cannot get this book information!')</script>");
+                Panel2.Visible = true;
+                Label4.Text = "Cannot get the book's information!";
+                return;
+            }
+
+
+
             ///判断是否已归还
-            int flag1 = T_bookIDBLL.GetInLibrarainByID(book_id);
+            int flag1 = BID.InLibrarain;
             if (flag1 == 1)
             {
                 //Response.Write("The book has already been returned!");

@@ -95,7 +95,6 @@ namespace BLL
         public static bool bookReturn(string book_id)
         {
             string isbn = T_bookIDBLL.GetISBNByID(book_id);
-
             T_book book = T_bookBLL.GetDataByID(isbn);
             BorrowList list = BorrowListBLL.GetDataByBookID(book_id);
             int borrow_id = list.BorrowID;
@@ -109,9 +108,55 @@ namespace BLL
             int loan = int.Parse(book.LoanAmount) - 1;
             bool result1 = T_bookBLL.setLoanAmount(isbn, loan);
 
+            if(result1 == false)
+            {
+                return false;
+            }
+
 
             ///设置归还时间
             bool result2 = BorrowListBLL.setReturnTime(borrow_id);
+            if(result2 == false)
+            {
+                T_bookBLL.setLoanAmount(isbn, loan + 1);
+                return false;
+            }
+
+
+
+            ///设置借阅记录为已归还
+            bool result5 = BorrowListBLL.setRet(list.BorrowID, 1);
+
+            if(result5 == false)
+            {
+                T_bookBLL.setLoanAmount(isbn, loan + 1);
+                return false;
+            }
+
+
+
+            ///设置拥有数数量
+            int n = T_ReaderBLL.GetDataByID(reader_id).R_booknumber;
+            bool result4 = T_ReaderBLL.setBookNumber(reader_id, n - 1);
+            if(result4 == false)
+            {
+                T_bookBLL.setLoanAmount(isbn, loan + 1);
+                BorrowListBLL.setRet(list.BorrowID, 0);
+                return false;
+            }
+
+
+
+            ///设置inLibrarain值为1
+            bool result7 = T_bookIDBLL.setInLibrarain(book_id, 1);
+            if(result7 == false)
+            {
+                T_bookBLL.setLoanAmount(isbn, loan + 1);
+                BorrowListBLL.setRet(list.BorrowID, 0);
+                T_ReaderBLL.setBookNumber(reader_id, n);
+                return false;
+            }
+
 
 
 
@@ -124,40 +169,53 @@ namespace BLL
 
             bool result3 = true;
             bool result6 = true;
-
             if(days > 30)
             {
                 days = days - 30;
                 float state = -days;
-                result3 = T_ReaderBLL.setState(reader_id, state);
+                float state_before = T_ReaderDAL.GetDataByID(reader_id).R_state;
+                result3 = T_ReaderBLL.setState(reader_id, state + state_before);
+                if(result3 == false)
+                {
+                    T_bookBLL.setLoanAmount(isbn, loan + 1);
+                    BorrowListBLL.setRet(list.BorrowID, 0);
+                    T_ReaderBLL.setBookNumber(reader_id, n);
+                    T_bookIDBLL.setInLibrarain(book_id, 0);
+                    return false;
+                }
+
+
                 result6 = BorrowListBLL.setMoney(list.BorrowID, days);
+                if(result6 == false)
+                {
+                    T_bookBLL.setLoanAmount(isbn, loan + 1);
+                    BorrowListBLL.setRet(list.BorrowID, 0);
+                    T_ReaderBLL.setBookNumber(reader_id, n);
+                    T_bookIDBLL.setInLibrarain(book_id, 0);
+                    T_ReaderBLL.setState(reader_id, state_before);
+                    return false;
+                }
+
             }
             else
             {
                
                 result6 = BorrowListBLL.setMoney(list.BorrowID, 0);
+                if(result6 == false)
+                {
+                    T_bookBLL.setLoanAmount(isbn, loan + 1);
+                    BorrowListBLL.setRet(list.BorrowID, 0);
+                    T_ReaderBLL.setBookNumber(reader_id, n);
+                    T_bookIDBLL.setInLibrarain(book_id, 0);
+                }
+
             }
-           
-
-
-            ///设置借阅记录为已归还
-            bool result5 = BorrowListBLL.setRet(list.BorrowID, 1);
-
-
-            ///设置拥有数数量
-            int n = T_ReaderBLL.GetDataByID(reader_id).R_booknumber;
-            bool result4 = T_ReaderBLL.setBookNumber(reader_id, n - 1);
-
-
-            ///设置inLibrarain值为1
-            bool result7 = T_bookIDBLL.setInLibrarain(book_id,1);
 
 
 
-            if (result1 == true && result2 == true && result3 == true && result4 == true && result5 && result6 && result7)
-                return true;
-            else
-                return false;
+
+
+            return true;
         }
 
 
@@ -192,9 +250,10 @@ namespace BLL
             int loan = 1 + int.Parse(book.LoanAmount);
             bool result1 = T_bookBLL.setLoanAmount(book.iSBN, loan);
 
-
-            ///修改inLibrarain值
-            bool result4 = T_bookIDBLL.setInLibrarain(book_id,0);
+            if(result1 == false)
+            {
+                return false;
+            }
            
 
             ///插入借阅记录
@@ -203,14 +262,43 @@ namespace BLL
             bool result2 = BorrowListBLL.Add(borlist);
 
 
+            if(result2 == false)
+            {
+                T_bookBLL.setLoanAmount(book.iSBN, loan - 1);
+                return false;
+            }
+
+
+
             ///修改读者所借图书量
             int n = T_ReaderBLL.GetDataByID(reader_id).R_booknumber;
             bool result3 = T_ReaderBLL.setBookNumber(reader_id, n + 1);
 
-            if (result1 == true && result2 == true && result3 == true && result4)
-                return true;
-            else
+
+            if(result3 == false)
+            {
+                T_bookBLL.setLoanAmount(book.iSBN, loan - 1);
+                BorrowListBLL.DeleteByBorrowID(borlist.BorrowID);
                 return false;
+            }
+
+
+
+            ///修改inLibrarain值
+            bool result4 = T_bookIDBLL.setInLibrarain(book_id, 0);
+
+
+            if(result4 == false)
+            {
+                T_bookBLL.setLoanAmount(book.iSBN, loan - 1);
+                BorrowListBLL.DeleteByBorrowID(borlist.BorrowID);
+                T_ReaderBLL.setBookNumber(reader_id, n);
+                return false;
+            }
+
+
+            return true;
+
         }
     }
 }

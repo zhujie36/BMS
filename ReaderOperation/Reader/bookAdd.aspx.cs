@@ -71,7 +71,14 @@ namespace Reader
                 }
                 if (bookInfo.price != null)
                 {
-                    TextBox3.Text = bookInfo.price;
+                    string s = bookInfo.price.Trim();
+                    if(s.Contains("元"))
+                    {
+
+                        s = s.Remove(s.Length - 1, 1);
+                        Label11.Text = s;
+                    }
+                    TextBox3.Text = s;
                 }
             }
             else

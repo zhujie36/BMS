@@ -30,19 +30,20 @@
         }
     </style>
 </head>
-<body style="padding-top:60px; ">
+<body style="background-color:rgba(252, 248, 161, 0.43); padding-top:70px">
     <form id="form1" runat="server" class="form-horizontal" role="form">
         <div class="container" >
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">XiDian Library Management System</a>
+                        <a class="navbar-brand" href="#" style="margin:0; padding:0"><img src="images/xidian.png" width="40px" height="40px"/></a>
+                        <a class="navbar-brand" href="#">Library Management System</a>
                     </div>
                     <div>
                         <ul class="nav navbar-nav">
-                            <li><a href="IndexReader.aspx">Home</a></li>
-                            <li><a href="bookFind.aspx">Find book</a></li>
-                            <li><a href="Redit.aspx">Modify personal information</a></li>
+                            <li><a href="IndexReader.aspx"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="bookFind.aspx"><span class="glyphicon glyphicon-search"></span> Find book</a></li>
+                            <li><a href="Redit.aspx"><span class="glyphicon glyphicon-user"></span> Modify personal information</a></li>
                         </ul>
                     </div>
                     <div class="navbar-right col-sm-1">

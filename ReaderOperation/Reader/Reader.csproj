@@ -116,6 +116,7 @@
     <Content Include="images\8.jpg" />
     <Content Include="images\9-9.jpg" />
     <Content Include="images\9.jpg" />
+    <Content Include="images\book.jpg" />
     <Content Include="images\CZXT.jpg" />
     <Content Include="images\FZ.jpg" />
     <Content Include="images\HLS1.jpg" />
@@ -127,6 +128,7 @@
     <Content Include="images\tabrightJ.gif" />
     <Content Include="images\tree_jia.gif" />
     <Content Include="images\WN.jpg" />
+    <Content Include="images\xidian.png" />
     <Content Include="images\兰花.jpg" />
     <Content Include="images\叶子.jpg" />
     <Content Include="images\竹子.jpg" />

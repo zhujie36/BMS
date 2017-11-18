@@ -16,7 +16,7 @@
         <div class="col-sm-2">
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-        <asp:Label ID="Label3" runat="server" Text="ID" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="ISBN" CssClass="col-sm-1 control-label" Font-Bold="True" ></asp:Label>
         <div class="col-sm-2">
             <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
         </div>

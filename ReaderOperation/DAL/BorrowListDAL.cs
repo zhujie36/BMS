@@ -41,7 +41,7 @@ namespace DAL
         ///根据借阅ID删除借阅记录
         public static bool DeleteByBorrowID(int borid)
         {
-            sql = "Delete from BorrowList where BorrowID=" + borid;
+            sql = string.Format("Delete from BorrowList where BorrowID='{0}'",borid);
             return CSDBC.ExecSqlCommand(sql);
         }
 
@@ -206,6 +206,7 @@ namespace DAL
             sql = string.Format("update BorrowList set returnTime='{0}' where borrowID='{1}'", now, id);
             return CSDBC.ExecSqlCommand(sql);
         }
+
 
         public static bool setMoney(int id, double value)
         {
