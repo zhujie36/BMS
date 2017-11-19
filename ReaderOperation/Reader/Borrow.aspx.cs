@@ -25,9 +25,10 @@ namespace Reader
                 {
                     Response.Redirect("login.aspx");
                 }
-            }
-            Panel1.Visible = false;
+ Panel1.Visible = false;
             Panel2.Visible = false;
+            }
+           
             
         }
         

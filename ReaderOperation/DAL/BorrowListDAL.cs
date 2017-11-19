@@ -182,7 +182,17 @@ namespace DAL
                     {
                         try
                         {
+                            if(dr["Money"] == null)
+                            {
+                                return 66666;
+                                break;
+                            }
+
+
                             blist.Money = Convert.ToDouble(dr["Money"]);
+
+                            
+
 
                             if (blist.Money > 0)
                             {
@@ -199,7 +209,7 @@ namespace DAL
                         }
                         catch
                         {
-                            return 0;
+                            return 999999;
                         }
                     }
 
