@@ -50,7 +50,8 @@ namespace Reader
             
             all.READER.R_name = TextBox1.Text.Trim();
             all.NAME = TextBox1.Text.Trim();
-            all.READER.R_pwd = TextBox2.Text.Trim();
+            if (TextBox2.Text.ToString().Trim() != null && TextBox2.Text.ToString().Trim() != "")
+                all.READER.R_pwd = TextBox2.Text.Trim();
             all.READER.R_sex = DropDownList1.SelectedItem.Text;
             all.READER.R_tel = TextBox4.Text.Trim();
             all.READER.R_email = TextBox5.Text.Trim();

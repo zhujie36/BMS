@@ -37,7 +37,8 @@ namespace Reader
         {
             all.LIB.L_name = TextBox1.Text.ToString().Trim();
             all.NAME = all.LIB.L_name;
-            all.LIB.L_pwd = TextBox2.Text.ToString().Trim();
+            if(TextBox2.Text.ToString().Trim() != null && TextBox2.Text.ToString().Trim() != "")
+                all.LIB.L_pwd = TextBox2.Text.ToString().Trim();
             bool result = T_LibrarianBLL.Update(all.LIB);
             if(result)
             {

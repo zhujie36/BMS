@@ -23,6 +23,8 @@ namespace DAL
         /// 
 
 
+        
+        
 
         //星期转化函数
         public static int getWeek(string a)
@@ -43,77 +45,230 @@ namespace DAL
                 return 7;
         }
 
+        public static bool judgetime (string year1,string month1,string year2,string month2,string year,string month)
+        {
+            int y1 = Convert.ToInt32(year1);
+            int m1 = Convert.ToInt32(month1);
+            int y2 = Convert.ToInt32(year2);
+            int m2 = Convert.ToInt32(month2);
+            int y = Convert.ToInt32(year);
+            int m = Convert.ToInt32(month);
 
+            if (y < y1 || y > y2)
+                return false;
+            
+            if(y == y1)
+            {
+                if (m < m1)
+                    return false;
+            }
+
+            if(y == y2)
+            {
+                if (m > m2)
+                    return false;
+            }
+
+            return true;
+        }
+
+
+        public static int getFineDuration(string year1,string month1,string year2,string month2)
+        {
+            double fine = 0;
+            List<BorrowList> list = new List<BorrowList>();
+            sql = "select * from BorrowList";
+            ds = CSDBC.GetDataSet(sql);
+
+            if (ds == null)
+            {
+                return 0;
+            }
+            else
+            {
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    BorrowList blist = new BorrowList();
+                    try
+                    {
+                        blist.Money = Convert.ToDouble(dr["Money"]);
+
+
+
+                        if (blist.Money > 0)
+                        {
+                            blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                            string before_year = blist.ReturnTime.Year.ToString();
+                            string before_month = blist.ReturnTime.Month.ToString();
+
+
+                            if (judgetime(year1,month1,year2,month2,before_year,before_month))
+                            {
+                                fine = fine + blist.Money;
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        return 0;
+                    }
+                }
+
+
+                int final = (int)fine;
+                return final;
+
+            }
+
+        }
 
 
 
         //罚金计算
-        public static int getFine(int flag, DateTime now)
+        public static int getFine1(DateTime now)
         {
             string now_year = now.Year.ToString();
             string now_month = now.Month.ToString();
             string now_dayinyear = now.DayOfYear.ToString();
             string now_weekday = now.DayOfWeek.ToString();
 
-            //今天
-            if (flag == 1)
+            
+            double fine = 0;
+            List<BorrowList> list = new List<BorrowList>();
+            sql = "select * from BorrowList";
+            ds = CSDBC.GetDataSet(sql);
+
+            if (ds == null)
             {
-                double fine = 0;
-                List<BorrowList> list = new List<BorrowList>();
-                sql = "select * from BorrowList";
-                ds = CSDBC.GetDataSet(sql);
+                return 0;
+            }
+            else
+            {
 
-                if(ds == null)
+                foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    return 0;
-                }
-                else
-                {
-
-                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    BorrowList blist = new BorrowList();
+                    try
                     {
-                        BorrowList blist = new BorrowList();
-                        try
-                        {
-                            blist.Money = Convert.ToDouble(dr["Money"]);
-                            int t = Convert.ToInt32(blist.Money);
-                            return t;
+                        blist.Money = Convert.ToDouble(dr["Money"]);
+                        
 
-                            if (blist.Money > 0)
+
+                        if (blist.Money > 0)
+                        {
+                            blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                            string before_year = blist.ReturnTime.Year.ToString();
+                            string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
+
+
+                            if (before_year == now_year && before_dayinyear == now_dayinyear)
                             {
-                                blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-                                string before_year = blist.ReturnTime.Year.ToString();
-                                string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
-
-
-                                if (before_year == now_year && before_dayinyear == now_dayinyear)
-                                {
-                                    fine = fine + blist.Money;
-                                }
+                                fine = fine + blist.Money;
                             }
-                        }
-                        catch
-                        {
-                            return 0;
                         }
                     }
-                   
-
-                    int final = (int)fine;
-                    return final;
+                    catch
+                    {
+                        return 0;
+                    }
                 }
+
+
+                int final = (int)fine;
+                return final;
+               
             }//今天
 
+        }
 
+
+        public static int getFine2(DateTime now)
+        {
             //本周
-            else if (flag == 2)
+            string now_year = now.Year.ToString();
+            string now_month = now.Month.ToString();
+            string now_dayinyear = now.DayOfYear.ToString();
+            string now_weekday = now.DayOfWeek.ToString();
+            double fine = 0;
+
+
+            List<BorrowList> list = new List<BorrowList>();
+            sql = "select * from BorrowList";
+            ds = CSDBC.GetDataSet(sql);
+
+            if (ds == null)
             {
-                double fine = 0;
+                return 0;
+            }
+            else
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    BorrowList blist = new BorrowList();
+                    try
+                    {
+                        blist.Money = Convert.ToDouble(dr["Money"]);
+
+
+                        if (blist.Money > 0)
+                        {
+                            blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
+                            string before_year = blist.ReturnTime.Year.ToString();
+                            string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
+                            string before_weekday = blist.ReturnTime.DayOfWeek.ToString();
+
+
+
+                            //之前天
+                            int a = Convert.ToInt32(before_dayinyear);
+                            //现在天
+                            int b = Convert.ToInt32(now_dayinyear);
+                            int c = b - a;
+
+
+                            int m = getWeek(before_weekday);
+                            int n = getWeek(now_weekday);
+                            int p = n - m;
+
+                            if (before_year == now_year && (c < 7) && (p >= 0))
+                            {
+                                fine = fine + blist.Money;
+                            }
+                        }
+
+                    }catch
+                    {
+                        return 0;
+                    }
+
+
+                    
+
+                }
+
+                int final = (int)fine;
+                return final;
+            }
+
+        }
+
+
+
+         public static int getFine3(DateTime now)
+        {
+            string now_year = now.Year.ToString();
+            string now_month = now.Month.ToString();
+            string now_dayinyear = now.DayOfYear.ToString();
+            string now_weekday = now.DayOfWeek.ToString();
+            
+            double fine = 0;
                 List<BorrowList> list = new List<BorrowList>();
                 sql = "select * from BorrowList";
                 ds = CSDBC.GetDataSet(sql);
 
-                if(ds == null)
+
+                if (ds == null)
                 {
                     return 0;
                 }
@@ -121,78 +276,11 @@ namespace DAL
                 {
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
-                        try
+                    BorrowList blist = new BorrowList();
+                    try
                         {
                             blist.Money = Convert.ToDouble(dr["Money"]);
-
-                            if (blist.Money > 0)
-                            {
-                                blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
-                                string before_year = blist.ReturnTime.Year.ToString();
-                                string before_dayinyear = blist.ReturnTime.DayOfYear.ToString();
-                                string before_weekday = blist.ReturnTime.DayOfWeek.ToString();
-
-
-
-                                //之前天
-                                int a = Convert.ToInt32(before_dayinyear);
-                                //现在天
-                                int b = Convert.ToInt32(now_dayinyear);
-                                int c = b - a;
-
-
-                                int m = getWeek(before_weekday);
-                                int n = getWeek(now_weekday);
-                                int p = n - m;
-
-                                if (before_year == now_year && (c < 7) && (p >= 0))
-                                {
-                                    fine = fine + blist.Money;
-                                }
-                            }
-                        }
-                        catch
-                        {
-                            return 0;
-                        }
-                    } 
-
-                    int final = (int)fine;
-                    return final;
-                }
-            }//本周
-
-
-            //本月
-            else if (flag == 3)
-            {
-                double fine = 0;
-                List<BorrowList> list = new List<BorrowList>();
-                sql = "select * from BorrowList";
-                ds = CSDBC.GetDataSet(sql);
-
-
-                if(ds == null)
-                {
-                    return 0;
-                }
-                else
-                {
-                    foreach (DataRow dr in ds.Tables[0].Rows)
-                    {
-                        try
-                        {
-                            if(dr["Money"] == null)
-                            {
-                                return 66666;
-                                break;
-                            }
-
-
-                            blist.Money = Convert.ToDouble(dr["Money"]);
-
-                            
-
+                      
 
                             if (blist.Money > 0)
                             {
@@ -209,28 +297,34 @@ namespace DAL
                         }
                         catch
                         {
-                            return 999999;
+                            return 0;
                         }
                     }
 
 
-                    
-                    int final = (int)fine;
-                    return final;
+
+                int final = (int)fine;
+                return final;
+               
                 }
-            }//本月
+            
+        }
 
 
-            //今年
-            else if (flag == 4)
-            {
-                double fine = 0;
+            
+        public static int getFine4(DateTime now)
+        {
+            string now_year = now.Year.ToString();
+            string now_month = now.Month.ToString();
+            string now_dayinyear = now.DayOfYear.ToString();
+            string now_weekday = now.DayOfWeek.ToString();
+            double fine = 0;
                 List<BorrowList> list = new List<BorrowList>();
                 sql = "select * from BorrowList";
                 ds = CSDBC.GetDataSet(sql);
+          
 
-
-                if(ds == null)
+                if (ds == null)
                 {
                     return 0;
                 }
@@ -238,10 +332,13 @@ namespace DAL
                 {
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
-                        try
+
+                    BorrowList blist = new BorrowList();
+                    try
                         {
                             blist.Money = Convert.ToDouble(dr["Money"]);
 
+                        
                             if (blist.Money > 0)
                             {
                                 blist.ReturnTime = Convert.ToDateTime(dr["ReturnTime"]);
@@ -259,17 +356,16 @@ namespace DAL
                             return 0;
                         }
                     }
-                    
 
-                    int final = (int)fine;
-                    return final;
+
+                int final = (int)fine;
+                return final;
+              
                 }
-            }//今年
+           
+        }
 
 
-            else
-                return 0;
-        }//罚金计算
 
         public static bool Add(BorrowList b)
         {

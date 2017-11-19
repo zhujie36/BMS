@@ -27,7 +27,7 @@
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please input the password." ControlToValidate="TextBox2" ForeColor="Indigo" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="password containing 6~10 characters or numbers" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True" ValidationExpression="[a-z0-9]{6,10}" ForeColor="Indigo" ></asp:RegularExpressionValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="password containing 6~10 characters or numbers" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True" ValidationExpression="[a-zA-Z0-9]{6,10}" ForeColor="Indigo" ></asp:RegularExpressionValidator>
         </div>
     </div>
     <asp:Panel ID="Panel1" runat="server" Visible="False">

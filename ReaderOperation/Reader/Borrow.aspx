@@ -23,21 +23,25 @@
             <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
         </div>
         <div class="col-sm-1" style="vertical-align:middle">
-            <asp:Button ID="Button3" runat="server" Text="again" CausesValidation="False" OnClick="Button3_Click1" UseSubmitBehavior="False" />
+            <asp:Button ID="Button3" runat="server" Text="again" CausesValidation="False" OnClick="Button3_Click1" UseSubmitBehavior="False"  CssClass="btn btn-default" />
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox2" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="ID can only contains numbers" Display="Dynamic" ControlToValidate="TextBox2" ValidationExpression="[0-9]*" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
-        <asp:Panel ID="Panel1" runat="server">
+        <asp:Panel ID="Panel1" runat="server" Visible="False">
             <asp:Label ID="Label3" runat="server" Text="book ID" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
             <div class="col-sm-4 col-md-4">
                 <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" TabIndex="3"></asp:TextBox>
             </div>
-            <div class="col-sm-4">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the book ID." ForeColor="Indigo" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
+            <div class="col-sm-1">
+                <asp:Button ID="Button4" runat="server" Text="cancel" CausesValidation="False" OnClick="Button4_Click" UseSubmitBehavior="False" CssClass="btn btn-default" />
+            </div>
+            <div class="col-sm-3">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox3" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="ID can only contains numbers" Display="Dynamic" ControlToValidate="TextBox3" ValidationExpression="[0-9]*" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
             </div>
         </asp:Panel>
     </div>

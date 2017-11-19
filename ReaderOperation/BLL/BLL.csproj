@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BookApi.cs" />
     <Compile Include="BorrowListBLL.cs" />
+    <Compile Include="Code39.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T_bookBLL.cs" />
     <Compile Include="T_bookIDBLL.cs" />

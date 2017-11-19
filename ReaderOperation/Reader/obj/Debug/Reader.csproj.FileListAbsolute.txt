@@ -33,3 +33,4 @@ E:\github\BMS\BMS\ReaderOperation\Reader\bin\DAL.pdb
 E:\github\BMS\BMS\ReaderOperation\Reader\obj\Debug\Reader.csprojResolveAssemblyReference.cache
 E:\github\BMS\BMS\ReaderOperation\Reader\obj\Debug\Reader.dll
 E:\github\BMS\BMS\ReaderOperation\Reader\obj\Debug\Reader.pdb
+E:\github\BMS\BMS\ReaderOperation\Reader\bin\GenCode128.dll

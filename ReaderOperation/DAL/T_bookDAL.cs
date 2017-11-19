@@ -22,7 +22,7 @@ namespace DAL
         public static bool Add(T_book b)
         {
             //sql = string.Format("insert into T_book (Name,Sex) values ('{0}','{1}','{2}','{3}','{4}','{5}')", b.Id, b.Name, b.Price, b.Category, b.Press, b.IsLend);
-           sql = string.Format("insert into T_book (ISBN,name,price,category,press,totalAmount,loanAmount,pic,location,author,isCanLend,yearOfPublication,brief) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",b.iSBN,b.Name, b.Price, b.Category, b.Press,1,0,b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication, b.Brief);
+           sql = string.Format("insert into T_book (ISBN,name,price,category,press,totalAmount,loanAmount,pic,location,author,isCanLend,yearOfPublication,brief) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",b.iSBN,b.Name, b.Price, b.Category, b.Press,b.TotalAmount,0,b.Pic,b.Location,b.Author,b.IsCanLend,b.YearOfPublication, b.Brief);
            //sql = string.Format("insert into T_book (name,price,category,press,isLend) values ('{0}','{1}','{2}','{3}','{4}')",2, 2, 1, 1,1);
             return CSDBC.ExecSqlCommand(sql);
         }

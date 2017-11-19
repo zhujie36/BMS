@@ -15,7 +15,7 @@
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please input the name." ControlToValidate="TextBox2" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please input student's name,containing 2~50 characters" Display="Dynamic" ControlToValidate="TextBox2" ValidationExpression="[a-z0-9]{2,50}" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please input student's name,containing 2~50 characters" Display="Dynamic" ControlToValidate="TextBox2" ValidationExpression="[a-zA-Z0-9]{2,50}" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the password." ControlToValidate="TextBox3" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
-             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="password containing 6~10 characters or numbers" ControlToValidate="TextBox3" Display="Dynamic" SetFocusOnError="True" ValidationExpression="[a-z0-9]{6,10}" ForeColor="Indigo" ></asp:RegularExpressionValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="password containing 6~10 characters or numbers" ControlToValidate="TextBox3" Display="Dynamic" SetFocusOnError="True" ValidationExpression="[a-zA-Z0-9]{6,10}" ForeColor="Indigo" ></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">

@@ -24,7 +24,7 @@
         </div>
         <div class="col-sm-4" aria-atomic="True">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ForeColor="Indigo" ErrorMessage="Please input the reader name." Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please input student's name,containing 2~50 characters" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="[a-z0-9]{2,50}" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please input student's name,containing 2~50 characters" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="[a-zA-Z0-9]{2,50}" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -34,7 +34,7 @@
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please input the password." ForeColor="Indigo" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="password containing 6~10 characters or numbers" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True" ValidationExpression="[a-z0-9]{6,10}" ForeColor="Indigo" ></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="password containing 6~10 characters or numbers" ControlToValidate="TextBox2" Display="Dynamic" SetFocusOnError="True" ValidationExpression="[a-zA-Z0-9]{6,10}" ForeColor="Indigo" ></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">
@@ -77,9 +77,9 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label8" runat="server" Text="E-mail：" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
-        <div class="col-sm-4 col-md-4">
-            <asp:DropDownList ID="DropDownList2" runat="server">
+        <asp:Label ID="Label8" runat="server" Text="guarantee deposit" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-2 col-md-2">
+            <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
                 <asp:ListItem Value="0">no</asp:ListItem>
                 <asp:ListItem Value="1">yes</asp:ListItem>
             </asp:DropDownList>

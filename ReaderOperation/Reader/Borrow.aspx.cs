@@ -169,6 +169,12 @@ namespace Reader
                     return;
                 }
 
+                if (BID1 == BID2)
+                {
+                    Panel2.Visible = true;
+                    Label4.Text = "two book's ID is similar!";
+                    return;
+                }
 
 
                 ///判断是否已被借出
@@ -207,12 +213,6 @@ namespace Reader
                 {
                     Panel2.Visible = true;
                     Label4.Text = "Cannot get the two books' information!";
-                    return;
-                }
-                else if(isbn == isbn2)
-                {
-                    Panel2.Visible = true;
-                    Label4.Text = "two book's ID is similar!";
                     return;
                 }
                 else
@@ -280,9 +280,6 @@ namespace Reader
        
         protected void Button3_Click1(object sender, EventArgs e)
         {
-           
-            if (Panel1.Visible == false)
-            {
                 string reader_id = TextBox1.Text.Trim();
                 string book = TextBox2.Text.Trim();
                 if (TextBox1.Text.Trim() == null || TextBox1.Text.Trim() == "")
@@ -324,11 +321,12 @@ namespace Reader
                 }
                 
             }
-            else
-            {
-                Panel2.Visible = false;
-                TextBox3.Text = "";
-            }
+        
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = false;
+            TextBox3.Text = null;
         }
     }
 }

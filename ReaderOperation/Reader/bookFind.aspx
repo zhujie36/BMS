@@ -96,7 +96,7 @@
                                 <label class="col-sm-6">
                                     Is Can Lend:
                                 </label>
-                                <label class="col-sm-6">
+                                <label class="col-sm-6 lent">
                                     <%#Eval("isCanLend") %>
                                 </label>                                
                             </div>
@@ -109,5 +109,19 @@
                 </a>
             </ItemTemplate>
         </asp:Repeater>
-        
+   <script type="text/javascript">
+       $(document).ready(function () {
+           $(".lent").each(function (j,item) {
+               var a = $(this).text().trim();
+               if (a == "1")
+               {
+                   item.textContent = "yes";
+               }           
+               else
+               {
+                   item.textContent = "no";
+               }
+           });
+       });
+  </script>
 </asp:Content>

@@ -9,13 +9,34 @@ namespace BLL
     public class T_bookIDBLL
     {
         //添加
-        public static bool Add(T_bookID b, T_book book)
+        public static bool Add(T_book book)
         {
-            bool result1 = T_bookIDDAL.Add(b);
+            bool result1;
+            if(T_bookDAL.GetDataByID(book.iSBN) != null)
+            {
+                int before = int.Parse(T_bookDAL.GetDataByID(book.iSBN).TotalAmount);
+                int now = int.Parse(book.TotalAmount);
+                now += before;
+                result1 = T_bookDAL.setTotalAmount(book, now);
+            }
+            else
+                result1 = T_bookDAL.Add(book);           
             bool result2 = true;
             if (result1)
             {
-                T_book tempBook = T_bookBLL.GetDataByID(b.iSBN);
+                T_bookID temp = new T_bookID();
+                temp.iSBN = book.iSBN;
+                temp.InLibrarain = 1;
+                for(int i=0; i<int.Parse(book.TotalAmount); i++)
+                {
+                    result2 = T_bookIDDAL.Add(temp);
+                    if (result2 == false)
+                    {
+                        T_bookDAL.Delete(book.iSBN);
+                        return false;
+                    }
+                }
+                /*T_book tempBook = T_bookBLL.GetDataByID(b.iSBN);
                 if (tempBook == null)
                 {
                     result2 = T_bookDAL.Add(book);
@@ -23,14 +44,8 @@ namespace BLL
                 else
                 {
                     result2 = T_bookDAL.setTotalAmount(tempBook, int.Parse(tempBook.TotalAmount) + 1);
-                }
-                if (result2 == false)
-                {
-                    T_bookIDDAL.Delete(b.Book_id);
-                    return false;
-                }
-                else
-                    return true;
+                }*/
+                return true;
             }
             else
                 return false;

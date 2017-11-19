@@ -134,31 +134,30 @@
         $(document).ready(function () {
             $("#qq").hide();
             $("tr").each(function () {
-                if ($(this).children(".loan").length != 0)
-                {
-                    if ($(this).children(".loan").text().trim() != "0")
-                    {
+                if ($(this).children(".loan").length != 0) {
+                    if ($(this).children(".loan").text().trim() != "0") {
                         $(this).addClass("danger");
                         $(this).children(".check").children("input").prop("disabled", true);
                     }
                 }
-                
-            })
-            $("#selectAll").click(function () {
-                $(":checkbox:enabled").each(function () {
-                    if ($(this).prop("disabled") != true) {
-                        $(this).attr("checked", true);
-                    }
-                })
-                
-            })
+
+            });
+            
             $("#cancelAll").click(function () {
-                $(":checkbox:enabled").each(function () {
+                $(":checkbox").each(function () {
                     if ($(this).prop("disabled") != true) {
-                        $(this).attr("checked", false);
+                        $(this).prop("checked", false);
                     }
                 })
-            })
+            });
+            $("#selectAll").click(function () {
+                $(":checkbox").each(function () {
+                    if ($(this).prop("disabled") != true) {
+                        $(this).prop("checked", true);
+                    }
+                })
+
+            });
             $("#sure").click(function () {
                 //alert("ok");
                 $(":checkbox").each(function (j, item) {

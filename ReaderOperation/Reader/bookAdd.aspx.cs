@@ -26,65 +26,90 @@ namespace Reader
             string isbn = TextBox8.Text.Trim();
             BookInfo bookInfo;
             string json;
-            //获取信息
-            BookApi.getInfo(isbn, out bookInfo, out json);
-            if (bookInfo != null)
+            if(T_bookBLL.GetDataByID(isbn) != null)
             {
-                if (bookInfo.msg != null)
+                Response.Write("<script>alert('books with this ISBN has benn regitered')</script>");
+                T_book temp = T_bookBLL.GetDataByID(isbn);
+                TextBox2.Text = temp.Name;TextBox2.Enabled = false;
+                TextBox3.Text = temp.Price; TextBox3.Enabled = false;
+                TextBox4.Text = temp.YearOfPublication; TextBox4.Enabled = false;
+                writeTextBox.Text = temp.Author; writeTextBox.Enabled = false;
+                TextBox5.Text = temp.Press; TextBox5.Enabled = false;
+                for(int i=0; i<DropDownList1.Items.Count; i++)
                 {
-                    //MessageBox.Show("获取失败： " + bookInfo.msg);
-                    Response.Write("<script>alert('Failed to get： " + bookInfo.msg + ", please enter manually!')</script>");
-                    return;
-                }
-                if (bookInfo.title != null)
-                {
-                    TextBox2.Text = bookInfo.title;
-                }
-                if (bookInfo.author != null)
-                {
-                    for (int i = 0; i < bookInfo.author.Length; i++)
+                    if(DropDownList1.Items[i].Value == temp.IsCanLend)
                     {
-                        writeTextBox.Text = bookInfo.author[i] + ", ";
+                        DropDownList1.Items[i].Selected = true;
                     }
-                    writeTextBox.Text = writeTextBox.Text.Substring(0, writeTextBox.Text.Length - 1);
                 }
-                if (bookInfo.publisher != null)
-                {
-                    TextBox5.Text = bookInfo.publisher;
-                }
-                if (bookInfo.image != null)
-                {
-                    //获取封面图片
-                    Image1.ImageUrl = bookInfo.image;
-                }
-                if (bookInfo.pubdate != null)
-                {
-                    TextBox4.Text = bookInfo.pubdate;
-                }
-                if (bookInfo.summary != null)
-                {
-                    TextBox1.Text = bookInfo.summary;
-                }
-                if (bookInfo.pages != null)
-                {
-                    // pagesTxt.Text = bookInfo.pages;
-                }
-                if (bookInfo.price != null)
-                {
-                    string s = bookInfo.price.Trim();
-                    if(s.Contains("元"))
-                    {
-
-                        s = s.Remove(s.Length - 1, 1);
-                    }
-                    TextBox3.Text = s;
-                }
+                DropDownList1.Enabled = false;
+                TextBox6.Text = temp.Location; TextBox6.Enabled = false;
+                TextBox1.Text = temp.Brief; TextBox1.Enabled = false;
+                Image1.ImageUrl = temp.Pic; 
             }
             else
             {
-                Response.Write("<script>alert('file upload failed!')</script>");
-                // MessageBox.Show("获取失败");
+                //获取信息
+                BookApi.getInfo(isbn, out bookInfo, out json);
+                if (bookInfo != null)
+                {
+                    if (bookInfo.msg != null)
+                    {
+                        //MessageBox.Show("获取失败： " + bookInfo.msg);
+                        Response.Write("<script>alert('Failed to get： " + bookInfo.msg + ", please enter manually!')</script>");
+                        return;
+                    }
+                    if (bookInfo.title != null)
+                    {
+                        TextBox2.Text = bookInfo.title;
+                    }
+                    if (bookInfo.author != null)
+                    {
+                        for (int i = 0; i < bookInfo.author.Length; i++)
+                        {
+                            writeTextBox.Text = bookInfo.author[i] + ", ";
+                        }
+                        writeTextBox.Text = writeTextBox.Text.Substring(0, writeTextBox.Text.Length - 1);
+                    }
+                    if (bookInfo.publisher != null)
+                    {
+                        TextBox5.Text = bookInfo.publisher;
+                    }
+                    if (bookInfo.image != null)
+                    {
+                        //获取封面图片
+                        Image1.ImageUrl = bookInfo.image;
+                    }
+                    if (bookInfo.pubdate != null)
+                    {
+                        TextBox4.Text = bookInfo.pubdate;
+                    }
+                    if (bookInfo.summary != null)
+                    {
+                        TextBox1.Text = bookInfo.summary;
+                    }
+                    if (bookInfo.pages != null)
+                    {
+                        // pagesTxt.Text = bookInfo.pages;
+                    }
+                    if (bookInfo.price != null)
+                    {
+                        string s = bookInfo.price.Trim();
+                        if(s.Contains("元"))
+                        {
+
+                            s = s.Remove(s.Length - 1, 1);
+                        }
+                        TextBox3.Text = s;
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('cannot get book's iformation,please enter manually!!')</script>");
+                    // MessageBox.Show("获取失败");
+                }
             }
+            
         }
 
 
@@ -93,7 +118,6 @@ namespace Reader
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            bi.Book_id = TextBox7.Text.Trim();
             if(T_bookIDBLL.GetDataByID(bi.Book_id) != null)
             {
                 Response.Write("<script>alert('book's ID has been registered')</script>");
@@ -114,7 +138,8 @@ namespace Reader
                 book.Location = TextBox6.Text.ToString().Trim();
                 book.Brief = TextBox1.Text.Trim();
                 book.Pic = Image1.ImageUrl;
-                bool result = T_bookIDBLL.Add(bi, book);
+                book.TotalAmount = TextBox7.Text.Trim();
+                bool result = T_bookIDBLL.Add(book);
 
                 if (result)
                 {

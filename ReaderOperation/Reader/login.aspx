@@ -10,7 +10,7 @@
         <div class="col-sm-4">
             <div>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" Display="Dynamic" SetFocusOnError="True" ForeColor="Indigo" ErrorMessage="Please input your name."></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ControlToValidate="TextBox1" ErrorMessage="only can input numbers or charactors" Display="Dynamic"  ForeColor="Indigo" SetFocusOnError="True" ValidationExpression="[a-z0-9]{1,50}"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ControlToValidate="TextBox1" ErrorMessage="only can input numbers or charactors" Display="Dynamic"  ForeColor="Indigo" SetFocusOnError="True" ValidationExpression="[a-zA-Z0-9]{1,50}"></asp:RegularExpressionValidator>
             </div>
             
         </div>

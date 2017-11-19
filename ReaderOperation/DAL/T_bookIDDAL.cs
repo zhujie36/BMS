@@ -26,7 +26,7 @@ namespace DAL
         public static bool Add(T_bookID b)
         {
             
-            sql = string.Format("insert into T_bookID (book_id,ISBN,inLibrarain) values ('{0}','{1}','{2}')", b.Book_id,b.iSBN,1);
+            sql = string.Format("insert into T_bookID (ISBN,inLibrarain) values ('{0}','{1}')",b.iSBN,1);
             return CSDBC.ExecSqlCommand(sql);
         }
 

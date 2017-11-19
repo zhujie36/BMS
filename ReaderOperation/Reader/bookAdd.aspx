@@ -8,22 +8,12 @@
         </div>
     </div>
     <div class="form-group">
-        <asp:Label ID="Label8" runat="server" Text="book ID"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
-        <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" placeholder="please input book's ID!"></asp:TextBox>
-        </div>
-        <div class="col-sm-4">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's ID!" ControlToValidate="TextBox7" ForeColor="Indigo" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="ID can only contains numbers" Display="Dynamic" ControlToValidate="TextBox7" ValidationExpression="[0-9]*" ForeColor="Indigo" SetFocusOnError="True"></asp:RegularExpressionValidator>
-        </div>
-    </div>
-    <div class="form-group">
         <asp:Label ID="Label9" runat="server" Text="ISBN"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
             <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" OnTextChanged="TextBox8_TextChanged" placeholder="please input book's ISBN!"></asp:TextBox>
         </div>
         <div class="col-sm-1">
-            <asp:Button ID="Button3" runat="server" Text="ok" CssClass="btn btn-default" OnClick="Button3_Click" CausesValidation="False" TabIndex="1" UseSubmitBehavior="False" />
+            <asp:Button ID="Button3" runat="server" Text="ok" CssClass="btn btn-default" OnClick="Button3_Click" CausesValidation="False" TabIndex="1"  />
 
         </div>
         <div class="col-sm-3">
@@ -77,6 +67,16 @@
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the book's year of publication,like 1996-03-01" ForeColor="Indigo" ControlToValidate="TextBox4" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="please input right date,like 1996-03-01"  ControlToValidate="TextBox4" SetFocusOnError="True" Display="Dynamic" ForeColor="Indigo" ValidationExpression="[0-9]{4}(-[0-9]{1,2}){0,2}"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="Label8" runat="server" Text="Total Number" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
+        <div class="col-sm-4 col-md-4">
+            <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" placeholder="please input book's number"></asp:TextBox>
+        </div>
+        <div class="col-sm-4">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please input the book's number" ControlToValidate="TextBox7" ForeColor="Indigo" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only can contain numbers"  ControlToValidate="TextBox7" SetFocusOnError="True" Display="Dynamic" ForeColor="Indigo" ValidationExpression="[1-9][0-9]*"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">

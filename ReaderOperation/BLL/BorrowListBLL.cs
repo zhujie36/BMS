@@ -14,10 +14,32 @@ namespace BLL
         /// </summary>
         /// 
 
-        //获得罚金金额
-        public static int getFine(int flag, DateTime now)
+
+
+        public static int getFineDuration(string year1, string month1, string year2, string month2)
         {
-            return BorrowListDAL.getFine(flag, now);
+            return BorrowListDAL.getFineDuration(year1, month1, year2, month2);
+        }
+
+        //获得罚金金额
+        public static int getFine1(DateTime now)
+        {
+            return BorrowListDAL.getFine1(now);
+        }
+
+        public static int getFine2(DateTime now)
+        {
+            return BorrowListDAL.getFine2(now);
+        }
+
+        public static int getFine3(DateTime now)
+        {
+            return BorrowListDAL.getFine3(now);
+        }
+
+        public static int getFine4(DateTime now)
+        {
+            return BorrowListDAL.getFine4(now);
         }
 
 
@@ -25,6 +47,8 @@ namespace BLL
         {
             return BorrowListDAL.Add(borlist);
         }
+
+        
 
         ///删除借阅记录
         public static bool Delete(int book_id, string reader)

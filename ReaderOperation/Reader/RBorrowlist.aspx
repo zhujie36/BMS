@@ -14,11 +14,32 @@
             <a ID="selectAll" class="btn btn-default">ALL</a>
         </div>
     </div>
+    <div class="text-right form-group">
+        <table class="table" style="width:10%;">
+            <tr class="danger">
+                <td style="line-height:10px;">
+                    not returned
+                </td> 
+            </tr>
+            <tr class="col-sm-1 text-center">
+                              
+            </tr>
+            <tr class="success">
+                <td style="line-height:10px;">
+                    has paid fine
+                </td> 
+            </tr>
+            <tr class="col-sm-1 text-center">
+                              
+            </tr>
+        </table>
+    </div>
     <div class="form-group">
     <table class="table table-hover table-responsive text-center">
         <thead>
             <tr>
                 <th class="money"></th>
+                <th class="text-center">Book&nbsp;ID&nbsp;&nbsp;</th>
                 <th class="text-center">Book&nbsp;name&nbsp;&nbsp;</th>
                 <th class="text-center">Borrow&nbsp;time&nbsp;&nbsp;</th>
             </tr>
@@ -30,6 +51,7 @@
                             <td class="money" id="qq">
                                 <%#Eval("Money") %>
                             </td>
+                            <td><%#Eval("bookID") %></td>
                             <td><%#Eval("BookName") %></td>
                             <td><%#Eval("startTime") %></td>
                             <td class="loan"><%#Eval("ret") %></td>
@@ -51,7 +73,7 @@
             });*/
             $(".money").hide();
             $(".loan").hide();
-            $("tr").each(function () {
+            $(".white").each(function () {
                 if ($(this).children(".loan").length != 0) {
                     if ($(this).children(".loan").text().trim() != "1") {
                         $(this).addClass("danger");
@@ -60,7 +82,7 @@
                 }
 
             })
-            $("tr").each(function (j, item) {
+            $(".white").each(function (j, item) {
                 var t = item.firstElementChild;
 //alert(t.textContent);
                 if (t.textContent.toString().trim() != "0" && t.textContent.toString().trim() != "") {
@@ -69,12 +91,12 @@
                 }
             });
             $("#selectAll").click(function () {
-                $("tr").each(function (j, item) {
+                $(".white").each(function (j, item) {
                     $(this).show();
                 });
             });
             $("#selectNot").click(function () {
-                $("tr").each(function (j, item) {
+                $(".white").each(function (j, item) {
                     if ($(this).children(".loan").length != 0) {
                         if ($(this).children(".loan").text().trim() == "1") {
                             $(this).hide();
