@@ -127,7 +127,7 @@
         <asp:TextBox ID="TextBox4" runat="server" ClientIDMode="Static"></asp:TextBox>
     </div>
     <div class="form-group text-right">
-        <asp:Button ID="sure" runat="server" Text="sumit" ClientIDMode="Static" CausesValidation="False" OnClick="Button1_Click" CssClass="btn btn-default"  />
+        <asp:Button ID="sure" runat="server" Text="submit" ClientIDMode="Static" CausesValidation="False" OnClick="Button1_Click" CssClass="btn btn-default"  />
     </div>
     
     <script type="text/javascript">

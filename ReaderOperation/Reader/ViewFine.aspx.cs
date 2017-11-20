@@ -34,19 +34,19 @@ namespace Reader
 
                
                 //计算今天
-                int n1 = BorrowListBLL.getFine1(now);
+               double n1 = BorrowListBLL.getFine1(now);
 
 
                 //计算本周
-                int n2 = BorrowListBLL.getFine2(now);
+               double n2 = BorrowListBLL.getFine2(now);
 
 
                 //计算本月
-                int n3 = BorrowListBLL.getFine3(now);
+                double n3 = BorrowListBLL.getFine3(now);
 
 
                 //计算本年
-                int n4 = BorrowListBLL.getFine4(now);
+               double n4 = BorrowListBLL.getFine4(now);
 
                 Label3.Text = n1.ToString();
                 Label5.Text = n2.ToString();

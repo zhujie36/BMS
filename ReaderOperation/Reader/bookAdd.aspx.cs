@@ -39,9 +39,11 @@ namespace Reader
                 TextBox5.Text = temp.Press; TextBox5.Enabled = false;
                 for(int i=0; i<DropDownList1.Items.Count; i++)
                 {
-                    if(DropDownList1.Items[i].Value == temp.IsCanLend)
+                    if(DropDownList1.Items[i].Value.Trim() == temp.IsCanLend.Trim())
                     {
-                        DropDownList1.Items[i].Selected = true;
+                       // Response.Write("<script>alert('value="+ DropDownList1.Items[i].Value+"')</script>");
+                        DropDownList1.SelectedIndex = i;
+                        break;
                     }
                 }
                 DropDownList1.Enabled = false;

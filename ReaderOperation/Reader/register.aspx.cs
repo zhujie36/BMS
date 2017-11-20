@@ -23,7 +23,7 @@ namespace Reader
         {
 
             
-            if (DropDownList2.SelectedValue == "1")
+            if (DropDownList2.SelectedItem.Text.Trim() == "yes")
             {
 
                 T_Reader reader = new T_Reader();

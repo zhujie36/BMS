@@ -37,7 +37,7 @@ namespace Reader
                 Label3.Text = "this reader do not exist";
                 Panel1.Visible = true;
             }
-            else if(BorrowListBLL.GetAllByReader(name) != null)
+            else if(T_ReaderBLL.GetDataByID(name).R_booknumber != 0)
             {
                 Panel1.Visible = true;
                 Label3.Text = "this reader has some book that haven't returned!";

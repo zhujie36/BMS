@@ -73,7 +73,7 @@ namespace DAL
         }
 
 
-        public static int getFineDuration(string year1,string month1,string year2,string month2)
+        public static double getFineDuration(string year1,string month1,string year2,string month2)
         {
             double fine = 0;
             List<BorrowList> list = new List<BorrowList>();
@@ -82,7 +82,7 @@ namespace DAL
 
             if (ds == null)
             {
-                return 0;
+                return 0.00;
             }
             else
             {
@@ -111,14 +111,13 @@ namespace DAL
                     }
                     catch
                     {
-                        return 0;
+                        return 0.00;
                     }
                 }
 
 
-                int final = (int)fine;
+                double final = System.Math.Round(fine, 2); 
                 return final;
-
             }
 
         }
@@ -126,7 +125,7 @@ namespace DAL
 
 
         //罚金计算
-        public static int getFine1(DateTime now)
+        public static double getFine1(DateTime now)
         {
             string now_year = now.Year.ToString();
             string now_month = now.Month.ToString();
@@ -141,7 +140,7 @@ namespace DAL
 
             if (ds == null)
             {
-                return 0;
+                return 0.00;
             }
             else
             {
@@ -170,20 +169,20 @@ namespace DAL
                     }
                     catch
                     {
-                        return 0;
+                        return 0.00;
                     }
                 }
 
 
-                int final = (int)fine;
+                double final = System.Math.Round(fine, 2);
                 return final;
-               
+
             }//今天
 
         }
 
 
-        public static int getFine2(DateTime now)
+        public static double getFine2(DateTime now)
         {
             //本周
             string now_year = now.Year.ToString();
@@ -199,7 +198,7 @@ namespace DAL
 
             if (ds == null)
             {
-                return 0;
+                return 0.00;
             }
             else
             {
@@ -239,7 +238,7 @@ namespace DAL
 
                     }catch
                     {
-                        return 0;
+                        return 0.00;
                     }
 
 
@@ -247,7 +246,7 @@ namespace DAL
 
                 }
 
-                int final = (int)fine;
+                double final = System.Math.Round(fine, 2);
                 return final;
             }
 
@@ -255,7 +254,7 @@ namespace DAL
 
 
 
-         public static int getFine3(DateTime now)
+         public static double getFine3(DateTime now)
         {
             string now_year = now.Year.ToString();
             string now_month = now.Month.ToString();
@@ -270,7 +269,7 @@ namespace DAL
 
                 if (ds == null)
                 {
-                    return 0;
+                    return 0.00;
                 }
                 else
                 {
@@ -297,22 +296,22 @@ namespace DAL
                         }
                         catch
                         {
-                            return 0;
+                            return 0.00;
                         }
                     }
 
 
 
-                int final = (int)fine;
+                double final = System.Math.Round(fine, 2);
                 return final;
-               
-                }
+
+            }
             
         }
 
 
             
-        public static int getFine4(DateTime now)
+        public static double getFine4(DateTime now)
         {
             string now_year = now.Year.ToString();
             string now_month = now.Month.ToString();
@@ -326,7 +325,7 @@ namespace DAL
 
                 if (ds == null)
                 {
-                    return 0;
+                    return 0.00;
                 }
                 else
                 {
@@ -353,15 +352,15 @@ namespace DAL
                         }
                         catch
                         {
-                            return 0;
+                            return 0.00;
                         }
                     }
 
 
-                int final = (int)fine;
+                double final = System.Math.Round(fine, 2);
                 return final;
-              
-                }
+
+            }
            
         }
 

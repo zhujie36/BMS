@@ -115,7 +115,11 @@ namespace Reader
             if (reader != null)
             {
                 Panel1.Visible = true;
-                TextBox2.Text = reader.R_state.ToString();
+                string t = reader.R_state.ToString();
+                double p = Convert.ToDouble(t);
+                double b = System.Math.Round(p, 2);
+                
+                TextBox2.Text = b.ToString();
             }
             else
             {

@@ -107,7 +107,7 @@
         </div>
         <div class="col-sm-4">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please input the book's location." ControlToValidate="TextBox7" ForeColor="Indigo" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Please input the book's location,like B403-12"  ControlToValidate="TextBox7" SetFocusOnError="True" Display="Dynamic" ForeColor="Indigo" ValidationExpression="(A|B|C)[1-9][0-9]{2}-[1-9][0-9]{1,2}"></asp:RegularExpressionValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Please input the book's location,like B403-12"  ControlToValidate="TextBox7" SetFocusOnError="True" Display="Dynamic" ForeColor="Indigo" ValidationExpression="(A|B|C)[1-9][0-9]{2}-[1-9][0-9]{0,2}"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="form-group">

@@ -62,10 +62,15 @@ namespace Reader
             bool result = true;
             for(int i=0; i<booklist.Length && booklist[i] !=""; i++)
             {
-                if(!T_bookBLL.Delete(booklist[i]))
+                List<T_bookID> blist = new List<T_bookID>();
+                blist = T_bookIDBLL.GetIDByISBN(booklist[i]);
+                for(int j=0; j<blist.Count; j++)
                 {
-                    result = false;
-                    break;
+                    if(!T_bookIDBLL.Delete(blist[j]))
+                    {
+                        result = false;
+                        break;
+                    }
                 }
             }
             if(result)

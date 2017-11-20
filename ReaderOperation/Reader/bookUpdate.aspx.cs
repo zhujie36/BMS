@@ -40,7 +40,8 @@ namespace Reader
                     {
                         if (DropDownList1.Items[i].Value.Trim() == tbook.IsCanLend)
                         {
-                            DropDownList1.Items[i].Selected = true;
+                            DropDownList1.SelectedIndex = i;
+                            break;
                         }
                     }
                     writeTextBox.Text = tbook.Author;

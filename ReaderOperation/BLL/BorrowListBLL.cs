@@ -16,28 +16,28 @@ namespace BLL
 
 
 
-        public static int getFineDuration(string year1, string month1, string year2, string month2)
+        public static double getFineDuration(string year1, string month1, string year2, string month2)
         {
             return BorrowListDAL.getFineDuration(year1, month1, year2, month2);
         }
 
         //获得罚金金额
-        public static int getFine1(DateTime now)
+        public static double getFine1(DateTime now)
         {
             return BorrowListDAL.getFine1(now);
         }
 
-        public static int getFine2(DateTime now)
+        public static double getFine2(DateTime now)
         {
             return BorrowListDAL.getFine2(now);
         }
 
-        public static int getFine3(DateTime now)
+        public static double getFine3(DateTime now)
         {
             return BorrowListDAL.getFine3(now);
         }
 
-        public static int getFine4(DateTime now)
+        public static double getFine4(DateTime now)
         {
             return BorrowListDAL.getFine4(now);
         }

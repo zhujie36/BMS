@@ -27,7 +27,8 @@ namespace Reader
                 {
                     if (DropDownList1.Items[i].Text.Trim() == stu.R_sex)
                     {
-                        DropDownList1.Items[i].Selected = true;
+                        DropDownList1.SelectedIndex = i;
+                        break;
                     }
                 }
                 TextBox1.Text = stu.R_name;

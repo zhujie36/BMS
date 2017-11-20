@@ -108,7 +108,7 @@
                     <td style="vertical-align:middle">
                         <%#Eval("loanAmount") %>
                     </td>
-                    <td style="vertical-align:middle">
+                    <td style="vertical-align:middle" class="lent">
                         <%#Eval("isCanLend") %>
                     </td>
                     <td style="vertical-align:middle">
@@ -122,4 +122,19 @@
         </asp:Repeater>
         </tbody>
     </table>
+    <script type="text/javascript">
+       $(document).ready(function () {
+           $(".lent").each(function (j,item) {
+               var a = $(this).text().trim();
+               if (a == "1")
+               {
+                   item.textContent = "yes";
+               }           
+               else
+               {
+                   item.textContent = "no";
+               }
+           });
+       });
+  </script>
 </asp:Content>

@@ -52,7 +52,7 @@
                         </ul>
                     </div>
                     <div class="navbar-right col-sm-1">
-                      <asp:Button ID="Button1" runat="server" Text="log out" CssClass="btn btn-default navbar-btn" OnClick="Button1_Click" />
+                      <asp:Button ID="Button1" runat="server" Text="log out" CssClass="btn btn-default navbar-btn" OnClick="Button1_Click" UseSubmitBehavior="False" />
                 </div>
                 <p class="navbar-text navbar-right col-sm-2 text-right">
                      <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
