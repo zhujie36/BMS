@@ -2,7 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="form-group">
+<style type="text/css">
+    body {
+    background-image:url(images/shu5.png);
+    background-attachment:fixed;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+    background-size:350px 370px;
+    }
+</style>
+    <div class="form-group" style="padding-top:10px">
         <div class="text-center">
             <h2>Please input the information of the book you want to add.</h2>
         </div>
@@ -10,7 +19,7 @@
     <div class="form-group">
         <asp:Label ID="Label9" runat="server" Text="ISBN"  CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
-            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" OnTextChanged="TextBox8_TextChanged" placeholder="please input book's ISBN!"></asp:TextBox>
+            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" placeholder="please input book's ISBN!"></asp:TextBox>
         </div>
         <div class="col-sm-1">
             <asp:Button ID="Button3" runat="server" Text="ok" CssClass="btn btn-default" OnClick="Button3_Click" CausesValidation="False" TabIndex="1"  />
@@ -123,5 +132,4 @@
                 </div>                
             </div>
     </div>
-
 </asp:Content>

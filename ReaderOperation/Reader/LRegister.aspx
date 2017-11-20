@@ -2,12 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<style type="text/css">
+    body {
+    background-image:url(images/shu5.png);
+    background-attachment:fixed;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+    background-size:350px 370px;
+    }
+</style>
     <div class="form-group">
         <div class="text-center">
             <h2>Please input the information of the librarian you want to add.</h2>
         </div>
-    </div>
+    </div><br/>
     <div class="form-group">
         <asp:Label ID="Label1" runat="server" Text="name" CssClass="col-sm-4 col-md-4 control-label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <div class="col-sm-4 col-md-4">
@@ -37,7 +45,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please input the passwor." ControlToValidate="TextBox4" ForeColor="Indigo" Display="Dynamic"></asp:RequiredFieldValidator>
             <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="The two input password is inconsistent." ForeColor="Indigo" Display="Dynamic" ControlToValidate="TextBox4" ControlToCompare="TextBox3"></asp:CompareValidator>
         </div>
-    </div>
+    </div><br/>
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-4 col-md-4">
             <asp:Button ID="Button1" runat="server" Text="submit" OnClick="Button1_Click" CssClass="btn btn-primary" />

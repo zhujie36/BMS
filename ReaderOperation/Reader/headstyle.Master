@@ -42,8 +42,7 @@
                 <div class="row">
                     <div  class="media col-lg-5 col-lg-offset-7" style="background-color:rgba(250, 237, 139, 0.59)">
                     <div class="media-body"> 
-                        <h4 class="media-heading"> 西电图书管理系统</h4>
-                        XD Library Management System  
+                        Sculpting-in-time Library Library Management System  
                     </div>
                      <a class="media-right">
                         <img src="images/xidian.png" height="70" width="70" class="media-object"/>

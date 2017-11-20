@@ -148,6 +148,10 @@ namespace Reader
             Label16.Text = "During this time,the earning is : " + result + " Yuan";
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = !Panel1.Visible;
+        }
     }
 }
  

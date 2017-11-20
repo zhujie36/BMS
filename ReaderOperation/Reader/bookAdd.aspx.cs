@@ -11,6 +11,8 @@ namespace Reader
 {
     public partial class bookAdd : System.Web.UI.Page
     {
+        string isbn;
+        int num;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(all.ID == null)
@@ -23,7 +25,7 @@ namespace Reader
         
         protected void Button3_Click(object sender, EventArgs e)
         {
-            string isbn = TextBox8.Text.Trim();
+            isbn = TextBox8.Text.Trim();
             BookInfo bookInfo;
             string json;
             if(T_bookBLL.GetDataByID(isbn) != null)
@@ -49,6 +51,14 @@ namespace Reader
             }
             else
             {
+                TextBox2.Enabled = true;
+                TextBox3.Enabled = true;
+                TextBox4.Enabled = true;
+                writeTextBox.Enabled = true;
+                TextBox5.Enabled = true;
+                DropDownList1.Enabled = true;
+                TextBox6.Enabled = true;
+                TextBox1.Enabled = true;
                 //获取信息
                 BookApi.getInfo(isbn, out bookInfo, out json);
                 if (bookInfo != null)
@@ -139,12 +149,13 @@ namespace Reader
                 book.Brief = TextBox1.Text.Trim();
                 book.Pic = Image1.ImageUrl;
                 book.TotalAmount = TextBox7.Text.Trim();
+                num = int.Parse(book.TotalAmount);
                 bool result = T_bookIDBLL.Add(book);
 
                 if (result)
                 {
-                    Response.Write("<script>alert('add succeed!')</script>");
-                    Response.Redirect("IndexLibrarian.aspx");
+                   // Response.Write("<script>alert('add succeed!')</script>");
+                    Response.Redirect("bookID.aspx?isbn="+ bi.iSBN + "&num="+num);
                 }
                 else
                     Response.Write("<script>alert('add failed!')</script>");
@@ -158,64 +169,6 @@ namespace Reader
             Response.Redirect("IndexLibrarian.aspx");
         }
         BookInfo bookInfo;
-        protected void TextBox8_TextChanged(object sender, EventArgs e)
-        {
-            string isbn = TextBox8.Text.Trim();
-            
-            string json;
-            //获取信息
-            BookApi.getInfo(isbn, out bookInfo, out json);
-            if (bookInfo != null)
-            {
-                if (bookInfo.msg != null)
-                {
-                    //MessageBox.Show("获取失败： " + bookInfo.msg);
-                    Response.Write("<script>alert('Failed to get： " + bookInfo.msg + ", please enter manually!')</script>");
-                    return;
-                }
-                if (bookInfo.title != null)
-                {
-                    TextBox2.Text = bookInfo.title;
-                }
-                if (bookInfo.author != null)
-                {
-                    for (int i = 0; i < bookInfo.author.Length; i++)
-                    {
-                        writeTextBox.Text = bookInfo.author[i] + ", ";
-                    }
-                    writeTextBox.Text = writeTextBox.Text.Substring(0, writeTextBox.Text.Length - 1);
-                }
-                if (bookInfo.publisher != null)
-                {
-                    TextBox5.Text = bookInfo.publisher;
-                }
-                if (bookInfo.image != null)
-                {
-                    //获取封面图片
-                    Image1.ImageUrl = bookInfo.image;
-                }
-                if (bookInfo.pubdate != null)
-                {
-                    TextBox4.Text = bookInfo.pubdate;
-                }
-                if (bookInfo.summary != null)
-                {
-                    TextBox1.Text = bookInfo.summary;
-                }
-                if (bookInfo.pages != null)
-                {
-                    // pagesTxt.Text = bookInfo.pages;
-                }
-                if (bookInfo.price != null)
-                {
-                    TextBox3.Text = bookInfo.price;
-                }
-            }
-            else
-            {
-                Response.Write("<script>alert('file upload failed!')</script>");
-                // MessageBox.Show("获取失败");
-            }
-        }
+        
     }
 }

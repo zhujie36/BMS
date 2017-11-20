@@ -2,6 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style type="text/css">
+    body {
+    background-image:url(images/shu5.png);
+    background-attachment:fixed;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+    background-size:350px 370px;
+    }
+</style>
     <div style="margin:20px 0" class="text-center">
         <h1>
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>

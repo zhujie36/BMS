@@ -82,7 +82,7 @@ namespace DAL
         public static List<T_bookID> GetIDByISBN(string isbn)
         {
             List<T_bookID> list = new List<T_bookID>();
-            sql = string.Format("select * from T_bookID where ISBN='{0}'", isbn);
+            sql = string.Format("select * from T_bookID where ISBN='{0}' order by book_id desc", isbn);
             ds = CSDBC.GetDataSet(sql);
             if (ds == null)
                 return null;

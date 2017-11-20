@@ -2,6 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style type="text/css">
+    body {
+    background-image:url(images/shu5.png);
+    background-attachment:fixed;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+    background-size:350px 370px;
+    }
+</style>
     <div class="form-group" style="padding-top:20px;">
         <div class="col-sm-6 col-sm-offset-4">
             <h2>list of the book borrowed</h2>

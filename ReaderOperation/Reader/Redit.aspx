@@ -2,7 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<style type="text/css">
+    body {
+    background-image:url(images/shu5.png);
+    background-attachment:fixed;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+    background-size:350px 370px;
+    }
+</style>
     <div class="form-group">
         <div class="col-sm-offset-4 col-md-8">
             <h2>Please modify your information.</h2>

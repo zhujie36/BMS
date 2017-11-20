@@ -41,7 +41,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#" style="margin:0; padding:0"><img src="images/xidian.png" width="40px" height="40px"/></a>
-                        <a class="navbar-brand" href="#">Library Management System</a>
+                        <a class="navbar-brand" href="#">Sculpting-in-time Library</a>
                     </div>
                     <div>
                         <ul class="nav navbar-nav">
