@@ -1,11 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Configuration;
+using System.Collections;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using GenCode128;
+using System.Drawing;
+using System.IO;
 using BLL;
 using Model;
+using System.Collections.Generic;
+
 namespace Reader
 {
     public partial class bookID : System.Web.UI.Page
@@ -24,8 +33,8 @@ namespace Reader
                 num = int.Parse(Request.QueryString["num"].Trim());
                 List<T_bookID> booklist = new List<T_bookID>();
                 booklist = T_bookIDBLL.GetIDByISBN(isbn);
-                booklist.RemoveRange(num, booklist.Count() - num);
-
+                booklist.RemoveRange(num, booklist.Count - num);
+                
                 LBook.DataSource = booklist;
                 LBook.DataBind();
 
