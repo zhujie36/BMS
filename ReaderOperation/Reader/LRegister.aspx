@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="form-group">
-        <div class="col-sm-offset-4 col-md-8">
+        <div class="text-center">
             <h2>Please input the information of the librarian you want to add.</h2>
         </div>
     </div>

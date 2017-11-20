@@ -54,7 +54,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="bookAdd.aspx"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
-                                <li><a href="bookList.aspx"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
+                                <li><a href="bookDeleteList.aspx"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
                                 <li><a href="bookList.aspx"><span class="glyphicon glyphicon-repeat"></span> update</a></li>
                             </ul>
                         </li>
@@ -65,7 +65,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="Borrow.aspx"><span class="glyphicon glyphicon-export"></span> Borrow</a></li>
-                                <li><a href="AllBorrowList.aspx"><span class="glyphicon glyphicon-import"></span> Return</a></li>
+                                <li><a href="Return.aspx"><span class="glyphicon glyphicon-import"></span> Return</a></li>
+                                <li><a href="bookLost.aspx"><span class="glyphicon glyphicon-edit"></span> damage/lost</a></li>
                                 <li><a href="payFine.aspx"><span class="glyphicon glyphicon-usd"></span> pay fine</a></li>
                                 <li class="divider"></li>
                                 <li><a href="register.aspx"><span class="glyphicon glyphicon-plus"></span> add reader</a></li>
@@ -80,6 +81,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="Ledit.aspx"><span class="glyphicon glyphicon-repeat"></span> modify personal information</a></li>
                                 <li><a href="LwirteOff.aspx"><span class="glyphicon glyphicon-remove"></span> write off the account</a></li>
+                                <li><a href="ViewFine.aspx"><span class="glyphicon glyphicon-book"></span> view earning</a></li>
                                 <li class="divider"></li>
                                 <li><a href="LRegister.aspx"><span class="glyphicon glyphicon-plus"></span> add new librarian</a></li>                              
                             </ul>

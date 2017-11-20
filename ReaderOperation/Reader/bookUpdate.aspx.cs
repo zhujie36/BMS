@@ -32,9 +32,9 @@ namespace Reader
                     TextBox3.Text = tbook.Price;
                     TextBox4.Text = tbook.YearOfPublication;
                     TextBox5.Text = tbook.Press;
-                    TextBox6.Text = tbook.TotalAmount; 
+                    TextBox6.Text = tbook.TotalAmount; TextBox6.Enabled = false;
                     TextBox7.Text = tbook.Location;
-                    TextBox8.Text = tbook.LoanAmount;
+                    TextBox8.Text = tbook.LoanAmount;TextBox8.Enabled = false;
                     TextBox9.Text = tbook.Brief;
                     for (int i = 0; i < DropDownList1.Items.Count; i++)
                     {

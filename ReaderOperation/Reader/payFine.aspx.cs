@@ -94,7 +94,8 @@ namespace Reader
             bool result = T_ReaderBLL.setState(name, 0);
             if(result)
             {
-                Response.Redirect("IndexLibrarian.aspx");
+                Response.Write("<script>alert('pay succeed!')</script>");
+                Response.Write("<script>javascript:location.href='IndexLibrarian.aspx?'</script>");
             }
             else
             {

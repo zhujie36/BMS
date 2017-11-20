@@ -2,9 +2,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="form-group">
-        <div style="width:100%; text-align:center">
+    <div class="form-group" style="padding-top:20px;">
+        <div class="col-sm-6 col-sm-offset-4">
             <h2>list of the book borrowed</h2>
+        </div>
+        <div class="col-sm-2">
+            <table class="table">
+            <tr class="danger">
+                <td style="line-height:10px;">
+                    not returned
+                </td> 
+            </tr>
+            <tr class="success">
+                <td style="line-height:10px;">
+                    has paid fine
+                </td> 
+            </tr>
+            <tr>
+                <td style="line-height:10px;background-color:white">
+                    retruned
+                </td> 
+            </tr>
+        </table>
         </div>
     </div>
     <div class="form-group">
@@ -13,26 +32,6 @@
             &nbsp;
             <a ID="selectAll" class="btn btn-default">ALL</a>
         </div>
-    </div>
-    <div class="text-right form-group">
-        <table class="table" style="width:10%;">
-            <tr class="danger">
-                <td style="line-height:10px;">
-                    not returned
-                </td> 
-            </tr>
-            <tr class="col-sm-1 text-center">
-                              
-            </tr>
-            <tr class="success">
-                <td style="line-height:10px;">
-                    has paid fine
-                </td> 
-            </tr>
-            <tr class="col-sm-1 text-center">
-                              
-            </tr>
-        </table>
     </div>
     <div class="form-group">
     <table class="table table-hover table-responsive text-center">

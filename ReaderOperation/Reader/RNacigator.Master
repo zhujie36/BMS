@@ -47,6 +47,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="IndexReader.aspx"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                             <li><a href="bookFind.aspx"><span class="glyphicon glyphicon-search"></span> Find book</a></li>
+                             <li><a href="RBorrowlist.aspx"><span class="glyphicon glyphicon-list"></span> Borrowed record</a></li>
                             <li><a href="Redit.aspx"><span class="glyphicon glyphicon-user"></span> Modify personal information</a></li>
                         </ul>
                     </div>

@@ -41,6 +41,7 @@
         <thead>
             <tr>
                 <th class="money"></th>
+                <th class="text-center">Book&nbsp;ID&nbsp;&nbsp;</th>
                 <th class="text-center">Book&nbsp;name&nbsp;&nbsp;</th>
                 <th class="text-center">Book&nbsp;Amount&nbsp;&nbsp;</th>
                 <th class="text-center">Borrow&nbsp;time&nbsp;&nbsp;</th>
@@ -55,6 +56,7 @@
                             <td class="money" id="qq">
                                 <%#Eval("Money") %>
                             </td>
+                            <td><%#Eval("BookID") %></td>
                             <td><%#Eval("BookName") %></td>
                             <td><%#Eval("Num") %></td>
                             <td><%#Eval("StartTime") %></td>
