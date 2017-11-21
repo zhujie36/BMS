@@ -17,7 +17,7 @@ namespace Reader
                 Response.Redirect("login.aspx");
             }
             Panel1.Visible = false;
-            string reader = "";
+           /* string reader = "";
             if (Request.QueryString["reader"] != null)
             {
                 reader = Request.QueryString["reader"].Trim();
@@ -41,7 +41,7 @@ namespace Reader
             if(!IsPostBack)
             {
                 Panel2.Visible = false;
-            }
+            }*/
         }
 
        

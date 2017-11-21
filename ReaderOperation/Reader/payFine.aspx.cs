@@ -42,12 +42,12 @@ namespace Reader
                         bool r2;
                           if (type.Equals("damage"))
                           {                           
-                              reader.R_state += bp/2;
+                              reader.R_state -= bp/2;
                            r2 = BorrowListBLL.setMoney(int.Parse(borrowID), bp / 2);
                         }
                           else
                           {
-                              reader.R_state += bp;
+                              reader.R_state -= bp;
                             r2 = BorrowListBLL.setMoney(int.Parse(borrowID), bp);
                             bool r3 = T_bookIDBLL.Delete(T_bookIDBLL.GetDataByID(book));
                             if(!r3)
@@ -63,7 +63,7 @@ namespace Reader
                               Panel2.Visible = true;
                               Label2.Text = "database modify failed!";
                           }
-                          TextBox2.Text = reader.R_state.ToString();
+                          TextBox2.Text = reader.R_state.ToString().Substring(1);
                           TextBox2.Enabled = false;
                       }
                       }
@@ -116,7 +116,7 @@ namespace Reader
             {
                 Panel1.Visible = true;
                 string t = reader.R_state.ToString();
-                double p = Convert.ToDouble(t);
+                double p = -Convert.ToDouble(t);
                 double b = System.Math.Round(p, 2);
                 
                 TextBox2.Text = b.ToString();
